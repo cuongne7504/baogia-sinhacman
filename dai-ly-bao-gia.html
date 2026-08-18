@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
@@ -775,64 +775,205 @@ const I18N = {
     pvCustPerson: "Contact Person:",
     pvCustPhone: "Phone:",
     docTitle: "QUOTATION",
-    docSubtitle: "(ACMan Products & Sales Program Q3/2026)",
-    thNo: "No.",
-    thDesc: "Product / Service Description",
-    thQty: "Qty",
-    thPrice: "Unit Price",
-    thTotal: "Amount",
-    pvSub: "Subtotal:",
-    pvVat: "VAT:",
-    pvTotal: "Total Amount:",
-    pvStepsHeader: "IMPLEMENTATION STEPS:",
-    pvBankHeader: "PAYMENT BANK ACCOUNT DETAILS:",
-    signClient: "CUSTOMER REPRESENTATIVE",
-    signClientSub: "(Signature & Full Name)",
-    signCompany: "ACMAN JOINT STOCK COMPANY",
-    signCompanySub: "(Signed & Sealed)",
-    exportPDFBtn: "⭳ Export Quotation PDF",
-    printBtn: "🖨 Print Quotation",
-    stepsText: "Consulting, setup, software demonstration & Q&A\nSign agreement contract, payment settlement, issue VAT invoice\nRegister e-invoice with tax authority; Issue license; End-user training\nProject acceptance, transition to 24/7 warranty and support phase",
-    bankText: "ACMAN TECHNOLOGY DEVELOPMENT JOINT STOCK COMPANY\nAccount No: 12510000382415 (1250382415)\nBank: BIDV – Dong Do Branch"
+    docSubtitle: "(ACMan Products & Sales Program Q3/2026""
   }
 };
 
 const CATALOG = [
-  { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói 01 MST) — 500 HĐ", price: 500000 },
-  { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói 01 MST) — 1.000 HĐ", price: 800000 },
-  { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói 01 MST) — 3.000 HĐ", price: 1500000 },
-  { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói 01 MST) — 5.000 HĐ", price: 2000000 },
-  { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói Không giới hạn MST) — 5.000 HĐ", price: 2500000 },
-  
-  { group: "Hóa Đơn Điện Tử", name: "Hóa đơn điện tử — Gói 300 số", price: 290000 },
-  { group: "Hóa đơn điện tử", name: "Hóa đơn điện tử — Gói 500 số", price: 390000 },
-  { group: "Hóa đơn điện tử", name: "Hóa đơn điện tử — Gói 1.000 số", price: 690000 },
-  { group: "Hóa đơn điện tử", name: "Hóa đơn điện tử — Gói 2.000 số", price: 990000 },
-  { group: "Hóa đơn điện tử", name: "Hóa đơn điện tử — Gói 5.000 số", price: 1990000 },
-  
-  { group: "PMKT Hộ Kinh Doanh", name: "PMKT HKD (<3 tỷ/năm) — 1 năm (Tặng CKS 3 năm + 1500 HĐ)", price: 1800000 },
-  { group: "PMKT Hộ Kinh Doanh", name: "PMKT HKD (<3 tỷ/năm) — 2 năm (Tặng CKS 3 năm + 1500 HĐ)", price: 3100000 },
-  { group: "PMKT Hộ Kinh Doanh", name: "PMKT HKD (<3 tỷ/năm) — 3 năm (Tặng CKS 3 năm + 1500 HĐ)", price: 4200000 },
-  { group: "PMKT Hộ Kinh Doanh", name: "PMKT HKD (>3 tỷ/năm) — 1 năm (Tặng CKS 3 năm + 3000 HĐ)", price: 2500000 },
-  
-  { group: "PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Shop 9.1 (Cửa hàng, Siêu thị) — Khuyến mại Q3", price: 1000000 },
-  { group: "PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Bar 9.1 (Nhà hàng, Cafe) — Khuyến mại Q3", price: 1000000 },
+  // 1. PHÍ KHỞI TẠO & DUY TRÌ BẢO TRÌ
+  { group: "1. Phí Khởi Tạo & Duy Trì", name: "Phí khởi tạo, duy trì, bảo hành HĐĐT / TNCN / PXK (1 năm)", price: 500000 },
+  { group: "1. Phí Khởi Tạo & Duy Trì", name: "Phí khởi tạo, duy trì HĐĐT Máy Tính Tiền MTT (1 năm)", price: 500000 },
+  { group: "1. Phí Khởi Tạo & Duy Trì", name: "Phí duy trì tài khoản Tải & Import HĐ — 1 năm", price: 1250000 },
+  { group: "1. Phí Khởi Tạo & Duy Trì", name: "Phí duy trì tài khoản Tải & Import HĐ — 2 năm", price: 1750000 },
+  { group: "1. Phí Khởi Tạo & Duy Trì", name: "Phí duy trì tài khoản Tải & Import HĐ — 3 năm", price: 2100000 },
+
+  // 2. HÓA ĐƠN ĐIỆN TỬ (GTGT)
+  { group: "2. Hóa Đơn Điện Tử", name: "Hóa đơn điện tử — Gói 300 số", price: 290000 },
+  { group: "2. Hóa Đơn Điện Tử", name: "Hóa đơn điện tử — Gói 500 số (1.000 đ/HĐ)", price: 500000 },
+  { group: "2. Hóa Đơn Điện Tử", name: "Hóa đơn điện tử — Gói 1.000 số (800 đ/HĐ)", price: 800000 },
+  { group: "2. Hóa Đơn Điện Tử", name: "Hóa đơn điện tử — Gói 2.000 số (600 đ/HĐ)", price: 1200000 },
+  { group: "2. Hóa Đơn Điện Tử", name: "Hóa đơn điện tử — Gói 5.000 số (600 đ/HĐ)", price: 3000000 },
+  { group: "2. Hóa Đơn Điện Tử", name: "Hóa đơn điện tử — Gói 10.000 số (500 đ/HĐ)", price: 5000000 },
+  { group: "2. Hóa Đơn Điện Tử", name: "Hóa đơn điện tử — Gói 20.000 số (400 đ/HĐ)", price: 8000000 },
+
+  // 3. CHỨNG TỪ KHẤU TRỪ THUẾ TNCN
+  { group: "3. Chứng Từ Thuế TNCN", name: "Chứng từ TNCN — Gói 300 số (3.000 đ/CT)", price: 900000 },
+  { group: "3. Chứng Từ Thuế TNCN", name: "Chứng từ TNCN — Gói 500 số (2.000 đ/CT)", price: 1000000 },
+  { group: "3. Chứng Từ Thuế TNCN", name: "Chứng từ TNCN — Gói 1.000 số (2.000 đ/CT)", price: 2000000 },
+  { group: "3. Chứng Từ Thuế TNCN", name: "Chứng từ TNCN — Gói 3.000 số (1.500 đ/CT)", price: 4500000 },
+  { group: "3. Chứng Từ Thuế TNCN", name: "Chứng từ TNCN — Gói 5.000 số (1.500 đ/CT)", price: 7500000 },
+  { group: "3. Chứng Từ Thuế TNCN", name: "Chứng từ TNCN — Gói 10.000 số (1.000 đ/CT)", price: 10000000 },
+  { group: "3. Chứng Từ Thuế TNCN", name: "Chứng từ TNCN — Gói 20.000 số (800 đ/CT)", price: 16000000 },
+
+  // 4. PHIẾU XUẤT KHO KIÊM VẬN CHUYỂN NỘI BỘ
+  { group: "4. Phiếu Xuất Kho Kiêm VCNB", name: "PXK kiêm VCNB — Gói 300 số (3.000 đ/PXK)", price: 900000 },
+  { group: "4. Phiếu Xuất Kho Kiêm VCNB", name: "PXK kiêm VCNB — Gói 500 số (2.000 đ/PXK)", price: 1000000 },
+  { group: "4. Phiếu Xuất Kho Kiêm VCNB", name: "PXK kiêm VCNB — Gói 1.000 số (2.000 đ/PXK)", price: 2000000 },
+  { group: "4. Phiếu Xuất Kho Kiêm VCNB", name: "PXK kiêm VCNB — Gói 3.000 số (1.500 đ/PXK)", price: 4500000 },
+  { group: "4. Phiếu Xuất Kho Kiêm VCNB", name: "PXK kiêm VCNB — Gói 5.000 số (1.500 đ/PXK)", price: 7500000 },
+  { group: "4. Phiếu Xuất Kho Kiêm VCNB", name: "PXK kiêm VCNB — Gói 10.000 số (1.000 đ/PXK)", price: 10000000 },
+  { group: "4. Phiếu Xuất Kho Kiêm VCNB", name: "PXK kiêm VCNB — Gói 20.000 số (800 đ/PXK)", price: 16000000 },
+
+  // 5. HÓA ĐƠN ĐIỆN TỬ MÁY TÍNH TIỀN (MTT)
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 500 số (500 đ/HĐ)", price: 250000 },
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 3.000 số (450 đ/HĐ)", price: 1350000 },
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 5.000 số (300 đ/HĐ)", price: 1500000 },
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 10.000 số (250 đ/HĐ)", price: 2500000 },
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 20.000 số (200 đ/HĐ)", price: 4000000 },
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 50.000 số (150 đ/HĐ)", price: 7500000 },
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 100.000 số (135 đ/HĐ)", price: 13500000 },
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 200.000 số (130 đ/HĐ)", price: 26000000 },
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 300.000 số (125 đ/HĐ)", price: 37500000 },
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 400.000 số (120 đ/HĐ)", price: 48000000 },
+  { group: "5. HĐĐT Máy Tính Tiền (MTT)", name: "HĐĐT MTT — Gói 500.000 số (100 đ/HĐ)", price: 50000000 },
+
+  // 6. TẢI VÀ IMPORT HÓA ĐƠN (GÓI 01 MST)
+  { group: "6. Tải & Import Hóa Đơn (01 MST)", name: "Tải & Import Hóa đơn (01 MST) — 500 HĐ (1.000 đ)", price: 500000 },
+  { group: "6. Tải & Import Hóa Đơn (01 MST)", name: "Tải & Import Hóa đơn (01 MST) — 1.000 HĐ (800 đ)", price: 800000 },
+  { group: "6. Tải & Import Hóa Đơn (01 MST)", name: "Tải & Import Hóa đơn (01 MST) — 2.000 HĐ (600 đ)", price: 1200000 },
+  { group: "6. Tải & Import Hóa Đơn (01 MST)", name: "Tải & Import Hóa đơn (01 MST) — 3.000 HĐ (500 đ)", price: 1500000 },
+  { group: "6. Tải & Import Hóa Đơn (01 MST)", name: "Tải & Import Hóa đơn (01 MST) — 5.000 HĐ (400 đ)", price: 2000000 },
+  { group: "6. Tải & Import Hóa Đơn (01 MST)", name: "Tải & Import Hóa đơn (01 MST) — 10.000 HĐ (350 đ)", price: 3500000 },
+  { group: "6. Tải & Import Hóa Đơn (01 MST)", name: "Tải & Import Hóa đơn (01 MST) — 15.000 HĐ (300 đ)", price: 4500000 },
+  { group: "6. Tải & Import Hóa Đơn (01 MST)", name: "Tải & Import Hóa đơn (01 MST) — 20.000 HĐ (250 đ)", price: 5000000 },
+  { group: "6. Tải & Import Hóa Đơn (01 MST)", name: "Tải & Import Hóa đơn (01 MST) — 30.000 HĐ (200 đ)", price: 6000000 },
+
+  // 7. TẢI VÀ IMPORT HÓA ĐƠN (KHÔNG GIỚI HẠN MST)
+  { group: "7. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 500 HĐ (1.000 đ)", price: 500000 },
+  { group: "7. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 1.000 HĐ (900 đ)", price: 900000 },
+  { group: "7. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 2.000 HĐ (700 đ)", price: 1400000 },
+  { group: "7. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 3.000 HĐ (600 đ)", price: 1800000 },
+  { group: "7. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 5.000 HĐ (500 đ)", price: 2500000 },
+  { group: "7. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 10.000 HĐ (400 đ)", price: 4000000 },
+  { group: "7. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 15.000 HĐ (350 đ)", price: 5250000 },
+  { group: "7. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 20.000 HĐ (300 đ)", price: 6000000 },
+  { group: "7. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 30.000 HĐ (250 đ)", price: 7500000 },
+
+  // 8. TẢI VÀ IMPORT HÓA ĐƠN MTT (XĂNG DẦU, SIÊU THỊ)
+  { group: "8. Tải & Import HĐ MTT (Xăng dầu)", name: "Tải & Import HĐ MTT — Gói 100.000 HĐ (100 đ)", price: 10000000 },
+  { group: "8. Tải & Import HĐ MTT (Xăng dầu)", name: "Tải & Import HĐ MTT — Gói 200.000 HĐ (90 đ)", price: 18000000 },
+  { group: "8. Tải & Import HĐ MTT (Xăng dầu)", name: "Tải & Import HĐ MTT — Gói 300.000 HĐ (80 đ)", price: 24000000 },
+  { group: "8. Tải & Import HĐ MTT (Xăng dầu)", name: "Tải & Import HĐ MTT — Gói 400.000 HĐ (70 đ)", price: 28000000 },
+  { group: "8. Tải & Import HĐ MTT (Xăng dầu)", name: "Tải & Import HĐ MTT — Gói 500.000 HĐ (60 đ)", price: 30000000 },
+  { group: "8. Tải & Import HĐ MTT (Xăng dầu)", name: "Tải & Import HĐ MTT — Gói 600.000 HĐ (55 đ)", price: 33000000 },
+  { group: "8. Tải & Import HĐ MTT (Xăng dầu)", name: "Tải & Import HĐ MTT — Gói 700.000 HĐ (50 đ)", price: 35000000 },
+  { group: "8. Tải & Import HĐ MTT (Xăng dầu)", name: "Tải & Import HĐ MTT — Gói 800.000 HĐ (45 đ)", price: 36000000 },
+  { group: "8. Tải & Import HĐ MTT (Xăng dầu)", name: "Tải & Import HĐ MTT — Gói 1.000.000 HĐ (40 đ)", price: 40000000 },
+
+  // 9. PHẦN MỀM KẾ TOÁN HỘ KINH DOANH
+  { group: "9. PMKT Hộ Kinh Doanh", name: "PMKT HKD (<= 3 tỷ/năm) — 1 năm (Tặng CKS 3 năm + 1500 HĐ)", price: 1800000 },
+  { group: "9. PMKT Hộ Kinh Doanh", name: "PMKT HKD (<= 3 tỷ/năm) — 2 năm (Tặng CKS 3 năm + 1500 HĐ)", price: 3100000 },
+  { group: "9. PMKT Hộ Kinh Doanh", name: "PMKT HKD (<= 3 tỷ/năm) — 3 năm (Tặng CKS 3 năm + 1500 HĐ)", price: 4200000 },
+  { group: "9. PMKT Hộ Kinh Doanh", name: "Dịch vụ hỗ trợ khai thuế HKD (<= 3 tỷ/năm) — 1 quý", price: 4500000 },
+  { group: "9. PMKT Hộ Kinh Doanh", name: "PMKT HKD (> 3 tỷ/năm) — 1 năm (Tặng CKS 3 năm + 3000 HĐ, 2 máy)", price: 2500000 },
+  { group: "9. PMKT Hộ Kinh Doanh", name: "PMKT HKD (> 3 tỷ/năm) — 2 năm (Tặng CKS 3 năm + 3000 HĐ, 2 máy)", price: 4200000 },
+  { group: "9. PMKT Hộ Kinh Doanh", name: "PMKT HKD (> 3 tỷ/năm) — 3 năm (Tặng CKS 3 năm + 3000 HĐ, 2 máy)", price: 6000000 },
+  { group: "9. PMKT Hộ Kinh Doanh", name: "Dịch vụ hỗ trợ khai thuế HKD (> 3 tỷ/năm) — 1 tháng", price: 3000000 },
+
+  // 10. PHẦN MỀM MÁY TÍNH TIỀN (SHOP / BAR / HOTEL)
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Shop 9.1 (BH 1000) — Mua mới (KM Q3)", price: 1000000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Shop 9.1 (BH 3000) — Mua mới (KM Q3)", price: 1500000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Shop 9.1 (BH 5000 Full) — Mua mới (KM Q3, 2 máy)", price: 2500000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Shop 9.1 — Cài thêm máy", price: 1000000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Bar 9.1 (NH 1000) — Mua mới (KM Q3)", price: 1000000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Bar 9.1 (NH 3000) — Mua mới (KM Q3)", price: 1500000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Bar 9.1 (NH 5000 Full) — Mua mới (KM Q3, 2 máy)", price: 2500000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Bar 9.1 — Cài thêm máy", price: 1000000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Hotel 9.1 (KS 1000) — Mua mới (KM Q3)", price: 1000000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Hotel 9.1 (KS 3000) — Mua mới (KM Q3)", price: 1500000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Hotel 9.1 (KS 5000 Full) — Mua mới (KM Q3, 2 máy)", price: 2500000 },
+  { group: "10. PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Hotel 9.1 — Cài thêm máy", price: 1000000 },
+
+  // 11. PMKT STARTUP THÔNG TƯ 133
+  { group: "11. PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 1000 — Mua mới (Tặng CKS 1 năm, 2 Data Online, 500 HĐ)", price: 2000000 },
+  { group: "11. PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 3000 — Mua mới (Tặng CKS 1 năm, 2 Data Online, 500 HĐ)", price: 3000000 },
+  { group: "11. PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 5000 — Mua mới (Tặng CKS 3 năm, 2 Data Online, 500 HĐ, 2 máy)", price: 5000000 },
+  { group: "11. PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup — Cài thêm máy", price: 2000000 },
+  { group: "11. PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup — Phí nâng cấp bảo trì / năm", price: 1000000 },
+
+  // 12. PMKT DỊCH VỤ THUẾ & KẾ TOÁN
+  { group: "12. PMKT Dịch Vụ Thuế", name: "ACMan Dịch Vụ Startup Cá Nhân (2 MST, 2 Data Online)", price: 2000000 },
+  { group: "12. PMKT Dịch Vụ Thuế", name: "ACMan Dịch Vụ Cá Nhân (Full MST, 5 Data Online, 1000 HĐ)", price: 5000000 },
+  { group: "12. PMKT Dịch Vụ Thuế", name: "ACMan Dịch Vụ Doanh Nghiệp (Full MST, 10 Data Online, 1000 HĐ, 2 máy)", price: 10000000 },
+  { group: "12. PMKT Dịch Vụ Thuế", name: "ACMan Dịch Vụ — Thêm máy Full MST", price: 5000000 },
+  { group: "12. PMKT Dịch Vụ Thuế", name: "ACMan Dịch Vụ — Thêm MST Offline", price: 500000 },
+  { group: "12. PMKT Dịch Vụ Thuế", name: "ACMan Dịch Vụ — Thêm MST Online", price: 1000000 },
+  { group: "12. PMKT Dịch Vụ Thuế", name: "ACMan Dịch Vụ — Thêm 01 Data Online", price: 500000 },
+  { group: "12. PMKT Dịch Vụ Thuế", name: "ACMan Dịch Vụ — Gói 10 Data Online", price: 2000000 },
+  { group: "12. PMKT Dịch Vụ Thuế", name: "ACMan Dịch Vụ — Gói đặc biệt 1 máy / 1 MST / 1 Data Online / Tải Full", price: 1000000 },
+
+  // 13. PMKT DOANH NGHIỆP TT99/SME & FDI
+  { group: "13. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan SME 9.1 — Mua mới (2 máy, Full bản ghi, 2 Data Online)", price: 6000000 },
+  { group: "13. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan TT99 9.1 — Mua mới (3 máy, Full bản ghi, Song ngữ)", price: 8000000 },
+  { group: "13. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan TT99 FDI — Mua mới (3 máy, Đa ngôn ngữ)", price: 62500000 },
+  { group: "13. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan SME 9.1 — Cài thêm máy", price: 2000000 },
+  { group: "13. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan TT99 9.1 — Cài thêm máy", price: 3000000 },
+  { group: "13. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan TT99 FDI — Cài thêm máy", price: 5000000 },
+  { group: "13. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan SME 9.1 — Phí nâng cấp bảo trì / năm", price: 2000000 },
+  { group: "13. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan TT99 9.1 — Phí nâng cấp bảo trì / năm", price: 3000000 },
+
+  // 14. PMKT HỢP TÁC XÃ (TT71)
+  { group: "14. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 1000 — Mua mới (1 máy, 100 HĐ, 1 Data Online)", price: 2000000 },
+  { group: "14. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 3000 — Mua mới (1 máy, 100 HĐ, 1 Data Online)", price: 3000000 },
+  { group: "14. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 5000 — Mua mới (2 máy, 100 HĐ, Full bản ghi)", price: 5000000 },
+  { group: "14. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX — Cài thêm máy", price: 2000000 },
+  { group: "14. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 1000 — Phí nâng cấp bảo trì / năm", price: 1000000 },
+  { group: "14. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 3000 — Phí nâng cấp bảo trì / năm", price: 1500000 },
+  { group: "14. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 5000 — Phí nâng cấp bảo trì / năm", price: 2500000 },
+
+  // 15. PMKT QUẢN LÝ QUỸ (TT90)
+  { group: "15. PMKT Quản Lý Quỹ (TT90)", name: "ACMan TT 90 (Gói 1 máy) — Mua mới (1 Data Online, 100 HĐ)", price: 8000000 },
+  { group: "15. PMKT Quản Lý Quỹ (TT90)", name: "ACMan TT 90 (Gói 2 máy) — Mua mới (1 Data Online, 100 HĐ)", price: 13000000 },
+  { group: "15. PMKT Quản Lý Quỹ (TT90)", name: "ACMan TT 90 (Gói 3 máy) — Mua mới (1 Data Online, 100 HĐ)", price: 18000000 },
+  { group: "15. PMKT Quản Lý Quỹ (TT90)", name: "ACMan TT 90 — Cài thêm máy", price: 5000000 },
+
+  // 16. KHÓA ĐÀO TẠO KẾ TOÁN
+  { group: "16. Khóa Đào Tạo Kế Toán", name: "Khóa học Kế toán máy ACMan (Online)", price: 300000 },
+  { group: "16. Khóa Đào Tạo Kế Toán", name: "Khóa học Phòng kế toán ảo (Online)", price: 1500000 },
+  { group: "16. Khóa Đào Tạo Kế Toán", name: "Khóa học Tổ chức công tác kế toán (Online)", price: 1000000 },
+  { group: "16. Khóa Đào Tạo Kế Toán", name: "Combo 3 khóa học Kế toán Thực hành (Đã gồm tài liệu)", price: 1880000 },
+  { group: "16. Khóa Đào Tạo Kế Toán", name: "Tài liệu thực hành Phòng kế toán ảo", price: 380000 },
+  { group: "16. Khóa Đào Tạo Kế Toán", name: "Khóa đào tạo Nghề Dịch Vụ Kế Toán, Thuế (10 Online + 2 Offline)", price: 11000000 },
+
+  // 17. CHỮ KÝ SỐ, E-BHXH & E-CONTRACT
+  { group: "17. Chữ Ký Số & e-Contract", name: "Chữ ký số EFY-CA — 36 tháng (Token, Đăng ký mới)", price: 1800000 },
+  { group: "17. Chữ Ký Số & e-Contract", name: "Chữ ký số EFY-CA — Gia hạn 36 tháng", price: 1600000 },
+  { group: "17. Chữ Ký Số & e-Contract", name: "Phần mềm e-BHXH — 36 tháng (Đăng ký mới)", price: 1500000 },
+  { group: "17. Chữ Ký Số & e-Contract", name: "Phần mềm e-BHXH — Gia hạn 36 tháng", price: 1500000 },
+  { group: "17. Chữ Ký Số & e-Contract", name: "Chữ ký số INTRUST-CA — 36 tháng (Token, Đăng ký mới)", price: 1800000 },
+  { group: "17. Chữ Ký Số & e-Contract", name: "Chữ ký số INTRUST-CA — Gia hạn 36 tháng", price: 1600000 },
+  { group: "17. Chữ Ký Số & e-Contract", name: "Hợp đồng điện tử e-contract 100", price: 900000 },
+  { group: "17. Chữ Ký Số & e-Contract", name: "Hợp đồng điện tử e-contract 500", price: 4000000 },
+  { group: "17. Chữ Ký Số & e-Contract", name: "Phí khởi tạo hệ thống e-contract", price: 2000000 },
+
+  // 18. GÓI KHỞI NGHIỆP Q3/2026
+  { group: "18. Gói Khởi Nghiệp Q3/2026", name: "Gói DN Khởi Nghiệp Q3/2026 (DN 3000) — Tặng CKS 3 năm + 500 HĐ", price: 3000000 },
+  { group: "18. Gói Khởi Nghiệp Q3/2026", name: "Gói HTX Khởi Nghiệp Q3/2026 (HTX 3000) — Tặng CKS 3 năm + 500 HĐ", price: 3000000 },
+  { group: "18. Gói Khởi Nghiệp Q3/2026", name: "Gói HKD Khởi Nghiệp Q3/2026 (HKD 3000) — Tặng CKS 3 năm + 500 HĐ", price: 3000000 },
+  { group: "18. Gói Khởi Nghiệp Q3/2026", name: "Gói Khởi Nghiệp — Cài thêm máy", price: 2000000 },
+  { group: "18. Gói Khởi Nghiệp Q3/2026", name: "Gói Khởi Nghiệp — Thêm dữ liệu Online", price: 1000000 }
+];��i Q3", price: 1000000 },
   { group: "PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Hotel 9.1 (Khách sạn, Spa) — Khuyến mại Q3", price: 1000000 },
 
+  // PMKT STARTUP TT133
   { group: "PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 1000 — Mua mới (Tặng CKS 1 năm)", price: 2000000 },
   { group: "PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 3000 — Mua mới (Tặng CKS 1 năm)", price: 3000000 },
   { group: "PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 5000 — Mua mới (Tặng CKS 3 năm)", price: 5000000 },
 
+  // PMKT DỊCH VỤ THUẾ
   { group: "PMKT Dịch Vụ Thuế", name: "ACMan Gói Dịch Vụ Cá Nhân — 5 Data Online", price: 5000000 },
   { group: "PMKT Dịch Vụ Thuế", name: "ACMan Gói Dịch Vụ Doanh Nghiệp — 10 Data Online", price: 10000000 },
 
+  // PMKT DOANH NGHIỆP TT99/SME
   { group: "PMKT Doanh Nghiệp TT99/SME", name: "ACMan SME 9.1 — Mua mới (2 máy, 2 Data Online)", price: 6000000 },
   { group: "PMKT Doanh Nghiệp TT99/SME", name: "ACMan TT99 9.1 (Song ngữ Việt-Anh-Nhật) — Mua mới", price: 8000000 },
 
+  // CHỮ KÝ SỐ & E-BHXH
   { group: "Chữ Ký Số & e-BHXH", name: "Chữ ký số EFY-CA — 36 tháng (Token)", price: 1800000 },
   { group: "Chữ Ký Số & e-BHXH", name: "Phần mềm e-BHXH — 36 tháng", price: 1500000 },
   { group: "Chữ Ký Số & e-BHXH", name: "Chữ ký số INTRUST-CA — 36 tháng (Token)", price: 1800000 },
 
+  // GÓI KHỞI NGHIỆP Q3/2026
   { group: "Gói Khởi Nghiệp Quý 3/2026", name: "Gói DN 3000 Khởi nghiệp Q3/2026 (Tặng CKS 3 năm + 500 HĐ)", price: 3000000 },
   { group: "Gói Khởi Nghiệp Quý 3/2026", name: "Gói HTX 3000 Khởi nghiệp Q3/2026 (Tặng CKS 3 năm + 500 HĐ)", price: 3000000 },
   { group: "Gói Khởi Nghiệp Quý 3/2026", name: "Gói HKD 3000 Khởi nghiệp Q3/2026 (Tặng CKS 3 năm + 500 HĐ)", price: 3000000 }
