@@ -51,6 +51,15 @@ body {
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
   min-height: 100vh;
+  /* Thêm hình ảnh background nhẹ mờ phía sau */
+  background-image: linear-gradient(to bottom, rgba(26, 8, 20, 0.88), rgba(26, 8, 20, 0.96)), url('bg_person.png');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+[data-theme="light"] body {
+  background-image: linear-gradient(to bottom, rgba(255, 240, 245, 0.88), rgba(255, 240, 245, 0.96)), url('bg_person.png');
 }
 
 .container {
@@ -63,7 +72,7 @@ body {
 .site-header {
   background: var(--primary-gradient);
   color: #ffffff;
-  padding: 24px 0;
+  padding: 18px 0;
   box-shadow: var(--shadow);
   position: sticky;
   top: 0;
@@ -84,25 +93,23 @@ body {
   gap: 16px;
 }
 
-.brand-logo-text {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 1px;
+.header-logo-img {
+  height: 52px;
   background: #ffffff;
-  color: var(--primary);
-  padding: 6px 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 6px 14px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
 }
 
 .brand-text h1 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   letter-spacing: 0.5px;
 }
 
 .brand-text p {
-  font-size: 14px;
+  font-size: 13px;
   opacity: 0.9;
 }
 
@@ -154,17 +161,30 @@ body {
   box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: 32px 16px 16px;
+/* Hero Section Khung Banner có hình đại diện */
+.hero-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
 }
 
-.hero .eyebrow {
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-content .eyebrow {
   display: inline-block;
   background: var(--primary-gradient);
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   padding: 4px 14px;
   border-radius: 20px;
@@ -173,18 +193,59 @@ body {
   margin-bottom: 12px;
 }
 
-.hero h2 {
-  font-size: 28px;
+.hero-content h2 {
+  font-size: 26px;
   font-weight: 800;
   color: var(--primary-accent);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: 1.3;
 }
 
-.hero .lede {
+.hero-content .lede {
   color: var(--text-muted);
-  font-size: 15px;
-  max-width: 800px;
-  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.hero-avatar-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar-img-frame {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--primary-gradient);
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.avatar-img-frame:hover {
+  transform: scale(1.05);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--card-bg);
+}
+
+.avatar-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-accent);
+  margin-top: 10px;
+}
+
+.avatar-role {
+  font-size: 12px;
+  color: var(--text-muted);
 }
 
 /* Tabs Navigation */
@@ -193,7 +254,7 @@ body {
   gap: 8px;
   overflow-x: auto;
   padding: 12px 4px;
-  margin-top: 16px;
+  margin-top: 20px;
   scrollbar-width: thin;
   scrollbar-color: var(--primary) transparent;
 }
@@ -245,8 +306,9 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 24px;
-  margin-top: 24px;
+  margin-top: 20px;
   box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
 }
 
 .product-detail-head h3 {
@@ -319,18 +381,6 @@ tbody tr:hover {
   background-color: rgba(216, 27, 96, 0.05);
 }
 
-/* Badges & Highlights */
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 700;
-  background: var(--primary-accent);
-  color: #fff;
-  margin-left: 6px;
-}
-
 .promo-box {
   background: rgba(233, 30, 99, 0.1);
   border-left: 4px solid var(--primary-accent);
@@ -377,16 +427,17 @@ tbody tr:hover {
   font-size: 14px;
 }
 
-.footer-logo {
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--primary-accent);
-  margin-bottom: 8px;
+.footer-logo-img {
+  height: 40px;
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 /* Print styles */
 @media print {
-  .site-header, .tabs-wrap, .theme-toggle, .header-actions {
+  .site-header, .tabs-wrap, .theme-toggle, .header-actions, .hero-avatar-box {
     display: none !important;
   }
   .tab-panel {
@@ -395,6 +446,7 @@ tbody tr:hover {
   body {
     background: #fff !important;
     color: #000 !important;
+    background-image: none !important;
   }
   .section-card {
     border: 1px solid #ccc !important;
@@ -408,8 +460,9 @@ tbody tr:hover {
     flex-direction: column;
     align-items: flex-start;
   }
-  .hero h2 {
-    font-size: 22px;
+  .hero-card {
+    flex-direction: column;
+    text-align: center;
   }
   .section-card {
     padding: 16px;

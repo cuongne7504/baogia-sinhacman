@@ -10,18 +10,19 @@
 </head>
 <body>
 
-  <!-- HEADER HEADER HỒNG CÁNH SEN -->
+  <!-- HEADER HEADER HỒNG CÁNH SEN DÙNG LOGO MỚI -->
   <header class="site-header">
     <div class="container">
       <div class="brand-row">
         <div class="brand-title">
-          <div class="brand-logo-text">ACMan</div>
+          <img src="assets/logo.png" alt="ACMan Logo - Chuyên nghiệp để phát triển" class="header-logo-img">
           <div class="brand-text">
             <h1>BẢNG BÁO GIÁ SẢN PHẨM & DỊCH VỤ</h1>
-            <p>Áp dụng Chương trình Bán hàng Quý 3/2026 (Từ 01/07/2026 đến 30/09/2026)</p>
+            <p>Chương trình Bán hàng Quý 3/2026 (Từ 01/07/2026 đến 30/09/2026)</p>
           </div>
         </div>
         <div class="header-actions">
+          <a href="dai-ly-bao-gia.html" class="btn-action" style="text-decoration:none;">+ Tạo Báo Giá</a>
           <button class="btn-action" data-action="print">🖨 In / Lưu PDF</button>
           <button class="theme-toggle" title="Đổi giao diện sáng/tối">🌸</button>
         </div>
@@ -30,15 +31,26 @@
   </header>
 
   <main class="container">
-    <!-- HERO SECTION -->
-    <div class="hero">
-      <span class="eyebrow">🌸 PHẦN MỀM KẾ TOÁN · HÓA ĐƠN ĐIỆN TỬ · CHỮ KÝ SỐ · ĐÀO TẠO 🌸</span>
-      <h2>Chương Trình Bán Hàng & Báo Giá Ưu Đãi Quý 3/2026</h2>
-      <p class="lede">Hệ thống báo giá chính thức theo Quyết định ACMan Q3/2026 áp dụng cho Doanh nghiệp, Hộ kinh doanh, Hợp tác xã và Đại lý trên toàn quốc.</p>
+    <!-- HERO CARD VỚI ẢNH ĐẠI DIỆN VÀ BACKGROUND -->
+    <div class="hero-card">
+      <div class="hero-content">
+        <span class="eyebrow">🌸 PHẦN MỀM KẾ TOÁN · HÓA ĐƠN ĐIỆN TỬ · CHỮ KÝ SỐ · ĐÀO TẠO 🌸</span>
+        <h2>Chương Trình Bán Hàng & Báo Giá Ưu Đãi Quý 3/2026</h2>
+        <p class="lede">Hệ thống báo giá chính thức theo Quyết định ACMan Q3/2026 áp dụng cho Doanh nghiệp, Hộ kinh doanh, Hợp tác xã và Đại lý trên toàn quốc.</p>
+      </div>
+
+      <!-- KHUNG ẢNH ĐẠI DIỆN / CHUYÊN VIÊN TƯ VẤN -->
+      <div class="hero-avatar-box">
+        <div class="avatar-img-frame">
+          <img src="assets/bg_person.png" alt="Đại diện tư vấn ACMan" class="avatar-img">
+        </div>
+        <div class="avatar-name">Tư Vấn & Hỗ Trợ Báo Giá</div>
+        <div class="avatar-role">ACMan Q3/2026</div>
+      </div>
     </div>
 
     <!-- KHU VỰC TÌM KIẾM NHANH & NGÀY ÁP DỤNG -->
-    <div class="section-card" style="margin-top:0; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+    <div class="section-card" style="margin-top:16px; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
       <div>
         <strong>Ngày phát hành:</strong> <span data-quote-issue>18/08/2026</span> | 
         <strong>Hiệu lực áp dụng:</strong> <span data-quote-expiry style="color:var(--primary-accent); font-weight:700;">30/09/2026</span>
@@ -531,7 +543,7 @@
       </div>
     </section>
 
-    <!-- ==================== 9. PMKT QUẢN LÝ QUỸ ==================== -->
+    <!-- ==================== 9. PMKT QUẢN LÝ QUẢ ==================== -->
     <section id="tab-quytu" class="tab-panel">
       <div class="section-card">
         <div class="product-detail-head">
@@ -721,10 +733,10 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER DÙNG LOGO ACMAN -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-logo">🌸 CÔNG TY CỔ PHẦN ACMAN 🌸</div>
+      <img src="assets/logo.png" alt="ACMan Logo" class="footer-logo-img">
       <p>Bảng giá chính thức Quý 3/2026 áp dụng trên toàn hệ thống Văn phòng và Đại lý ACMan.</p>
       <p style="font-size:12px; margin-top:8px; opacity:0.8;">Designed with Lotus Pink Theme · Antigravity AI Code Generator</p>
     </div>

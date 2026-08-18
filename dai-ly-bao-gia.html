@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tạo Báo Giá Chuyên Nghiệp — ACMan Q3/2026 (Hồng Cánh Sen)</title>
+<script>
+  // Áp giao diện sáng/tối đồng bộ với index.html
+  (function(){
+    try {
+      var t = localStorage.getItem('acman-theme-pink');
+      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  :root {
+    --primary: #d81b60;
+    --primary-hover: #c2185b;
+    --primary-light: #fce4ec;
+    --primary-accent: #e91e63;
+    --primary-gradient: linear-gradient(135deg, #e91e63 0%, #ad1457 100%);
+    --bg-color: #1a0814;
+    --card-bg: #270d1e;
+    --text-main: #fce4ec;
+    --text-muted: #f48fb1;
+    --border-color: #4a153b;
+    --paper-bg: #ffffff;
+    --paper-text: #1a0814;
+    --paper-border: #e6e4f2;
+    --shadow: 0 8px 30px rgba(216, 27, 96, 0.2);
+  }
+
+  [data-theme="light"] {
+    --bg-color: #fff0f5;
+    --card-bg: #ffffff;
+    --text-main: #2b081e;
+    --text-muted: #880e4f;
+    --border-color: #f8bbd0;
+    --shadow: 0 8px 25px rgba(216, 27, 96, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(26, 8, 20, 0.9), rgba(26, 8, 20, 0.96)), url('assets/bg_person.png');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+  }
+
+  [data-theme="light"] body {
+    background-image: linear-gradient(to bottom, rgba(255, 240, 245, 0.9), rgba(255, 240, 245, 0.96)), url('assets/bg_person.png');
+  }
+
+  header {
+    background: var(--primary-gradient);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .header-logo-img {
+    height: 44px;
+    background: #ffffff;
+    padding: 4px 12px;
+    border-radius: 8px;
+    object-fit: contain;
+  }
+
+  .header-title h1 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .btn-back {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.2s;
+  }
+
+  .btn-back:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  .theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    font-size: 18px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+
+  .intro-box {
+    margin-bottom: 24px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    background: var(--primary-gradient);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .intro-box h2 {
+    font-size: 28px;
+    color: var(--primary-accent);
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .intro-box p {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  @media (max-width: 1024px) {
+    .layout-grid { grid-template-columns: 1fr; }
+  }
+
+  .panel-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+  }
+
+  .panel-card h3 {
+    font-size: 16px;
+    color: var(--primary-accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .num-badge {
+    background: var(--primary-gradient);
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  @media (max-width: 560px) {
+    .grid2 { grid-template-columns: 1fr; }
+  }
+
+  .field-group {
+    margin-bottom: 12px;
+  }
+
+  label {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  input[type=text], input[type=number], input[type=date], input[type=email], select, textarea {
+    width: 100%;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-accent);
+  }
+
+  select option { background: var(--card-bg); color: var(--text-main); }
+  select optgroup { background: var(--card-bg); color: var(--primary-accent); font-weight: 700; }
+
+  .catalog-select-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .catalog-select-row select { flex: 1; }
+
+  .btn {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+
+  .btn-pink {
+    background: var(--primary-gradient);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
+  }
+
+  .btn-pink:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(233, 30, 99, 0.4);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--primary-accent);
+    color: var(--primary-accent);
+  }
+
+  .btn-full { width: 100%; justify-content: center; padding: 12px; font-size: 15px; }
+
+  table.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+  }
+
+  table.form-table th {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 6px 8px;
+    text-align: left;
+  }
+
+  table.form-table td { padding: 6px; }
+  table.form-table input { padding: 8px; font-size: 13px; }
+
+  .del-btn {
+    background: none;
+    border: none;
+    color: #ff5c8d;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .del-btn:hover { color: #ff1744; }
+
+  /* PREVIEW PAPER SHEET */
+  .preview-sticky {
+    position: sticky;
+    top: 90px;
+  }
+
+  .paper-sheet {
+    background: var(--paper-bg);
+    color: var(--paper-text);
+    border-radius: 14px;
+    padding: 36px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  .paper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--primary);
+    margin-bottom: 16px;
+  }
+
+  .paper-logo-img {
+    height: 48px;
+    object-fit: contain;
+  }
+
+  .paper-company-info {
+    text-align: right;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .paper-company-info b {
+    display: block;
+    font-size: 13px;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .paper-doc-date { text-align: right; font-style: italic; font-size: 12px; color: #666; margin-bottom: 12px; }
+  .paper-greeting { font-style: italic; font-size: 13px; margin-bottom: 8px; }
+  
+  .paper-client-info {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 3px solid var(--primary-accent);
+  }
+
+  .paper-doc-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 12px 0 4px;
+    letter-spacing: 1px;
+  }
+
+  .paper-doc-subtitle { text-align: center; font-size: 12px; color: #666; margin-bottom: 6px; }
+  .paper-doc-meta { text-align: center; font-size: 11px; color: #888; margin-bottom: 20px; }
+
+  table.paper-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  table.paper-table th {
+    background: #fce4ec;
+    color: #880e4f;
+    padding: 8px;
+    border: 1px solid var(--paper-border);
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  table.paper-table td {
+    padding: 8px;
+    border: 1px solid var(--paper-border);
+  }
+
+  table.paper-table td.num, table.paper-table th.num { text-align: right; }
+
+  .paper-totals {
+    margin-left: auto;
+    width: 250px;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .paper-totals .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    color: #555;
+  }
+
+  .paper-totals .row.grand {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--primary-accent);
+    border-top: 2px solid var(--primary);
+    padding-top: 8px;
+    margin-top: 4px;
+  }
+
+  .paper-notes {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+
+  .paper-notes h4 {
+    font-size: 13px;
+    color: var(--primary);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .paper-signature {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+
+  .paper-signature .sign-col { text-align: center; width: 220px; }
+  .paper-signature b { text-transform: uppercase; color: var(--primary); }
+
+  .action-bar {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  @media print {
+    header, .intro-box, .panel-card, .action-bar, .theme-toggle { display: none !important; }
+    .paper-sheet { box-shadow: none !important; border-radius: 0 !important; width: 100% !important; }
+    body { background: #fff !important; background-image: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-brand">
+      <img src="assets/logo.png" alt="ACMan Logo" class="header-logo-img">
+      <div class="header-title">
+        <h1>ACMan Quote Studio Q3/2026</h1>
+      </div>
+    </div>
+    <div class="header-nav">
+      <a href="index.html" class="btn-back">← Về trang báo giá</a>
+      <button class="theme-toggle" title="Đổi giao diện">🌸</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="intro-box">
+      <span class="eyebrow">🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸</span>
+      <h2>Tạo Báo Giá Khách Hàng Nhanh Chóng</h2>
+      <p>Chọn các sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh, bảng xem trước tự động cập nhật và xuất file PDF chuyên nghiệp.</p>
+    </div>
+
+    <div class="layout-grid">
+      <!-- CỘT TRÁI: NHẬP THÔNG TIN & SẢN PHẨM -->
+      <div>
+        <!-- PANEL 1: THÔNG TIN KHÁCH HÀNG -->
+        <div class="panel-card">
+          <h3><span class="num-badge">1</span> Thông tin khách hàng</h3>
+          <div class="grid2">
+            <div class="field-group"><label>Tên công ty / Khách hàng</label><input id="custName" type="text" placeholder="Công ty TNHH ABC" oninput="render()"></div>
+            <div class="field-group"><label>Mã số thuế</label><input id="custTax" type="text" placeholder="0312345678" oninput="render()"></div>
+            <div class="field-group" style="grid-column:1/-1"><label>Địa chỉ</label><input id="custAddr" type="text" placeholder="123 Đường ABC, Q.1, TP. Hồ Chí Minh" oninput="render()"></div>
+            <div class="field-group"><label>Người liên hệ</label><input id="custPerson" type="text" placeholder="Nguyễn Văn A" oninput="render()"></div>
+            <div class="field-group"><label>Số điện thoại</label><input id="custPhone" type="text" placeholder="0901 234 567" oninput="render()"></div>
+            <div class="field-group"><label>Email</label><input id="custEmail" type="email" placeholder="contact@abc.com" oninput="render()"></div>
+            <div class="field-group"><label>Số báo giá</label><input id="quoteNo" type="text" placeholder="BG-2026-0001" oninput="render()"></div>
+            <div class="field-group"><label>Ngày báo giá</label><input id="quoteDate" type="date" onchange="render()"></div>
+            <div class="field-group"><label>Nơi phát hành</label><input id="custCity" type="text" value="Hà Nội" oninput="render()"></div>
+          </div>
+        </div>
+
+        <!-- PANEL 2: CHỌN SẢN PHẨM PHẦN MỀM -->
+        <div class="panel-card">
+          <h3><span class="num-badge">2</span> Chọn sản phẩm / Dịch vụ</h3>
+          <div class="catalog-select-row">
+            <select id="catalogSelect"></select>
+            <button class="btn btn-pink" onclick="addFromCatalog()">+ Thêm</button>
+          </div>
+
+          <table class="form-table">
+            <thead>
+              <tr>
+                <th style="width:40%">Tên sản phẩm / Dịch vụ</th>
+                <th style="width:15%">SL</th>
+                <th style="width:25%">Đơn giá (đ)</th>
+                <th style="width:15%">Thành tiền</th>
+                <th style="width:5%"></th>
+              </tr>
+            </thead>
+            <tbody id="itemsBody"></tbody>
+          </table>
+
+          <button class="btn btn-outline" onclick="addCustomRow()" style="margin-bottom:12px;">+ Dòng tùy chỉnh</button>
+
+          <div style="display:flex; align-items:center; gap:10px;">
+            <label style="margin:0;">Thuế VAT (%) — để trống nếu Không chịu thuế (KCT):</label>
+            <input id="vatRate" type="text" placeholder="VD: 10 hoặc KCT" style="width:120px;" oninput="render()">
+          </div>
+        </div>
+
+        <!-- PANEL 3: GHI CHÚ & ĐIỀU KHOẢN -->
+        <div class="panel-card">
+          <h3><span class="num-badge">3</span> Các bước triển khai & Tài khoản thanh toán</h3>
+          <div class="field-group">
+            <label>Các bước triển khai (Mỗi dòng 1 bước)</label>
+            <textarea id="stepsText" rows="4" oninput="render()">Tư vấn, giải đáp vướng mắc, cài đặt, Demo giới thiệu sản phẩm
+Thống nhất ký hợp đồng (theo mẫu), thanh toán, xuất hóa đơn GTGT
+Đăng ký HĐĐT lên hệ thống thuế; Cấp bản quyền; Hướng dẫn sử dụng
+Nghiệm thu chương trình, chuyển sang giai đoạn bảo hành và hỗ trợ sử dụng 24/7</textarea>
+          </div>
+          <div class="field-group">
+            <label>Thông tin tài khoản ngân hàng chuyển khoản</label>
+            <textarea id="bankText" rows="3" oninput="render()">CÔNG TY CỔ PHẦN ACMAN
+Số tài khoản: 12510000382415 (1250382415)
+Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- CỘT PHẢI: PREVIEW GIẤY BÁO GIÁ XUẤT FILE PDF -->
+      <div class="preview-sticky">
+        <div id="previewPaper" class="paper-sheet">
+          <div class="paper-header">
+            <div>
+              <img src="assets/logo.png" alt="ACMan Logo" class="paper-logo-img">
+            </div>
+            <div class="paper-company-info">
+              <b>CÔNG TY CỔ PHẦN ACMAN</b>
+              Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond<br>
+              Số 459C Bạch Mai, P. Bạch Mai, Q. Hai Bà Trưng, TP. Hà Nội<br>
+              Điện thoại: 0971390166 · Email: vuquynhdung2110@gmail.com<br>
+              Website: www.acman.vn
+            </div>
+          </div>
+
+          <div class="paper-doc-date" id="pvDate">Hà Nội, ngày 18 tháng 08 năm 2026</div>
+          <div class="paper-greeting" id="pvGreeting">Kính gửi: <i>Quý khách hàng</i></div>
+          <div class="paper-client-info" id="pvClient">
+            Tên công ty: <strong id="pvCustName">---</strong><br>
+            Mã số thuế: <span id="pvCustTax">---</span> | Địa chỉ: <span id="pvCustAddr">---</span><br>
+            Người liên hệ: <span id="pvCustPerson">---</span> | ĐT: <span id="pvCustPhone">---</span> | Email: <span id="pvCustEmail">---</span>
+          </div>
+
+          <div class="paper-doc-title">BÁO GIÁ</div>
+          <div class="paper-doc-subtitle">(Chương trình Bán hàng & Sản phẩm ACMan Quý 3/2026)</div>
+          <div class="paper-doc-meta" id="pvMeta">Số: BG-2026-0001</div>
+
+          <table class="paper-table">
+            <thead>
+              <tr>
+                <th style="width:6%">STT</th>
+                <th style="width:44%">Sản phẩm / Dịch vụ</th>
+                <th class="num" style="width:10%">SL</th>
+                <th class="num" style="width:20%">Đơn giá</th>
+                <th class="num" style="width:20%">Thành tiền</th>
+              </tr>
+            </thead>
+            <tbody id="pvBody">
+              <tr><td colspan="5" style="text-align:center; color:#999; font-style:italic; padding:20px;">Chưa có sản phẩm trong báo giá</td></tr>
+            </tbody>
+          </table>
+
+          <div class="paper-totals">
+            <div class="row"><span>Tạm tính:</span><span id="pvSub">0 đ</span></div>
+            <div class="row"><span id="pvVatLabel">VAT:</span><span id="pvVat">0 đ</span></div>
+            <div class="row grand"><span>Tổng cộng:</span><span id="pvTotal">0 đ</span></div>
+          </div>
+
+          <div class="paper-notes">
+            <h4>CÁC BƯỚC TRIỂN KHAI:</h4>
+            <ol id="pvSteps" style="padding-left:18px;"></ol>
+          </div>
+
+          <div class="paper-notes" style="margin-top:10px;">
+            <h4>THÔNG TIN THAM TOÁN CHUYỂN KHOẢN:</h4>
+            <div id="pvBank" style="font-weight:600;"></div>
+          </div>
+
+          <div class="paper-signature">
+            <div class="sign-col">
+              <b>ĐẠI DIỆN KHÁCH HÀNG</b><br>
+              <small>(Ký và ghi rõ họ tên)</small>
+            </div>
+            <div class="sign-col">
+              <b>CÔNG TY CỔ PHẦN ACMAN</b><br>
+              <small>(Đã ký & đóng dấu)</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="btn btn-pink btn-full" onclick="exportPDF()">⭳ Xuất File PDF Báo Giá</button>
+          <button class="btn btn-outline" onclick="window.print()">🖨 In Báo Giá</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<script>
+// --- DANH MỤC SẢN PHẨM QUÝ 3/2026 ĐẦY ĐỦ ---
+const CATALOG = [
+  { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói 01 MST) — 500 HĐ", price: 500000 },
+  { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói 01 MST) — 1.000 HĐ", price: 800000 },
+  { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói 01 MST) — 3.000 HĐ", price: 1500000 },
+  { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói 01 MST) — 5.000 HĐ", price: 2000000 },
+  { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói Không giới hạn MST) — 5.000 HĐ", price: 2500000 },
+  
+  { group: "Hóa Đơn Điện Tử", name: "Hóa đơn điện tử — Gói 300 số", price: 290000 },
+  { group: "Hóa đơn điện tử", name: "Hóa đơn điện tử — Gói 500 số", price: 390000 },
+  { group: "Hóa đơn điện tử", name: "Hóa đơn điện tử — Gói 1.000 số", price: 690000 },
+  { group: "Hóa đơn điện tử", name: "Hóa đơn điện tử — Gói 2.000 số", price: 990000 },
+  { group: "Hóa đơn điện tử", name: "Hóa đơn điện tử — Gói 5.000 số", price: 1990000 },
+  
+  { group: "PMKT Hộ Kinh Doanh", name: "PMKT HKD (<3 tỷ/năm) — 1 năm (Tặng CKS 3 năm + 1500 HĐ)", price: 1800000 },
+  { group: "PMKT Hộ Kinh Doanh", name: "PMKT HKD (<3 tỷ/năm) — 2 năm (Tặng CKS 3 năm + 1500 HĐ)", price: 3100000 },
+  { group: "PMKT Hộ Kinh Doanh", name: "PMKT HKD (<3 tỷ/năm) — 3 năm (Tặng CKS 3 năm + 1500 HĐ)", price: 4200000 },
+  { group: "PMKT Hộ Kinh Doanh", name: "PMKT HKD (>3 tỷ/năm) — 1 năm (Tặng CKS 3 năm + 3000 HĐ)", price: 2500000 },
+  
+  { group: "PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Shop 9.1 (Cửa hàng, Siêu thị) — Khuyến mại Q3", price: 1000000 },
+  { group: "PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Bar 9.1 (Nhà hàng, Cafe) — Khuyến mại Q3", price: 1000000 },
+  { group: "PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Hotel 9.1 (Khách sạn, Spa) — Khuyến mại Q3", price: 1000000 },
+
+  { group: "PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 1000 — Mua mới (Tặng CKS 1 năm)", price: 2000000 },
+  { group: "PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 3000 — Mua mới (Tặng CKS 1 năm)", price: 3000000 },
+  { group: "PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 5000 — Mua mới (Tặng CKS 3 năm)", price: 5000000 },
+
+  { group: "PMKT Dịch Vụ Thuế", name: "ACMan Gói Dịch Vụ Cá Nhân — 5 Data Online", price: 5000000 },
+  { group: "PMKT Dịch Vụ Thuế", name: "ACMan Gói Dịch Vụ Doanh Nghiệp — 10 Data Online", price: 10000000 },
+
+  { group: "PMKT Doanh Nghiệp TT99/SME", name: "ACMan SME 9.1 — Mua mới (2 máy, 2 Data Online)", price: 6000000 },
+  { group: "PMKT Doanh Nghiệp TT99/SME", name: "ACMan TT99 9.1 (Song ngữ Việt-Anh-Nhật) — Mua mới", price: 8000000 },
+
+  { group: "Chữ Ký Số & e-BHXH", name: "Chữ ký số EFY-CA — 36 tháng (Token)", price: 1800000 },
+  { group: "Chữ Ký Số & e-BHXH", name: "Phần mềm e-BHXH — 36 tháng", price: 1500000 },
+  { group: "Chữ Ký Số & e-BHXH", name: "Chữ ký số INTRUST-CA — 36 tháng (Token)", price: 1800000 },
+
+  { group: "Gói Khởi Nghiệp Quý 3/2026", name: "Gói DN 3000 Khởi nghiệp Q3/2026 (Tặng CKS 3 năm + 500 HĐ)", price: 3000000 },
+  { group: "Gói Khởi Nghiệp Quý 3/2026", name: "Gói HTX 3000 Khởi nghiệp Q3/2026 (Tặng CKS 3 năm + 500 HĐ)", price: 3000000 },
+  { group: "Gói Khởi Nghiệp Quý 3/2026", name: "Gói HKD 3000 Khởi nghiệp Q3/2026 (Tặng CKS 3 năm + 500 HĐ)", price: 3000000 }
+];
+
+let items = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Điền ngày hiện tại
+  document.getElementById("quoteDate").valueAsDate = new Date();
+  
+  // Khởi tạo select catalog
+  const select = document.getElementById("catalogSelect");
+  let currentGroup = "";
+  let groupEl = null;
+
+  CATALOG.forEach((item, idx) => {
+    if (item.group !== currentGroup) {
+      currentGroup = item.group;
+      groupEl = document.createElement("optgroup");
+      groupEl.label = currentGroup;
+      select.appendChild(groupEl);
+    }
+    const opt = document.createElement("option");
+    opt.value = idx;
+    opt.textContent = `${item.name} — ${item.price.toLocaleString("vi-VN")} đ`;
+    groupEl.appendChild(opt);
+  });
+
+  // Thêm sản phẩm mặc định
+  addFromCatalog();
+});
+
+function addFromCatalog() {
+  const idx = document.getElementById("catalogSelect").value;
+  if (idx !== "") {
+    const item = CATALOG[idx];
+    items.push({ name: item.name, qty: 1, price: item.price });
+    renderFormItems();
+    render();
+  }
+}
+
+function addCustomRow() {
+  items.push({ name: "Sản phẩm / Dịch vụ tùy chỉnh", qty: 1, price: 1000000 });
+  renderFormItems();
+  render();
+}
+
+function removeItem(i) {
+  items.splice(i, 1);
+  renderFormItems();
+  render();
+}
+
+function renderFormItems() {
+  const tbody = document.getElementById("itemsBody");
+  tbody.innerHTML = "";
+
+  items.forEach((item, i) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><input type="text" value="${item.name}" oninput="items[${i}].name = this.value; render();"></td>
+      <td><input type="number" min="1" value="${item.qty}" style="width:60px;" oninput="items[${i}].qty = parseInt(this.value)||1; render();"></td>
+      <td><input type="number" value="${item.price}" oninput="items[${i}].price = parseInt(this.value)||0; render();"></td>
+      <td style="font-weight:700; color:var(--primary-accent); vertical-align:middle;">${(item.qty * item.price).toLocaleString("vi-VN")} đ</td>
+      <td style="vertical-align:middle;"><button class="del-btn" onclick="removeItem(${i})">✕</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function render() {
+  // Lấy dữ liệu form
+  const name = document.getElementById("custName").value || "---";
+  const tax = document.getElementById("custTax").value || "---";
+  const addr = document.getElementById("custAddr").value || "---";
+  const person = document.getElementById("custPerson").value || "---";
+  const phone = document.getElementById("custPhone").value || "---";
+  const email = document.getElementById("custEmail").value || "---";
+  const quoteNo = document.getElementById("quoteNo").value || "BG-2026-0001";
+  const city = document.getElementById("custCity").value || "Hà Nội";
+  
+  const dVal = document.getElementById("quoteDate").value;
+  const d = dVal ? new Date(dVal) : new Date();
+  const dateStr = `${city}, ngày ${d.getDate()} tháng ${d.getMonth() + 1} năm ${d.getFullYear()}`;
+
+  // Điền vào Paper Preview
+  document.getElementById("pvDate").textContent = dateStr;
+  document.getElementById("pvCustName").textContent = name;
+  document.getElementById("pvCustTax").textContent = tax;
+  document.getElementById("pvCustAddr").textContent = addr;
+  document.getElementById("pvCustPerson").textContent = person;
+  document.getElementById("pvCustPhone").textContent = phone;
+  document.getElementById("pvCustEmail").textContent = email;
+  document.getElementById("pvMeta").textContent = "Số: " + quoteNo;
+
+  // Render bảng sản phẩm trong Paper Preview
+  const pvBody = document.getElementById("pvBody");
+  pvBody.innerHTML = "";
+
+  let subtotal = 0;
+
+  if (items.length === 0) {
+    pvBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#999; font-style:italic; padding:20px;">Chưa có sản phẩm trong báo giá</td></tr>`;
+  } else {
+    items.forEach((item, i) => {
+      const lineTotal = item.qty * item.price;
+      subtotal += lineTotal;
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td style="text-align:center;">${i + 1}</td>
+        <td><strong>${item.name}</strong></td>
+        <td class="num">${item.qty}</td>
+        <td class="num">${item.price.toLocaleString("vi-VN")} đ</td>
+        <td class="num" style="font-weight:700; color:var(--primary);">${lineTotal.toLocaleString("vi-VN")} đ</td>
+      `;
+      pvBody.appendChild(tr);
+    });
+  }
+
+  // TÍNH TOÁN VAT
+  const vatInput = document.getElementById("vatRate").value.trim();
+  let vatAmount = 0;
+  let vatLabelText = "VAT:";
+
+  if (vatInput !== "" && !isNaN(vatInput)) {
+    const rate = parseFloat(vatInput);
+    vatAmount = Math.round(subtotal * (rate / 100));
+    vatLabelText = `VAT (${rate}%):`;
+  } else if (vatInput.toUpperCase() === "KCT" || vatInput === "") {
+    vatLabelText = "VAT (KCT):";
+    vatAmount = 0;
+  }
+
+  const grandTotal = subtotal + vatAmount;
+
+  document.getElementById("pvSub").textContent = subtotal.toLocaleString("vi-VN") + " đ";
+  document.getElementById("pvVatLabel").textContent = vatLabelText;
+  document.getElementById("pvVat").textContent = vatAmount.toLocaleString("vi-VN") + " đ";
+  document.getElementById("pvTotal").textContent = grandTotal.toLocaleString("vi-VN") + " đ";
+
+  // Các bước triển khai
+  const stepsText = document.getElementById("stepsText").value;
+  const pvSteps = document.getElementById("pvSteps");
+  pvSteps.innerHTML = "";
+  stepsText.split("\n").filter(s => s.trim() !== "").forEach(step => {
+    const li = document.createElement("li");
+    li.textContent = step;
+    pvSteps.appendChild(li);
+  });
+
+  // Ngân hàng
+  const bankText = document.getElementById("bankText").value;
+  document.getElementById("pvBank").innerHTML = bankText.replace(/\n/g, "<br>");
+}
+
+// XUẤT FILE PDF
+function exportPDF() {
+  const element = document.getElementById("previewPaper");
+  const quoteNo = document.getElementById("quoteNo").value || "BaoGia";
+
+  const opt = {
+    margin:       10,
+    filename:     `Bao_Gia_ACMan_${quoteNo}.pdf`,
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+
+  html2pdf().set(opt).from(element).save();
+}
+
+// Toggle Theme
+document.querySelector(".theme-toggle")?.addEventListener("click", () => {
+  const isLight = document.documentElement.getAttribute("data-theme") === "light";
+  if (isLight) {
+    document.documentElement.removeAttribute("data-theme");
+    localStorage.setItem("acman-theme-pink", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("acman-theme-pink", "light");
+  }
+});
+</script>
+</body>
+</html>
