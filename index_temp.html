@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bảng báo giá — Giải pháp phần mềm kế toán</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="brand-row">
+      <div class="brand-logo"><img src="assets/acman-logo-1.png" alt="Acman"></div>
+      <div class="brand-text">
+        <h1>BẢNG BÁO GIÁ</h1>
+        <p>Phần mềm kế toán · Hóa đơn điện tử · Chữ ký số</p>
+      </div>
+      <a href="dai-ly-bao-gia.html" class="btn-tao-bao-gia">+ Tạo báo giá</a>
+      <button class="theme-toggle" title="Đổi giao diện sáng / tối">☾</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="hero" style="margin-top:28px;">
+    <p class="eyebrow">Danh mục báo giá các sản phầm của ACMan áp dụng riêng cho AGS</p>
+    <h2>Chọn sản phẩm cần xem báo giá</h2>
+    <p class="lede">Với các nhu cầu mua số lượng lớn, vui lòng liên hệ với chúng tôi để được tư vấn và nhận ưu đãi tốt nhất.</p>
+  </div>
+
+  <!-- 9 TAB SẢN PHẨM — dùng chung cơ chế initTabs() trong assets/script.js -->
+  <nav class="tabs tabs-wrap" style="margin-top:24px;">
+    <button class="tab-btn active" data-tab="p-tt99">Phần mềm kế toán Doanh nghiệp</button>
+    <button class="tab-btn" data-tab="p-hddt">Hóa đơn điện tử</button>
+    <button class="tab-btn" data-tab="p-cks">Chữ ký số</button>
+    <button class="tab-btn" data-tab="p-bhxh">Bảo hiểm xã hội</button>
+    <button class="tab-btn" data-tab="p-sme">Tải và import hóa đơn</button>
+    <button class="tab-btn" data-tab="p-combo">Combo khởi nghiệp</button>
+  </nav>
+
+  <!-- ============== 1. PMKT TT99/2025 ============== -->
+  <section id="p-tt99" class="tab-panel active">
+    <div class="section-card">
+      <div class="product-detail-head">
+        <div class="phd-row">
+          <h3>Phần mềm kế toán TT99/2025/TT-BTC (Song ngữ Việt – Anh – Nhật)</h3>
+          
+        </div>
+        <p>Cập nhật đầy đủ chế độ kế toán mới theo Thông tư 99/2025/TT-BTC</p>
+      </div>
+      <div class="tt99-table-wrap">
+        <table class="tt99-price-table">
+          <colgroup>
+            <col class="col-name">
+            <col class="col-year">
+            <col class="col-year">
+            <col class="col-year">
+            <col class="col-note">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Tên sản phẩm</th>
+              <th>01 năm</th>
+              <th>02 Năm</th>
+              <th>03 Năm</th>
+              <th>Ghi chú</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="prod-name">ACMan 9.1 Online – TM DV<br><span class="sub-note">(01 Data, 01 đơn vị sử dụng)</span></td>
+              <td>1.750.000 VNĐ</td>
+              <td>3.300.000 VNĐ</td>
+              <td>4.800.000 VNĐ</td>
+              <td class="remark-cell" rowspan="4">
+                ACMan hướng dẫn sử dụng thành thạo, cập nhật nâng cấp, hỗ trợ trong suốt thời gian sử dụng chương trình
+              </td>
+            </tr>
+            <tr>
+              <td class="prod-name">ACMan 9.1 Online – SX XD<br><span class="sub-note">(01 Data, 01 đơn vị sử dụng)</span></td>
+              <td>1.950.000 VNĐ</td>
+              <td>3.700.000 VNĐ</td>
+              <td>5.400.000 VNĐ</td>
+            </tr>
+            <tr class="gift-row">
+              <td class="prod-name">Tặng hóa đơn điện tử</td>
+              <td>100 số</td>
+              <td>150 số</td>
+              <td>200 số</td>
+              <td></td>
+            </tr>
+            <tr class="gift-row">
+              <td class="prod-name">Tặng tải &amp; Import hóa đơn</td>
+              <td>500 số</td>
+              <td>1.000 số</td>
+              <td>1.500 số</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    <div class="section-card">
+      <h3>Tính năng nổi bật</h3>
+      <ul class="feature-list">
+        <li>Tự động tải và import hóa đơn từ Cục thuế, tự động import sao kê ngân hàng</li>
+        <li>Tự động lập báo cáo tài chính, tờ khai thuế theo mẫu mới</li>
+        <li>Hỗ trợ chuyển đổi số dư đầu kỳ từ chế độ kế toán cũ</li>
+        <li>Kết nối hóa đơn điện tử, chữ ký số, ngân hàng điện tử</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h3>Điều khoản &amp; thanh toán</h3>
+      <table class="spec-table">
+        <tr><th>Hình thức thanh toán</th><td>Chuyển khoản</td></tr>
+        <tr><th>Thời hạn báo giá</th><td>30 ngày kể từ ngày phát hành</td></tr>
+        <tr><th>Hỗ trợ</th><td>Trong suốt thời gian sử dụng dịch vụ</td></tr>
+        <tr><th>Đào tạo sử dụng</th><td>Miễn phí đào tạo khi triển khai</td></tr>
+      </table>
+    </div>
+
+  </section>
+
+  <!-- ============== 2. Hóa đơn điện tử ============== -->
+  <section id="p-hddt" class="tab-panel">
+    <div class="section-card">
+      <div class="product-detail-head">
+        <div class="phd-row">
+          <h3>Hóa đơn điện tử &amp; Chứng từ điện tử</h3>
+          
+        </div>
+        <p>Hóa đơn điện tử, phiếu xuất kho kiêm vận chuyển nội bộ, chứng từ khấu trừ thuế TNCN.</p>
+      </div>
+
+      <div class="table-scroll">
+        <table class="invoice-table">
+          <colgroup>
+    <col style="width:6%">
+    <col style="width:10%">
+    <col style="width:12%">
+    <col style="width:10%">
+    <col style="width:12%">
+    <col style="width:10%">
+    <col style="width:12%">
+    <col style="width:28%">
+  </colgroup>
+          <thead>
+            <tr>
+              <th rowspan="2">STT</th>
+              <th colspan="2">Hóa đơn điện tử</th>
+              <th colspan="2">Chứng từ TNCN</th>
+              <th colspan="2">PXK kiêm VCNB</th>
+              <th rowspan="2">Ghi chú</th>
+            </tr>
+            <tr>
+              <th>Số lượng</th>
+              <th>Thành tiền</th>
+              <th>Số lượng</th>
+              <th>Thành tiền</th>
+              <th>Số lượng</th>
+              <th>Thành tiền</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td><td>300</td><td>290.000đ</td><td>300</td><td>290.000đ</td><td>300</td><td>290.000đ</td>
+              <td class="note-cell" rowspan="9">
+                Phí khởi tạo, duy trì, bảo hành 500.000 đồng/năm.<br>
+                (Miễn phí duy trì khi sử dụng kèm PM kế toán ACMan)
+              </td>
+            </tr>
+            <tr><td>2</td><td>500</td><td>390.000đ</td><td>500</td><td>390.000đ</td><td>500</td><td>390.000đ</td></tr>
+            <tr><td>3</td><td>1.000</td><td>690.000đ</td><td>1.000</td><td>690.000đ</td><td>1.000</td><td>690.000đ</td></tr>
+            <tr><td>4</td><td>2.000</td><td>990.000đ</td><td>2.000</td><td>990.000đ</td><td>2.000</td><td>990.000đ</td></tr>
+            <tr><td>5</td><td>3.000</td><td>1.390.000đ</td><td>3.000</td><td>1.390.000đ</td><td>3.000</td><td>1.390.000đ</td></tr>
+            <tr><td>6</td><td>5.000</td><td>1.990.000đ</td><td>5.000</td><td>1.990.000đ</td><td>5.000</td><td>1.990.000đ</td></tr>
+            <tr><td>7</td><td>7.000</td><td>2.590.000đ</td><td>7.000</td><td>2.590.000đ</td><td>7.000</td><td>2.590.000đ</td></tr>
+            <tr><td>8</td><td>10.000</td><td>3.290.000đ</td><td>10.000</td><td>3.290.000đ</td><td>10.000</td><td>3.290.000đ</td></tr>
+
+
+
+            <tr><td>9</td><td>&gt; 10.000</td><td>Liên hệ</td><td>&gt; 10.000</td><td>Liên hệ</td><td>&gt; 10.000</td><td>Liên hệ</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Tính năng nổi bật</h3>
+      <ul class="feature-list">
+        <li>Hóa đơn điện tử GTGT, bán hàng theo Nghị định/Thông tư hiện hành</li>
+        <li>Phiếu xuất kho kiêm vận chuyển nội bộ điện tử</li>
+        <li>Chứng từ khấu trừ thuế TNCN điện tử</li>
+        <li>Kết nối trực tiếp dữ liệu với cơ quan thuế</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h3>Điều khoản &amp; thanh toán</h3>
+      <table class="spec-table">
+        <tr><th>Hình thức thanh toán</th><td>Chuyển khoản</td></tr>
+        <tr><th>Thời hạn báo giá</th><td>30 ngày kể từ ngày phát hành</td></tr>
+        <tr><th>Hiệu lực gói số</th><td>Không giới hạn thời gian sử dụng cho đến khi dùng hết số</td></tr>
+        <tr><th>Hỗ trợ kỹ thuật</th><td>Hotline hỗ trợ xuất hóa đơn 24/7</td></tr>
+      </table>
+    </div>
+
+  </section>
+
+  <!-- ============== 3. Chữ ký số ============== -->
+  <section id="p-cks" class="tab-panel">
+    <div class="section-card">
+      <div class="product-detail-head">
+        <div class="phd-row">
+          <h3>Chữ ký số (USB Token/CKS Từ xa)</h3>
+        </div>
+        <p>Chữ ký số cho doanh nghiệp và cá nhân, ký hợp đồng, tờ khai thuế, hóa đơn điện tử.</p>
+      </div>
+
+      <div class="table-scroll">
+        <table class="invoice-table">
+          <thead>
+            <tr>
+              <th>Tên sản phẩm</th>
+              <th>01 năm</th>
+              <th>02 năm</th>
+              <th>03 năm</th>
+              <th>Ghi chú</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Token doanh nghiệp</td>
+              <td>1.200.000</td>
+              <td>1.700.000</td>
+              <td>1.800.000</td>
+              <td class="note-cell" rowspan="3">
+                Hồ sơ:<br>
+                - Phiếu đăng ký<br>
+                - ĐKKD<br>
+                - Ảnh CCCD
+              </td>
+            </tr>
+            <tr>
+              <td>HSM doanh nghiệp</td>
+              <td>1.500.000</td>
+              <td>2.100.000</td>
+              <td>2.500.000</td>
+            </tr>
+            <tr>
+              <td>Token cá nhân</td>
+              <td>880.000</td>
+              <td>1.210.000</td>
+              <td>1.540.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Tính năng nổi bật</h3>
+      <ul class="feature-list">
+        <li>Ký hợp đồng, tờ khai thuế, hóa đơn điện tử hợp lệ</li>
+        <li>Hỗ trợ cả USB Token, HSM và chữ ký số từ xa</li>
+        <li>Bàn giao, cài đặt tận nơi cho doanh nghiệp</li>
+        <li>Gia hạn nhanh chóng khi hết hạn sử dụng</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h3>Điều khoản &amp; thanh toán</h3>
+      <table class="spec-table">
+        <tr><th>Hình thức thanh toán</th><td>Chuyển khoản</td></tr>
+        <tr><th>Thời hạn báo giá</th><td>30 ngày kể từ ngày phát hành</td></tr>
+        <tr><th>Bảo hành thiết bị</th><td>Theo thời gian thỏa thuận hợp đồng</td></tr>
+        <tr><th>Hỗ trợ kỹ thuật</th><td>Hotline hỗ trợ cài đặt và sử dụng</td></tr>
+      </table>
+    </div>
+
+  </section>
+  <!-- ============== 4. Bảo hiểm xã hội ============== -->
+   <section id="p-bhxh" class="tab-panel">
+    <div class="section-card">
+      <div class="product-detail-head">
+        <div class="phd-row">
+          <h3>Bảo hiểm xã hội điện tử (E-BHXH)</h3>
+        </div>
+        <p>Phần mềm kê khai, giao dịch bảo hiểm xã hội điện tử với cơ quan BHXH qua Internet, tiết kiệm thời gian đi lại và nộp hồ sơ giấy.</p>
+      </div>
+
+      <div class="table-scroll">
+        <table class="invoice-table">
+          <thead>
+            <tr>
+              <th>Tên sản phẩm</th>
+              <th>01 năm</th>
+              <th>02 năm</th>
+              <th>03 năm</th>
+              <th>Ghi chú</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>E-BHXH (Website) &lt; 100 Nhân sự</td>
+              <td>580.000</td>
+              <td>980.000</td>
+              <td>1.280.000</td>
+              <td class="note-cell" rowspan="2"></td>
+            </tr>
+            <tr>
+              <td>E-BHXH (Website) &gt; 100 Nhân sự</td>
+              <td>1.500.000</td>
+              <td>2.400.000</td>
+              <td>2.700.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Tính năng nổi bật</h3>
+      <ul class="feature-list">
+        <li>Kê khai và nộp hồ sơ BHXH điện tử trực tuyến 24/7</li>
+        <li>Đồng bộ dữ liệu với cơ quan BHXH, giảm sai sót</li>
+        <li>Theo dõi trạng thái hồ sơ, thông báo kết quả tức thời</li>
+        <li>Hỗ trợ đa người dùng, phân quyền theo phòng ban</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h3>Điều khoản &amp; thanh toán</h3>
+      <table class="spec-table">
+        <tr><th>Hình thức thanh toán</th><td>Chuyển khoản</td></tr>
+        <tr><th>Thời hạn báo giá</th><td>30 ngày kể từ ngày phát hành</td></tr>
+        <tr><th>Bảo hành phần mềm</th><td>Theo thời gian thỏa thuận hợp đồng</td></tr>
+        <tr><th>Hỗ trợ kỹ thuật</th><td>Hotline hỗ trợ cài đặt và sử dụng</td></tr>
+      </table>
+    </div>
+
+  </section>
+  <!-- ============== 5. Tải và import hóa đơn ============== -->
+  <section id="p-sme" class="tab-panel">
+    <div class="section-card">
+      <div class="product-detail-head">
+        <div class="phd-row">
+          <h3>Tải và import hóa đơn</h3>
+          
+        </div>
+        <p>Giải pháp ưu việt, thuận tiện, tiết kiệm thời gian và nhân lực cho doanh nghiệp.</p>
+      </div>
+
+      <div class="table-scroll">
+        <table class="invoice-table">
+          <colgroup>
+            <col style="width:7%">
+            <col style="width:15%">
+            <col style="width:15%">
+            <col style="width:15%">
+            <col style="width:15%">
+            <col style="width:33%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th rowspan="2">STT</th>
+              <th colspan="2">Tải và Import hóa đơn<span class="sub">(Gói 01 MST)</span></th>
+              <th colspan="2">Tải và Import hóa đơn<span class="sub">(Không giới hạn MST)</span></th>
+              <th rowspan="2">Ghi chú</th>
+            </tr>
+            <tr>
+              <th>Số lượng</th>
+              <th>Đơn giá</th>
+              <th>Số lượng</th>
+              <th>Đơn giá</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td><td>500</td><td>1.000đ</td><td>500</td><td>1.000đ</td>
+              <td class="note-cell" rowspan="10">
+                Miến phí khởi tạo, duy trì, áp dụng cho từng doanh nghiệp<br>
+    
+              </td>
+            </tr>
+            <tr><td>2</td><td>1.000</td><td>800đ</td><td>1.000</td><td>900đ</td></tr>
+            <tr><td>3</td><td>2.000</td><td>600đ</td><td>2.000</td><td>700đ</td></tr>
+            <tr><td>4</td><td>3.000</td><td>500đ</td><td>3.000</td><td>600đ</td></tr>
+            <tr><td>5</td><td>5.000</td><td>400đ</td><td>5.000</td><td>500đ</td></tr>
+            <tr><td>6</td><td>10.000</td><td>350đ</td><td>10.000</td><td>400đ</td></tr>
+            <tr><td>7</td><td>15.000</td><td>300đ</td><td>15.000</td><td>350đ</td></tr>
+            <tr><td>8</td><td>20.000</td><td>250đ</td><td>20.000</td><td>300đ</td></tr>
+            <tr><td>9</td><td>30.000</td><td>200đ</td><td>30.000</td><td>250đ</td></tr>
+            <tr><td>10</td><td>&gt; 30.000</td><td>Liên hệ</td><td>&gt; 30.000</td><td>Liên hệ</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Tính năng nổi bật</h3>
+      <ul class="feature-list">
+        <li>Giao diện đơn giản, phù hợp kế toán ít kinh nghiệm</li>
+        <li>Tự động tạo mã hàng hóa, khách hàng, nhà cung cấp</li>
+        <li>Tự động hạch toán để tổng hợp vào sổ kế toán, bảng kê</li>
+        <li>Tiết kiệm tối đa 80% thời gian làm việc</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h3>Điều khoản &amp; thanh toán</h3>
+      <table class="spec-table">
+        <tr><th>Hình thức thanh toán</th><td>Chuyển khoản</td></tr>
+        <tr><th>Thời hạn báo giá</th><td>30 ngày kể từ ngày phát hành</td></tr>
+        <tr><th>Hỗ trợ</th><td>Trong suốt thời gian sử dụng dịch vụ</td></tr>
+        <tr><th>Đào tạo sử dụng</th><td>Miễn phí đào tạo khi triển khai</td></tr>
+      </table>
+    </div>
+
+  </section>
+
+  <!-- ============== 6. Combo khởi nghiệp ============== -->
+  <section id="p-combo" class="tab-panel">
+    <div class="section-card">
+      <div class="product-detail-head">
+        <div class="phd-row">
+          <h3>Combo cho doanh nghiệp mới thành lập</h3>
+          
+        </div>
+        <p>Trọn gói phần mềm kế toán + hóa đơn điện tử + chữ ký số cho doanh nghiệp mới thành lập.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card">
+          <h4>Combo Tiết kiệm</h4>
+          <p class="price">3.000.000đ</p>
+          <p class="unit">PMKT + 500 số HĐĐT + Chữ ký số</p>
+          <ul><li>Phần mềm kế toán 1 năm</li><li>Tặng chữ ký số 3 năm</li><li>Tặng 500 Hóa đơn điện tử</li></ul>
+          <button class="btn btn-secondary">Chọn gói này</button>
+        </div>
+        <div class="price-card featured">
+          <h4>Combo Trọn gói</h4>
+          <p class="price">5.200.000đ</p>
+          <p class="unit">PMKT + 500 số HĐĐT + Chữ ký số</p>
+          <ul><li>Phần mềm kế toán 1 năm</li><li>Tặng chữ ký số 3 năm</li><li>Tặng 500 Hóa đơn điện tử</li><li>Giấy phép thành lập doanh nghiệp</li><li>Hỗ trợ khai báo thuế ban đầu</li></ul>
+          <button class="btn btn-primary">Chọn gói này</button>
+        </div>
+        <div class="price-card">
+          <h4>Combo Mở rộng</h4>
+          <p class="price">Liên hệ</p>
+          <p class="unit">Tùy chỉnh theo quy mô công ty</p>
+          <ul><li>Thêm chi nhánh, thêm người dùng</li></ul>
+          <button class="btn btn-secondary">Yêu cầu tư vấn</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Tính năng nổi bật</h3>
+      <ul class="feature-list">
+        <li>Trọn gói phần mềm kế toán + hóa đơn điện tử + chữ ký số</li>
+        <li>Hỗ trợ khai báo thuế ban đầu khi mới thành lập doanh nghiệp</li>
+        <li>Đào tạo sử dụng miễn phí cho kế toán mới</li>
+        <li>Tiết kiệm chi phí hơn mua lẻ từng sản phẩm</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h3>Điều khoản &amp; thanh toán</h3>
+      <table class="spec-table">
+        <tr><th>Hình thức thanh toán</th><td>Chuyển khoản</td></tr>
+        <tr><th>Thời hạn báo giá</th><td>30 ngày kể từ ngày phát hành</td></tr>
+        <tr><th>Hỗ trợ</th><td>Trong suốt thời gian sử dụng dịch vụ</td></tr>
+        <tr><th>Đào tạo sử dụng</th><td>Miễn phí đào tạo khi triển khai</td></tr>
+      </table>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="container site-footer">
+  <span>© 2026 — Bảng báo giá điện tử.</span>
+  <span>Hotline tư vấn: 0971 390 166</span>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
