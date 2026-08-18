@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tạo Báo Giá Chuyên Nghiệp — ACMan Q3/2026 (Hồng Cánh Sen)</title>
 <script>
-  // Áp giao diện sáng/tối đồng bộ với index.html
   (function(){
     try {
       var t = localStorage.getItem('acman-theme-pink');
@@ -350,9 +349,9 @@
 
   .paper-company-info {
     text-align: right;
-    font-size: 11px;
-    line-height: 1.6;
-    color: #444;
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: #333;
   }
 
   .paper-company-info b {
@@ -448,13 +447,13 @@
   }
 
   .paper-signature {
-    margin-top: 24px;
+    margin-top: 28px;
     display: flex;
     justify-content: space-between;
     font-size: 13px;
   }
 
-  .paper-signature .sign-col { text-align: center; width: 220px; }
+  .paper-signature .sign-col { text-align: center; width: 230px; }
   .paper-signature b { text-transform: uppercase; color: var(--primary); }
 
   .action-bar {
@@ -490,7 +489,7 @@
     <div class="intro-box">
       <span class="eyebrow">🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸</span>
       <h2>Tạo Báo Giá Khách Hàng Nhanh Chóng</h2>
-      <p>Chọn các sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh, bảng xem trước tự động cập nhật và xuất file PDF chuyên nghiệp.</p>
+      <p>Tư vấn viên: <strong>Nguyễn Thị Sinh (Hotline/Zalo: 0327439969)</strong>. Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF.</p>
     </div>
 
     <div class="layout-grid">
@@ -505,7 +504,7 @@
             <div class="field-group" style="grid-column:1/-1"><label>Địa chỉ</label><input id="custAddr" type="text" placeholder="123 Đường ABC, Q.1, TP. Hồ Chí Minh" oninput="render()"></div>
             <div class="field-group"><label>Người liên hệ</label><input id="custPerson" type="text" placeholder="Nguyễn Văn A" oninput="render()"></div>
             <div class="field-group"><label>Số điện thoại</label><input id="custPhone" type="text" placeholder="0901 234 567" oninput="render()"></div>
-            <div class="field-group"><label>Email</label><input id="custEmail" type="email" placeholder="contact@abc.com" oninput="render()"></div>
+            <div class="field-group"><label>Tư vấn viên ACMan</label><input id="staffName" type="text" value="Nguyễn Thị Sinh - 0327439969" oninput="render()"></div>
             <div class="field-group"><label>Số báo giá</label><input id="quoteNo" type="text" placeholder="BG-2026-0001" oninput="render()"></div>
             <div class="field-group"><label>Ngày báo giá</label><input id="quoteDate" type="date" onchange="render()"></div>
             <div class="field-group"><label>Nơi phát hành</label><input id="custCity" type="text" value="Hà Nội" oninput="render()"></div>
@@ -567,11 +566,12 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
             <div>
               <img src="assets/logo.png" alt="ACMan Logo" class="paper-logo-img">
             </div>
+            <!-- BỎ EMAIL VÀ THAY SĐT 0327439969 THEO YÊU CẦU -->
             <div class="paper-company-info">
               <b>CÔNG TY CỔ PHẦN ACMAN</b>
               Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond<br>
               Số 459C Bạch Mai, P. Bạch Mai, Q. Hai Bà Trưng, TP. Hà Nội<br>
-              Điện thoại: 0971390166 · Email: vuquynhdung2110@gmail.com<br>
+              Điện thoại / Zalo: <strong>0327439969</strong><br>
               Website: www.acman.vn
             </div>
           </div>
@@ -581,7 +581,8 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
           <div class="paper-client-info" id="pvClient">
             Tên công ty: <strong id="pvCustName">---</strong><br>
             Mã số thuế: <span id="pvCustTax">---</span> | Địa chỉ: <span id="pvCustAddr">---</span><br>
-            Người liên hệ: <span id="pvCustPerson">---</span> | ĐT: <span id="pvCustPhone">---</span> | Email: <span id="pvCustEmail">---</span>
+            Người liên hệ: <span id="pvCustPerson">---</span> | ĐT: <span id="pvCustPhone">---</span><br>
+            Tư vấn viên ACMan: <strong id="pvStaffName" style="color:var(--primary);">Nguyễn Thị Sinh - 0327439969</strong>
           </div>
 
           <div class="paper-doc-title">BÁO GIÁ</div>
@@ -626,7 +627,8 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
             </div>
             <div class="sign-col">
               <b>CÔNG TY CỔ PHẦN ACMAN</b><br>
-              <small>(Đã ký & đóng dấu)</small>
+              <small>(Đã ký & đóng dấu)</small><br><br>
+              <strong style="color:var(--primary);" id="pvSignName">Nguyễn Thị Sinh - 0327439969</strong>
             </div>
           </div>
         </div>
@@ -685,10 +687,8 @@ const CATALOG = [
 let items = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Điền ngày hiện tại
   document.getElementById("quoteDate").valueAsDate = new Date();
   
-  // Khởi tạo select catalog
   const select = document.getElementById("catalogSelect");
   let currentGroup = "";
   let groupEl = null;
@@ -706,7 +706,6 @@ document.addEventListener("DOMContentLoaded", () => {
     groupEl.appendChild(opt);
   });
 
-  // Thêm sản phẩm mặc định
   addFromCatalog();
 });
 
@@ -750,13 +749,12 @@ function renderFormItems() {
 }
 
 function render() {
-  // Lấy dữ liệu form
   const name = document.getElementById("custName").value || "---";
   const tax = document.getElementById("custTax").value || "---";
   const addr = document.getElementById("custAddr").value || "---";
   const person = document.getElementById("custPerson").value || "---";
   const phone = document.getElementById("custPhone").value || "---";
-  const email = document.getElementById("custEmail").value || "---";
+  const staff = document.getElementById("staffName").value || "Nguyễn Thị Sinh - 0327439969";
   const quoteNo = document.getElementById("quoteNo").value || "BG-2026-0001";
   const city = document.getElementById("custCity").value || "Hà Nội";
   
@@ -764,17 +762,16 @@ function render() {
   const d = dVal ? new Date(dVal) : new Date();
   const dateStr = `${city}, ngày ${d.getDate()} tháng ${d.getMonth() + 1} năm ${d.getFullYear()}`;
 
-  // Điền vào Paper Preview
   document.getElementById("pvDate").textContent = dateStr;
   document.getElementById("pvCustName").textContent = name;
   document.getElementById("pvCustTax").textContent = tax;
   document.getElementById("pvCustAddr").textContent = addr;
   document.getElementById("pvCustPerson").textContent = person;
   document.getElementById("pvCustPhone").textContent = phone;
-  document.getElementById("pvCustEmail").textContent = email;
+  document.getElementById("pvStaffName").textContent = staff;
+  document.getElementById("pvSignName").textContent = staff;
   document.getElementById("pvMeta").textContent = "Số: " + quoteNo;
 
-  // Render bảng sản phẩm trong Paper Preview
   const pvBody = document.getElementById("pvBody");
   pvBody.innerHTML = "";
 
@@ -798,7 +795,6 @@ function render() {
     });
   }
 
-  // TÍNH TOÁN VAT
   const vatInput = document.getElementById("vatRate").value.trim();
   let vatAmount = 0;
   let vatLabelText = "VAT:";
@@ -819,7 +815,6 @@ function render() {
   document.getElementById("pvVat").textContent = vatAmount.toLocaleString("vi-VN") + " đ";
   document.getElementById("pvTotal").textContent = grandTotal.toLocaleString("vi-VN") + " đ";
 
-  // Các bước triển khai
   const stepsText = document.getElementById("stepsText").value;
   const pvSteps = document.getElementById("pvSteps");
   pvSteps.innerHTML = "";
@@ -829,12 +824,10 @@ function render() {
     pvSteps.appendChild(li);
   });
 
-  // Ngân hàng
   const bankText = document.getElementById("bankText").value;
   document.getElementById("pvBank").innerHTML = bankText.replace(/\n/g, "<br>");
 }
 
-// XUẤT FILE PDF
 function exportPDF() {
   const element = document.getElementById("previewPaper");
   const quoteNo = document.getElementById("quoteNo").value || "BaoGia";
@@ -850,7 +843,6 @@ function exportPDF() {
   html2pdf().set(opt).from(element).save();
 }
 
-// Toggle Theme
 document.querySelector(".theme-toggle")?.addEventListener("click", () => {
   const isLight = document.documentElement.getAttribute("data-theme") === "light";
   if (isLight) {
