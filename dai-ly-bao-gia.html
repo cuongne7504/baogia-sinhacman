@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tạo Báo Giá Chuyên Nghiệp — ACMan Q3/2026 (Hồng Cánh Sen)</title>
+<title>Tạo Báo Giá Chuyên Nghiệp — ACMan Q3/2026 (Song Ngữ VI/EN)</title>
 <script>
   (function(){
     try {
@@ -62,7 +62,7 @@
 
   header {
     background: var(--primary-gradient);
-    padding: 16px 32px;
+    padding: 14px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -95,7 +95,25 @@
   .header-nav {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .btn-lang {
+    background: #ffffff;
+    color: var(--primary-accent);
+    border: none;
+    font-weight: 800;
+    font-size: 13.5px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s;
+  }
+
+  .btn-lang:hover {
+    background: #fce4ec;
+    transform: scale(1.05);
   }
 
   .btn-back {
@@ -476,20 +494,22 @@
     <div class="header-brand">
       <img src="assets/logo.png" alt="ACMan Logo" class="header-logo-img">
       <div class="header-title">
-        <h1>ACMan Quote Studio Q3/2026</h1>
+        <h1 id="lblHeaderTitle">ACMan Quote Studio Q3/2026</h1>
       </div>
     </div>
     <div class="header-nav">
-      <a href="index.html" class="btn-back">← Về trang báo giá</a>
+      <!-- NÚT CHUYỂN SONG NGỮ VI / EN -->
+      <button class="btn-lang" onclick="toggleLanguage()" id="btnLangToggle">🌐 🇻🇳 VI | 🇬🇧 EN</button>
+      <a href="index.html" class="btn-back" id="lblBackBtn">← Về trang báo giá</a>
       <button class="theme-toggle" title="Đổi giao diện">🌸</button>
     </div>
   </header>
 
   <main>
     <div class="intro-box">
-      <span class="eyebrow">🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸</span>
-      <h2>Tạo Báo Giá Khách Hàng Nhanh Chóng</h2>
-      <p>Tư vấn viên: <strong>Nguyễn Thị Sinh (Hotline/Zalo: 0327439969)</strong>. Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF.</p>
+      <span class="eyebrow" id="lblEyebrow">🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸</span>
+      <h2 id="lblMainHeading">Tạo Báo Giá Khách Hàng Nhanh Chóng</h2>
+      <p id="lblSubHeading">Tư vấn viên: <strong>Nguyễn Thị Sinh (Hotline/Zalo: 0327439969)</strong>. Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF.</p>
     </div>
 
     <div class="layout-grid">
@@ -497,61 +517,61 @@
       <div>
         <!-- PANEL 1: THÔNG TIN KHÁCH HÀNG -->
         <div class="panel-card">
-          <h3><span class="num-badge">1</span> Thông tin khách hàng</h3>
+          <h3 id="lblPanel1Title"><span class="num-badge">1</span> Thông tin khách hàng</h3>
           <div class="grid2">
-            <div class="field-group"><label>Tên công ty / Khách hàng</label><input id="custName" type="text" placeholder="Công ty TNHH ABC" oninput="render()"></div>
-            <div class="field-group"><label>Mã số thuế</label><input id="custTax" type="text" placeholder="0312345678" oninput="render()"></div>
-            <div class="field-group" style="grid-column:1/-1"><label>Địa chỉ</label><input id="custAddr" type="text" placeholder="123 Đường ABC, Q.1, TP. Hồ Chí Minh" oninput="render()"></div>
-            <div class="field-group"><label>Người liên hệ</label><input id="custPerson" type="text" placeholder="Nguyễn Văn A" oninput="render()"></div>
-            <div class="field-group"><label>Số điện thoại</label><input id="custPhone" type="text" placeholder="0901 234 567" oninput="render()"></div>
-            <div class="field-group"><label>Tư vấn viên ACMan</label><input id="staffName" type="text" value="Nguyễn Thị Sinh - 0327439969" oninput="render()"></div>
-            <div class="field-group"><label>Số báo giá</label><input id="quoteNo" type="text" placeholder="BG-2026-0001" oninput="render()"></div>
-            <div class="field-group"><label>Ngày báo giá</label><input id="quoteDate" type="date" onchange="render()"></div>
-            <div class="field-group"><label>Nơi phát hành</label><input id="custCity" type="text" value="Hà Nội" oninput="render()"></div>
+            <div class="field-group"><label id="lblCustName">Tên công ty / Khách hàng</label><input id="custName" type="text" placeholder="Công ty TNHH ABC" oninput="render()"></div>
+            <div class="field-group"><label id="lblCustTax">Mã số thuế</label><input id="custTax" type="text" placeholder="0312345678" oninput="render()"></div>
+            <div class="field-group" style="grid-column:1/-1"><label id="lblCustAddr">Địa chỉ</label><input id="custAddr" type="text" placeholder="123 Đường ABC, Q.1, TP. Hồ Chí Minh" oninput="render()"></div>
+            <div class="field-group"><label id="lblCustPerson">Người liên hệ</label><input id="custPerson" type="text" placeholder="Nguyễn Văn A" oninput="render()"></div>
+            <div class="field-group"><label id="lblCustPhone">Số điện thoại</label><input id="custPhone" type="text" placeholder="0901 234 567" oninput="render()"></div>
+            <div class="field-group"><label id="lblStaffName">Tư vấn viên ACMan</label><input id="staffName" type="text" value="Nguyễn Thị Sinh - 0327439969" oninput="render()"></div>
+            <div class="field-group"><label id="lblQuoteNo">Số báo giá</label><input id="quoteNo" type="text" placeholder="BG-2026-0001" oninput="render()"></div>
+            <div class="field-group"><label id="lblQuoteDate">Ngày báo giá</label><input id="quoteDate" type="date" onchange="render()"></div>
+            <div class="field-group"><label id="lblCustCity">Nơi phát hành</label><input id="custCity" type="text" value="Hà Nội" oninput="render()"></div>
           </div>
         </div>
 
         <!-- PANEL 2: CHỌN SẢN PHẨM PHẦN MỀM -->
         <div class="panel-card">
-          <h3><span class="num-badge">2</span> Chọn sản phẩm / Dịch vụ</h3>
+          <h3 id="lblPanel2Title"><span class="num-badge">2</span> Chọn sản phẩm / Dịch vụ</h3>
           <div class="catalog-select-row">
             <select id="catalogSelect"></select>
-            <button class="btn btn-pink" onclick="addFromCatalog()">+ Thêm</button>
+            <button class="btn btn-pink" onclick="addFromCatalog()" id="btnAddCatalog">+ Thêm</button>
           </div>
 
           <table class="form-table">
             <thead>
               <tr>
-                <th style="width:40%">Tên sản phẩm / Dịch vụ</th>
-                <th style="width:15%">SL</th>
-                <th style="width:25%">Đơn giá (đ)</th>
-                <th style="width:15%">Thành tiền</th>
+                <th style="width:40%" id="thFormName">Tên sản phẩm / Dịch vụ</th>
+                <th style="width:15%" id="thFormQty">SL</th>
+                <th style="width:25%" id="thFormPrice">Đơn giá (đ)</th>
+                <th style="width:15%" id="thFormTotal">Thành tiền</th>
                 <th style="width:5%"></th>
               </tr>
             </thead>
             <tbody id="itemsBody"></tbody>
           </table>
 
-          <button class="btn btn-outline" onclick="addCustomRow()" style="margin-bottom:12px;">+ Dòng tùy chỉnh</button>
+          <button class="btn btn-outline" onclick="addCustomRow()" style="margin-bottom:12px;" id="btnAddCustom">+ Dòng tùy chỉnh</button>
 
           <div style="display:flex; align-items:center; gap:10px;">
-            <label style="margin:0;">Thuế VAT (%) — để trống nếu Không chịu thuế (KCT):</label>
+            <label style="margin:0;" id="lblVatText">Thuế VAT (%) — để trống nếu Không chịu thuế (KCT):</label>
             <input id="vatRate" type="text" placeholder="VD: 10 hoặc KCT" style="width:120px;" oninput="render()">
           </div>
         </div>
 
         <!-- PANEL 3: GHI CHÚ & ĐIỀU KHOẢN -->
         <div class="panel-card">
-          <h3><span class="num-badge">3</span> Các bước triển khai & Tài khoản thanh toán</h3>
+          <h3 id="lblPanel3Title"><span class="num-badge">3</span> Các bước triển khai & Tài khoản thanh toán</h3>
           <div class="field-group">
-            <label>Các bước triển khai (Mỗi dòng 1 bước)</label>
+            <label id="lblStepsHeader">Các bước triển khai (Mỗi dòng 1 bước)</label>
             <textarea id="stepsText" rows="4" oninput="render()">Tư vấn, giải đáp vướng mắc, cài đặt, Demo giới thiệu sản phẩm
 Thống nhất ký hợp đồng (theo mẫu), thanh toán, xuất hóa đơn GTGT
 Đăng ký HĐĐT lên hệ thống thuế; Cấp bản quyền; Hướng dẫn sử dụng
 Nghiệm thu chương trình, chuyển sang giai đoạn bảo hành và hỗ trợ sử dụng 24/7</textarea>
           </div>
           <div class="field-group">
-            <label>Thông tin tài khoản ngân hàng chuyển khoản</label>
+            <label id="lblBankHeader">Thông tin tài khoản ngân hàng chuyển khoản</label>
             <textarea id="bankText" rows="3" oninput="render()">CÔNG TY CỔ PHẦN ACMAN
 Số tài khoản: 12510000382415 (1250382415)
 Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
@@ -566,8 +586,8 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
             <div>
               <img src="assets/logo.png" alt="ACMan Logo" class="paper-logo-img">
             </div>
-            <!-- BỎ EMAIL VÀ THAY SĐT 0327439969 THEO YÊU CẦU -->
-            <div class="paper-company-info">
+            <!-- BỎ EMAIL VÀ THAY SĐT 0327439969 CHUẨN HOÀN TOÀN -->
+            <div class="paper-company-info" id="paperCompanyInfo">
               <b>CÔNG TY CỔ PHẦN ACMAN</b>
               Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond<br>
               Số 459C Bạch Mai, P. Bạch Mai, Q. Hai Bà Trưng, TP. Hà Nội<br>
@@ -579,24 +599,24 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
           <div class="paper-doc-date" id="pvDate">Hà Nội, ngày 18 tháng 08 năm 2026</div>
           <div class="paper-greeting" id="pvGreeting">Kính gửi: <i>Quý khách hàng</i></div>
           <div class="paper-client-info" id="pvClient">
-            Tên công ty: <strong id="pvCustName">---</strong><br>
-            Mã số thuế: <span id="pvCustTax">---</span> | Địa chỉ: <span id="pvCustAddr">---</span><br>
-            Người liên hệ: <span id="pvCustPerson">---</span> | ĐT: <span id="pvCustPhone">---</span><br>
-            Tư vấn viên ACMan: <strong id="pvStaffName" style="color:var(--primary);">Nguyễn Thị Sinh - 0327439969</strong>
+            <span id="lblPvCustName">Tên công ty:</span> <strong id="pvCustName">---</strong><br>
+            <span id="lblPvCustTax">Mã số thuế:</span> <span id="pvCustTax">---</span> | <span id="lblPvCustAddr">Địa chỉ:</span> <span id="pvCustAddr">---</span><br>
+            <span id="lblPvCustPerson">Người liên hệ:</span> <span id="pvCustPerson">---</span> | <span id="lblPvCustPhone">ĐT:</span> <span id="pvCustPhone">---</span><br>
+            <span id="lblPvStaffName">Tư vấn viên ACMan:</span> <strong id="pvStaffName" style="color:var(--primary);">Nguyễn Thị Sinh - 0327439969</strong>
           </div>
 
-          <div class="paper-doc-title">BÁO GIÁ</div>
-          <div class="paper-doc-subtitle">(Chương trình Bán hàng & Sản phẩm ACMan Quý 3/2026)</div>
+          <div class="paper-doc-title" id="pvDocTitle">BÁO GIÁ</div>
+          <div class="paper-doc-subtitle" id="pvDocSubtitle">(Chương trình Bán hàng & Sản phẩm ACMan Quý 3/2026)</div>
           <div class="paper-doc-meta" id="pvMeta">Số: BG-2026-0001</div>
 
           <table class="paper-table">
             <thead>
               <tr>
-                <th style="width:6%">STT</th>
-                <th style="width:44%">Sản phẩm / Dịch vụ</th>
-                <th class="num" style="width:10%">SL</th>
-                <th class="num" style="width:20%">Đơn giá</th>
-                <th class="num" style="width:20%">Thành tiền</th>
+                <th style="width:6%" id="thPvNo">STT</th>
+                <th style="width:44%" id="thPvDesc">Sản phẩm / Dịch vụ</th>
+                <th class="num" style="width:10%" id="thPvQty">SL</th>
+                <th class="num" style="width:20%" id="thPvPrice">Đơn giá</th>
+                <th class="num" style="width:20%" id="thPvTotal">Thành tiền</th>
               </tr>
             </thead>
             <tbody id="pvBody">
@@ -605,44 +625,153 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
           </table>
 
           <div class="paper-totals">
-            <div class="row"><span>Tạm tính:</span><span id="pvSub">0 đ</span></div>
+            <div class="row"><span id="lblPvSub">Tạm tính:</span><span id="pvSub">0 đ</span></div>
             <div class="row"><span id="pvVatLabel">VAT:</span><span id="pvVat">0 đ</span></div>
-            <div class="row grand"><span>Tổng cộng:</span><span id="pvTotal">0 đ</span></div>
+            <div class="row grand"><span id="lblPvTotal">Tổng cộng:</span><span id="pvTotal">0 đ</span></div>
           </div>
 
           <div class="paper-notes">
-            <h4>CÁC BƯỚC TRIỂN KHAI:</h4>
+            <h4 id="lblPvStepsHeader">CÁC BƯỚC TRIỂN KHAI:</h4>
             <ol id="pvSteps" style="padding-left:18px;"></ol>
           </div>
 
           <div class="paper-notes" style="margin-top:10px;">
-            <h4>THÔNG TIN THAM TOÁN CHUYỂN KHOẢN:</h4>
+            <h4 id="lblPvBankHeader">THÔNG TIN THANH TOÁN CHUYỂN KHOẢN:</h4>
             <div id="pvBank" style="font-weight:600;"></div>
           </div>
 
           <div class="paper-signature">
             <div class="sign-col">
-              <b>ĐẠI DIỆN KHÁCH HÀNG</b><br>
-              <small>(Ký và ghi rõ họ tên)</small>
+              <b id="lblSignClient">ĐẠI DIỆN KHÁCH HÀNG</b><br>
+              <small id="lblSignClientSub">(Ký và ghi rõ họ tên)</small>
             </div>
             <div class="sign-col">
-              <b>CÔNG TY CỔ PHẦN ACMAN</b><br>
-              <small>(Đã ký & đóng dấu)</small><br><br>
+              <b id="lblSignCompany">CÔNG TY CỔ PHẦN ACMAN</b><br>
+              <small id="lblSignCompanySub">(Đã ký & đóng dấu)</small><br><br>
               <strong style="color:var(--primary);" id="pvSignName">Nguyễn Thị Sinh - 0327439969</strong>
             </div>
           </div>
         </div>
 
         <div class="action-bar">
-          <button class="btn btn-pink btn-full" onclick="exportPDF()">⭳ Xuất File PDF Báo Giá</button>
-          <button class="btn btn-outline" onclick="window.print()">🖨 In Báo Giá</button>
+          <button class="btn btn-pink btn-full" onclick="exportPDF()" id="btnExportPDF">⭳ Xuất File PDF Báo Giá</button>
+          <button class="btn btn-outline" onclick="window.print()" id="btnPrint">🖨 In Báo Giá</button>
         </div>
       </div>
     </div>
   </main>
 
 <script>
-// --- DANH MỤC SẢN PHẨM QUÝ 3/2026 ĐẦY ĐỦ ---
+// BIẾN NGÔN NGỮ CHUYỂN ĐỔI (SONG NGỮ VIỆT - ANH)
+let currentLang = "VI"; // 'VI' hoặc 'EN'
+
+const I18N = {
+  VI: {
+    langBtn: "🌐 🇻🇳 VI | 🇬🇧 EN",
+    backBtn: "← Về trang báo giá",
+    eyebrow: "🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸",
+    mainHeading: "Tạo Báo Giá Khách Hàng Nhanh Chóng",
+    subHeading: "Tư vấn viên: <strong>Nguyễn Thị Sinh (Hotline/Zalo: 0327439969)</strong>. Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF.",
+    panel1Title: "1. Thông tin khách hàng",
+    custName: "Tên công ty / Khách hàng",
+    custTax: "Mã số thuế",
+    custAddr: "Địa chỉ",
+    custPerson: "Người liên hệ",
+    custPhone: "Số điện thoại",
+    staffName: "Tư vấn viên ACMan",
+    quoteNo: "Số báo giá",
+    quoteDate: "Ngày báo giá",
+    custCity: "Nơi phát hành",
+    panel2Title: "2. Chọn sản phẩm / Dịch vụ",
+    addCatalogBtn: "+ Thêm",
+    addCustomBtn: "+ Dòng tùy chỉnh",
+    vatText: "Thuế VAT (%) — để trống nếu Không chịu thuế (KCT):",
+    panel3Title: "3. Các bước triển khai & Tài khoản thanh toán",
+    stepsHeader: "Các bước triển khai (Mỗi dòng 1 bước)",
+    bankHeader: "Thông tin tài khoản ngân hàng chuyển khoản",
+    companyInfo: "<b>CÔNG TY CỔ PHẦN ACMAN</b>Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond<br>Số 459C Bạch Mai, P. Bạch Mai, Q. Hai Bà Trưng, TP. Hà Nội<br>Điện thoại / Zalo: <strong>0327439969</strong><br>Website: www.acman.vn",
+    greeting: "Kính gửi: <i>Quý khách hàng</i>",
+    pvCustName: "Tên công ty:",
+    pvCustTax: "Mã số thuế:",
+    pvCustAddr: "Địa chỉ:",
+    pvCustPerson: "Người liên hệ:",
+    pvCustPhone: "ĐT:",
+    pvStaffName: "Tư vấn viên ACMan:",
+    docTitle: "BÁO GIÁ",
+    docSubtitle: "(Chương trình Bán hàng & Sản phẩm ACMan Quý 3/2026)",
+    thNo: "STT",
+    thDesc: "Sản phẩm / Dịch vụ",
+    thQty: "SL",
+    thPrice: "Đơn giá",
+    thTotal: "Thành tiền",
+    pvSub: "Tạm tính:",
+    pvVat: "VAT:",
+    pvTotal: "Tổng cộng:",
+    pvStepsHeader: "CÁC BƯỚC TRIỂN KHAI:",
+    pvBankHeader: "THÔNG TIN THANH TOÁN CHUYỂN KHOẢN:",
+    signClient: "ĐẠI DIỆN KHÁCH HÀNG",
+    signClientSub: "(Ký và ghi rõ họ tên)",
+    signCompany: "CÔNG TY CỔ PHẦN ACMAN",
+    signCompanySub: "(Đã ký & đóng dấu)",
+    exportPDFBtn: "⭳ Xuất File PDF Báo Giá",
+    printBtn: "🖨 In Báo Giá",
+    stepsText: "Tư vấn, giải đáp vướng mắc, cài đặt, Demo giới thiệu sản phẩm\nThống nhất ký hợp đồng (theo mẫu), thanh toán, xuất hóa đơn GTGT\nĐăng ký HĐĐT lên hệ thống thuế; Cấp bản quyền; Hướng dẫn sử dụng\nNghiệm thu chương trình, chuyển sang giai đoạn bảo hành và hỗ trợ sử dụng 24/7",
+    bankText: "CÔNG TY CỔ PHẦN ACMAN\nSố tài khoản: 12510000382415 (1250382415)\nNgân hàng: BIDV – Chi nhánh Đông Đô"
+  },
+  EN: {
+    langBtn: "🌐 🇬🇧 EN | 🇻🇳 VI",
+    backBtn: "← Back to Pricing List",
+    eyebrow: "🌸 PROFESSIONAL QUOTATION GENERATOR 🌸",
+    mainHeading: "Create Professional Quotation Quickly",
+    subHeading: "Consultant: <strong>Ms. Nguyen Thi Sinh (Hotline/Zalo: 0327439969)</strong>. Select products from Q3/2026 Sales Program or add custom lines to export PDF.",
+    panel1Title: "1. Customer Information",
+    custName: "Company Name / Customer",
+    custTax: "Tax Identification Number (TIN)",
+    custAddr: "Address",
+    custPerson: "Contact Person",
+    custPhone: "Phone Number",
+    staffName: "ACMan Consultant",
+    quoteNo: "Quotation No.",
+    quoteDate: "Quotation Date",
+    custCity: "Issue Location",
+    panel2Title: "2. Select Products / Services",
+    addCatalogBtn: "+ Add Product",
+    addCustomBtn: "+ Custom Line",
+    vatText: "VAT Tax (%) — Leave empty if Non-Taxable (KCT):",
+    panel3Title: "3. Implementation Steps & Payment Bank Account",
+    stepsHeader: "Implementation Steps (One step per line)",
+    bankHeader: "Bank Account Information for Transfer",
+    companyInfo: "<b>ACMAN TECHNOLOGY DEVELOPMENT JSC</b>Room 1503, 15th Fl., Vinaconex Diamond Tower<br>459C Bach Mai St., Bach Mai Ward, Hai Ba Trung Dist., Hanoi<br>Phone / Zalo: <strong>0327439969</strong><br>Website: www.acman.vn",
+    greeting: "To: <i>Valued Customer</i>",
+    pvCustName: "Company Name:",
+    pvCustTax: "Tax Code:",
+    pvCustAddr: "Address:",
+    pvCustPerson: "Contact Person:",
+    pvCustPhone: "Phone:",
+    pvStaffName: "ACMan Consultant:",
+    docTitle: "QUOTATION",
+    docSubtitle: "(ACMan Products & Sales Program Q3/2026)",
+    thNo: "No.",
+    thDesc: "Product / Service Description",
+    thQty: "Qty",
+    thPrice: "Unit Price",
+    thTotal: "Amount",
+    pvSub: "Subtotal:",
+    pvVat: "VAT:",
+    pvTotal: "Total Amount:",
+    pvStepsHeader: "IMPLEMENTATION STEPS:",
+    pvBankHeader: "PAYMENT BANK ACCOUNT DETAILS:",
+    signClient: "CUSTOMER REPRESENTATIVE",
+    signClientSub: "(Signature & Full Name)",
+    signCompany: "ACMAN JOINT STOCK COMPANY",
+    signCompanySub: "(Signed & Sealed)",
+    exportPDFBtn: "⭳ Export Quotation PDF",
+    printBtn: "🖨 Print Quotation",
+    stepsText: "Consulting, setup, software demonstration & Q&A\nSign agreement contract, payment settlement, issue VAT invoice\nRegister e-invoice with tax authority; Issue license; End-user training\nProject acceptance, transition to 24/7 warranty and support phase",
+    bankText: "ACMAN TECHNOLOGY DEVELOPMENT JOINT STOCK COMPANY\nAccount No: 12510000382415 (1250382415)\nBank: BIDV – Dong Do Branch"
+  }
+};
+
 const CATALOG = [
   { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói 01 MST) — 500 HĐ", price: 500000 },
   { group: "Tải & Import Hóa Đơn", name: "Tải & Import Hóa đơn (Gói 01 MST) — 1.000 HĐ", price: 800000 },
@@ -707,7 +836,85 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   addFromCatalog();
+  applyLanguage();
 });
+
+function toggleLanguage() {
+  currentLang = currentLang === "VI" ? "EN" : "VI";
+  applyLanguage();
+}
+
+function applyLanguage() {
+  const t = I18N[currentLang];
+
+  document.getElementById("btnLangToggle").textContent = t.langBtn;
+  document.getElementById("lblBackBtn").textContent = t.backBtn;
+  document.getElementById("lblEyebrow").textContent = t.eyebrow;
+  document.getElementById("lblMainHeading").textContent = t.mainHeading;
+  document.getElementById("lblSubHeading").innerHTML = t.subHeading;
+
+  document.getElementById("lblPanel1Title").innerHTML = `<span class="num-badge">1</span> ${t.panel1Title}`;
+  document.getElementById("lblCustName").textContent = t.custName;
+  document.getElementById("lblCustTax").textContent = t.custTax;
+  document.getElementById("lblCustAddr").textContent = t.custAddr;
+  document.getElementById("lblCustPerson").textContent = t.custPerson;
+  document.getElementById("lblCustPhone").textContent = t.custPhone;
+  document.getElementById("lblStaffName").textContent = t.staffName;
+  document.getElementById("lblQuoteNo").textContent = t.quoteNo;
+  document.getElementById("lblQuoteDate").textContent = t.quoteDate;
+  document.getElementById("lblCustCity").textContent = t.custCity;
+
+  document.getElementById("lblPanel2Title").innerHTML = `<span class="num-badge">2</span> ${t.panel2Title}`;
+  document.getElementById("btnAddCatalog").textContent = t.addCatalogBtn;
+  document.getElementById("btnAddCustom").textContent = t.addCustomBtn;
+  document.getElementById("lblVatText").textContent = t.vatText;
+
+  document.getElementById("thFormName").textContent = t.thDesc;
+  document.getElementById("thFormQty").textContent = t.thQty;
+  document.getElementById("thFormPrice").textContent = t.thPrice;
+  document.getElementById("thFormTotal").textContent = t.thTotal;
+
+  document.getElementById("lblPanel3Title").innerHTML = `<span class="num-badge">3</span> ${t.panel3Title}`;
+  document.getElementById("lblStepsHeader").textContent = t.stepsHeader;
+  document.getElementById("lblBankHeader").textContent = t.bankHeader;
+
+  document.getElementById("stepsText").value = t.stepsText;
+  document.getElementById("bankText").value = t.bankText;
+
+  document.getElementById("paperCompanyInfo").innerHTML = t.companyInfo;
+  document.getElementById("pvGreeting").innerHTML = t.greeting;
+  document.getElementById("lblPvCustName").textContent = t.pvCustName;
+  document.getElementById("lblPvCustTax").textContent = t.pvCustTax;
+  document.getElementById("lblPvCustAddr").textContent = t.pvCustAddr;
+  document.getElementById("lblPvCustPerson").textContent = t.pvCustPerson;
+  document.getElementById("lblPvCustPhone").textContent = t.pvCustPhone;
+  document.getElementById("lblPvStaffName").textContent = t.pvStaffName;
+
+  document.getElementById("pvDocTitle").textContent = t.docTitle;
+  document.getElementById("pvDocSubtitle").textContent = t.docSubtitle;
+
+  document.getElementById("thPvNo").textContent = t.thNo;
+  document.getElementById("thPvDesc").textContent = t.thDesc;
+  document.getElementById("thPvQty").textContent = t.thQty;
+  document.getElementById("thPvPrice").textContent = t.thPrice;
+  document.getElementById("thPvTotal").textContent = t.thTotal;
+
+  document.getElementById("lblPvSub").textContent = t.pvSub;
+  document.getElementById("lblPvTotal").textContent = t.pvTotal;
+
+  document.getElementById("lblPvStepsHeader").textContent = t.pvStepsHeader;
+  document.getElementById("lblPvBankHeader").textContent = t.pvBankHeader;
+
+  document.getElementById("lblSignClient").textContent = t.signClient;
+  document.getElementById("lblSignClientSub").textContent = t.signClientSub;
+  document.getElementById("lblSignCompany").textContent = t.signCompany;
+  document.getElementById("lblSignCompanySub").textContent = t.signCompanySub;
+
+  document.getElementById("btnExportPDF").textContent = t.exportPDFBtn;
+  document.getElementById("btnPrint").textContent = t.printBtn;
+
+  render();
+}
 
 function addFromCatalog() {
   const idx = document.getElementById("catalogSelect").value;
@@ -720,7 +927,7 @@ function addFromCatalog() {
 }
 
 function addCustomRow() {
-  items.push({ name: "Sản phẩm / Dịch vụ tùy chỉnh", qty: 1, price: 1000000 });
+  items.push({ name: currentLang === "VI" ? "Sản phẩm / Dịch vụ tùy chỉnh" : "Custom Product / Service", qty: 1, price: 1000000 });
   renderFormItems();
   render();
 }
@@ -749,18 +956,25 @@ function renderFormItems() {
 }
 
 function render() {
+  const t = I18N[currentLang];
   const name = document.getElementById("custName").value || "---";
   const tax = document.getElementById("custTax").value || "---";
   const addr = document.getElementById("custAddr").value || "---";
   const person = document.getElementById("custPerson").value || "---";
   const phone = document.getElementById("custPhone").value || "---";
-  const staff = document.getElementById("staffName").value || "Nguyễn Thị Sinh - 0327439969";
+  const staff = document.getElementById("staffName").value || (currentLang === "VI" ? "Nguyễn Thị Sinh - 0327439969" : "Ms. Nguyen Thi Sinh - 0327439969");
   const quoteNo = document.getElementById("quoteNo").value || "BG-2026-0001";
-  const city = document.getElementById("custCity").value || "Hà Nội";
+  const city = document.getElementById("custCity").value || (currentLang === "VI" ? "Hà Nội" : "Hanoi");
   
   const dVal = document.getElementById("quoteDate").value;
   const d = dVal ? new Date(dVal) : new Date();
-  const dateStr = `${city}, ngày ${d.getDate()} tháng ${d.getMonth() + 1} năm ${d.getFullYear()}`;
+  
+  let dateStr = "";
+  if (currentLang === "VI") {
+    dateStr = `${city}, ngày ${d.getDate()} tháng ${d.getMonth() + 1} năm ${d.getFullYear()}`;
+  } else {
+    dateStr = `${city}, ${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+  }
 
   document.getElementById("pvDate").textContent = dateStr;
   document.getElementById("pvCustName").textContent = name;
@@ -770,7 +984,7 @@ function render() {
   document.getElementById("pvCustPhone").textContent = phone;
   document.getElementById("pvStaffName").textContent = staff;
   document.getElementById("pvSignName").textContent = staff;
-  document.getElementById("pvMeta").textContent = "Số: " + quoteNo;
+  document.getElementById("pvMeta").textContent = (currentLang === "VI" ? "Số: " : "No: ") + quoteNo;
 
   const pvBody = document.getElementById("pvBody");
   pvBody.innerHTML = "";
@@ -778,7 +992,7 @@ function render() {
   let subtotal = 0;
 
   if (items.length === 0) {
-    pvBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#999; font-style:italic; padding:20px;">Chưa có sản phẩm trong báo giá</td></tr>`;
+    pvBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#999; font-style:italic; padding:20px;">${currentLang === "VI" ? "Chưa có sản phẩm trong báo giá" : "No items in quotation"}</td></tr>`;
   } else {
     items.forEach((item, i) => {
       const lineTotal = item.qty * item.price;
@@ -797,14 +1011,14 @@ function render() {
 
   const vatInput = document.getElementById("vatRate").value.trim();
   let vatAmount = 0;
-  let vatLabelText = "VAT:";
+  let vatLabelText = t.pvVat;
 
   if (vatInput !== "" && !isNaN(vatInput)) {
     const rate = parseFloat(vatInput);
     vatAmount = Math.round(subtotal * (rate / 100));
     vatLabelText = `VAT (${rate}%):`;
   } else if (vatInput.toUpperCase() === "KCT" || vatInput === "") {
-    vatLabelText = "VAT (KCT):";
+    vatLabelText = currentLang === "VI" ? "VAT (KCT):" : "VAT (Exempt):";
     vatAmount = 0;
   }
 
