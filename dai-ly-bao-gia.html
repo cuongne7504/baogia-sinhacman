@@ -492,6 +492,14 @@
 
   table.paper-table tr { page-break-inside: avoid; }
 
+  table.paper-table tr.group-header-row td {
+    background: #f2f2f2 !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    padding: 7px 10px !important;
+  }
+
   table.paper-table td.num, table.paper-table th.num { text-align: right; }
 
   .paper-totals {
@@ -611,11 +619,11 @@
         <div class="panel-card">
           <h3 id="lblPanel1Title"><span class="num-badge">1</span> Thông tin khách hàng</h3>
           <div class="grid2">
-            <div class="field-group"><label id="lblCustName">Tên công ty / Khách hàng</label><input id="custName" type="text" placeholder="Công ty TNHH ABC" oninput="render()"></div>
-            <div class="field-group"><label id="lblCustTax">Mã số thuế</label><input id="custTax" type="text" placeholder="0312345678" oninput="render()"></div>
-            <div class="field-group" style="grid-column:1/-1"><label id="lblCustAddr">Địa chỉ</label><input id="custAddr" type="text" placeholder="123 Đường ABC, Q.1, TP. Hồ Chí Minh" oninput="render()"></div>
-            <div class="field-group"><label id="lblCustPerson">Người liên hệ</label><input id="custPerson" type="text" placeholder="Nguyễn Văn A" oninput="render()"></div>
-            <div class="field-group"><label id="lblCustPhone">Số điện thoại</label><input id="custPhone" type="text" placeholder="0901 234 567" oninput="render()"></div>
+            <div class="field-group"><label id="lblCustName">Tên công ty / Khách hàng</label><input id="custName" type="text" placeholder="Để trống nếu muốn ẩn" oninput="render()"></div>
+            <div class="field-group"><label id="lblCustTax">Mã số thuế</label><input id="custTax" type="text" placeholder="Để trống nếu muốn ẩn" oninput="render()"></div>
+            <div class="field-group" style="grid-column:1/-1"><label id="lblCustAddr">Địa chỉ</label><input id="custAddr" type="text" placeholder="Để trống nếu muốn ẩn" oninput="render()"></div>
+            <div class="field-group"><label id="lblCustPerson">Người liên hệ</label><input id="custPerson" type="text" placeholder="Để trống nếu muốn ẩn" oninput="render()"></div>
+            <div class="field-group"><label id="lblCustPhone">Số điện thoại</label><input id="custPhone" type="text" placeholder="Để trống nếu muốn ẩn" oninput="render()"></div>
             <div class="field-group"><label id="lblQuoteNo">Số báo giá</label><input id="quoteNo" type="text" placeholder="BG-2026-0001" oninput="render()"></div>
             <div class="field-group"><label id="lblQuoteDate">Ngày báo giá</label><input id="quoteDate" type="date" onchange="render()"></div>
             <div class="field-group" style="grid-column:1/-1"><label id="lblCustCity">Nơi phát hành</label><input id="custCity" type="text" value="Hà Nội" oninput="render()"></div>
@@ -683,38 +691,25 @@ Các tiện ích khác của chương trình:
           </div>
         </div>
 
-        <!-- PANEL 3: QUY TRÌNH, BẢO HÀNH, CHÍNH SÁCH & LIÊN HỆ -->
+        <!-- PANEL 3: QUY TRÌNH, BẢO HÀNH & LIÊN HỆ -->
         <div class="panel-card">
           <h3 id="lblPanel3Title"><span class="num-badge">3</span> Quy trình thực hiện, Bảo hành & Liên hệ</h3>
           <div class="field-group">
-            <label>III. Quy trình thực hiện (Nhập chi tiết từng mục):</label>
-            <textarea id="processText" rows="10" oninput="render()">3.1. Phương thức thực hiện
-- Nhận thông tin báo giá và lựa chọn dịch vụ từ ACMAN
-- Cán bộ ACMAN tư vấn và giải đáp về dịch vụ và quy định pháp luật
-- Thống nhất dịch vụ và ký kết hợp đồng kinh tế
-- ACMAN thực hiện chuyển giao theo kế hoạch đã thống nhất
-- Nghiệm thu, cấp sổ bảo hành và chuyển hợp đồng sang giai đoạn bảo hành
-
-3.2. Cam kết từ ACMan
-- Giải pháp tối ưu, chi phí thấp nhất khi lựa chọn sản phẩm dịch vụ ACMAN
-- ACMAN là một địa chỉ tin cậy, giải quyết các vướng mắc về tài chính kế toán thuế.
-  (Giải đáp trực tuyến các vướng mắc tài chính kế toán vào 9h đến 10h thứ 7 hàng tuần)
-- Thực hiện bảo hành hỗ trợ sau bán hàng tốt nhất – 03 tháng hỗ trợ kiểm tra dữ liệu 01 lần</textarea>
+            <label>III. Quy trình thực hiện (Được đánh số 1, 2, 3...):</label>
+            <textarea id="processText" rows="6" oninput="render()">1. Tư vấn & báo giá: ACMan tiếp nhận nhu cầu, tư vấn dịch vụ và giải đáp quy định pháp luật.
+2. Ký kết hợp đồng: Hai bên thống nhất phạm vi dịch vụ và ký hợp đồng kinh tế.
+3. Triển khai dịch vụ: ACMan thực hiện chuyển giao theo kế hoạch đã thống nhất.
+4. Nghiệm thu & bảo hành: Nghiệm thu, bàn giao và chuyển sang giai đoạn bảo hành.
+5. Cam kết đồng hành: Giải pháp tối ưu, chi phí hợp lý; hỗ trợ tư vấn kế toán – thuế và kiểm tra dữ liệu</textarea>
           </div>
 
           <div class="field-group">
-            <label>IV. Bảo hành, bảo trì ACMan:</label>
-            <textarea id="warrantyText" rows="8" oninput="render()">4.1 Nội dung bảo hành, bảo trì phần mềm ACMan:
-Phần mềm được nâng cấp theo chế độ kế toán, thuế; Xử lý mọi vướng mắc trong quá trình sử dụng chương trình; Kiểm tra số liệu cảnh báo sai sót nếu có (3 tháng/1 lần); Hỗ trợ cài đặt chương trình khi máy tính gặp sự cố (Không bao gồm hỗ trợ phần cứng và hệ điều hành, phần mềm khác); Hỗ trợ kiểm tra dữ liệu, hóa đơn chứng từ; Hỗ trợ chuyển số dư cuối kỳ cho năm tài chính mới.
-
-4.2 Phương thức thực hiện bảo hành, bảo trì và hỗ trợ:
-- Mọi phát sinh, vướng mắc trong quá trình sử dụng kế toán ghi vào nhật ký sổ bảo hành và đồng thời chuyển vướng mắc đó về bộ phận bảo hành hỗ trợ khách hàng Công ty Cổ Phần ACMAN thông qua điện thoại, chat, Email hoặc trực tiếp.
-- Bộ phận bảo hành hỗ trợ khách hàng ACMAN tiếp nhận thông tin xử lý và giải đáp tức thời cho khách hàng (Thời gian khắc phục tối đa 2 ngày làm việc kể từ khi nhận được yêu cầu hoặc thống nhất bằng văn bản).</textarea>
-          </div>
-
-          <div class="field-group">
-            <label>V. Chính sách Đại lý:</label>
-            <textarea id="policyText" rows="2" oninput="render()">- Đại lý hưởng 50% giá trị hợp đồng.</textarea>
+            <label>IV. Bảo hành, bảo trì ACMan (Được đánh số 1, 2, 3...):</label>
+            <textarea id="warrantyText" rows="6" oninput="render()">1. Cập nhật phần mềm: Nâng cấp theo các quy định mới về kế toán, thuế.
+2. Hỗ trợ sử dụng: Xử lý vướng mắc, hỗ trợ kiểm tra dữ liệu, hóa đơn chứng từ và chuyển số dư sang năm tài chính mới.
+3. Kiểm tra định kỳ: Kiểm tra, cảnh báo sai sót dữ liệu 3 tháng/lần.
+4. Hỗ trợ kỹ thuật: Cài đặt lại chương trình khi máy tính gặp sự cố (không bao gồm phần cứng, hệ điều hành và phần mềm khác).
+5. Tiếp nhận & xử lý yêu cầu: Hỗ trợ qua điện thoại, chat, email hoặc trực tiếp; thời gian khắc phục tối đa 2 ngày làm việc kể từ khi tiếp nhận hoặc theo thỏa thuận bằng văn bản.</textarea>
           </div>
 
           <div class="grid2">
@@ -726,11 +721,15 @@ Phần mềm được nâng cấp theo chế độ kế toán, thuế; Xử lý 
               <label>Hotline / Zalo liên hệ:</label>
               <input id="consultantPhone" type="text" value="0327439969" oninput="render()">
             </div>
+            <div class="field-group" style="grid-column: 1/-1;">
+              <label>Email liên hệ:</label>
+              <input id="consultantEmail" type="text" value="tueann2411@gmail.com" oninput="render()">
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CỘT PHẢI: PREVIEW GIẤY BÁO GIÁ XUẤT FILE PDF (KHÔNG CÓ MÀU HỒNG, CHUẨN ĐEN TRẮNG CONG TY) -->
+      <!-- CỘT PHẢI: PREVIEW GIẤY BÁO GIÁ XUẤT FILE PDF -->
       <div class="preview-sticky">
         <div id="previewPaper" class="paper-sheet">
           <div class="paper-header">
@@ -740,7 +739,7 @@ Phần mềm được nâng cấp theo chế độ kế toán, thuế; Xử lý 
             <div class="paper-company-info" id="paperCompanyInfo">
               <b>CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ ACMAN</b>
               Địa chỉ: Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond Số 459C Bạch Mai, Hà Nội<br>
-              Điện thoại: <strong>032.743.9969</strong> | Email: sales@acman.vn | Website: www.acman.vn
+              Điện thoại: <strong>032.743.9969</strong> | Email: <span id="hdrEmailDisplay">tueann2411@gmail.com</span> | Website: www.acman.vn
             </div>
           </div>
 
@@ -751,11 +750,8 @@ Phần mềm được nâng cấp theo chế độ kế toán, thuế; Xử lý 
 
           <div class="paper-greeting" id="pvGreeting">Kính gửi: BAN GIÁM ĐỐC - PHÒNG KẾ TOÁN QUÝ CÔNG TY</div>
           
-          <div class="paper-client-info" id="pvClient">
-            <span id="lblPvCustName">Tên công ty:</span> <strong id="pvCustName">---</strong><br>
-            <span id="lblPvCustTax">Mã số thuế:</span> <span id="pvCustTax">---</span> | <span id="lblPvCustAddr">Địa chỉ:</span> <span id="pvCustAddr">---</span><br>
-            <span id="lblPvCustPerson">Người liên hệ:</span> <span id="pvCustPerson">---</span> | <span id="lblPvCustPhone">ĐT:</span> <span id="pvCustPhone">---</span>
-          </div>
+          <!-- THÔNG TIN KHÁCH HÀNG (TỰ ĐỘNG ẨN CÁC MỤC BỎ TRỐNG, CHỈ HIỆN KHI ĐIỀN) -->
+          <div class="paper-client-info" id="pvClient"></div>
 
           <!-- LỜI GIỚI THIỆU & CÁC TÍNH NĂNG CĂN BẢN TRÊN GIẤY BÁO GIÁ -->
           <div class="paper-features-box" id="pvFeaturesBox">
@@ -797,12 +793,6 @@ Phần mềm được nâng cấp theo chế độ kế toán, thuế; Xử lý 
             <div id="pvWarranty"></div>
           </div>
 
-          <!-- MỤC V: CHÍNH SÁCH ĐẠI LÝ -->
-          <div class="paper-section-block">
-            <h3>V. Chính sách Đại lý</h3>
-            <div id="pvPolicy"></div>
-          </div>
-
           <div class="paper-signature">
             <div class="sign-col">
               <b id="lblSignClient">ĐẠI DIỆN KHÁCH HÀNG</b><br>
@@ -812,7 +802,7 @@ Phần mềm được nâng cấp theo chế độ kế toán, thuế; Xử lý 
               <b>Trân trọng!</b><br>
               <b>CÔNG TY CỔ PHẦN ACMAN</b><br>
               <div style="margin-top:6px;">Acman Kinh doanh _<strong id="pvConsultantDisplay">NGUYỄN THỊ SINH</strong></div>
-              <small style="font-size:11px; display:block; margin-top:4px;">Hotline: <span id="pvPhoneDisplay">032.743.9969</span> | Email: sales@acman.vn</small>
+              <small style="font-size:11px; display:block; margin-top:4px;">Hotline: <span id="pvPhoneDisplay">032.743.9969</span> | Email: <span id="pvEmailDisplay">tueann2411@gmail.com</span></small>
             </div>
           </div>
         </div>
@@ -853,7 +843,7 @@ const I18N = {
     addCustomBtn: "+ Dòng tùy chỉnh",
     vatText: "Thuế VAT (%) — để trống nếu Không chịu thuế (KCT):",
     panel3Title: "3. Quy trình thực hiện, Bảo hành & Liên hệ",
-    companyInfo: "<b>CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ ACMAN</b>Địa chỉ: Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond Số 459C Bạch Mai, Hà Nội<br>Điện thoại: <strong>032.743.9969</strong> | Email: sales@acman.vn | Website: www.acman.vn",
+    companyInfo: "<b>CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ ACMAN</b>Địa chỉ: Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond Số 459C Bạch Mai, Hà Nội<br>Điện thoại: <strong>032.743.9969</strong> | Email: <span id='hdrEmailDisplay'>tueann2411@gmail.com</span> | Website: www.acman.vn",
     greeting: "Kính gửi: BAN GIÁM ĐỐC - PHÒNG KẾ TOÁN QUÝ CÔNG TY",
     pvCustName: "Tên công ty:",
     pvCustTax: "Mã số thuế:",
@@ -899,7 +889,7 @@ const I18N = {
     addCustomBtn: "+ Custom Line",
     vatText: "VAT Tax (%) — Leave empty if Non-Taxable (KCT):",
     panel3Title: "3. Process, Warranty & Contact",
-    companyInfo: "<b>ACMAN TECHNOLOGY DEVELOPMENT JSC</b>Address: Rm 1503, 15th Fl, Vinaconex Diamond Bldg, 459C Bach Mai, Hanoi<br>Phone: <strong>032.743.9969</strong> | Email: sales@acman.vn | Website: www.acman.vn",
+    companyInfo: "<b>ACMAN TECHNOLOGY DEVELOPMENT JSC</b>Address: Rm 1503, 15th Fl, Vinaconex Diamond Bldg, 459C Bach Mai, Hanoi<br>Phone: <strong>032.743.9969</strong> | Email: <span id='hdrEmailDisplay'>tueann2411@gmail.com</span> | Website: www.acman.vn",
     greeting: "To: BOARD OF DIRECTORS - ACCOUNTING DEPARTMENT",
     pvCustName: "Company Name:",
     pvCustTax: "Tax Code:",
@@ -1176,11 +1166,6 @@ function applyLanguage() {
 
   document.getElementById("paperCompanyInfo").innerHTML = t.companyInfo;
   document.getElementById("pvGreeting").innerHTML = t.greeting;
-  document.getElementById("lblPvCustName").textContent = t.pvCustName;
-  document.getElementById("lblPvCustTax").textContent = t.pvCustTax;
-  document.getElementById("lblPvCustAddr").textContent = t.pvCustAddr;
-  document.getElementById("lblPvCustPerson").textContent = t.pvCustPerson;
-  document.getElementById("lblPvCustPhone").textContent = t.pvCustPhone;
 
   document.getElementById("pvDocTitle").textContent = t.docTitle;
   document.getElementById("pvDocSubtitle").textContent = t.docSubtitle;
@@ -1207,14 +1192,14 @@ function addFromCatalog() {
   const idx = document.getElementById("catalogSelect").value;
   if (idx !== "") {
     const item = CATALOG[idx];
-    items.push({ name: item.name, qty: 1, price: item.price });
+    items.push({ group: item.group, name: item.name, qty: 1, price: item.price });
     renderFormItems();
     render();
   }
 }
 
 function addCustomRow() {
-  items.push({ name: currentLang === "VN" ? "Sản phẩm / Dịch vụ tùy chỉnh" : "Custom Product / Service", qty: 1, price: 1000000 });
+  items.push({ group: currentLang === "VN" ? "Sản phẩm / Dịch vụ khác" : "Other Products / Services", name: currentLang === "VN" ? "Sản phẩm tùy chỉnh" : "Custom Product", qty: 1, price: 1000000 });
   renderFormItems();
   render();
 }
@@ -1242,17 +1227,35 @@ function renderFormItems() {
   });
 }
 
+function toRoman(num) {
+  const romanMap = [
+    { v: 10, r: "X" },
+    { v: 9, r: "IX" },
+    { v: 5, r: "V" },
+    { v: 4, r: "IV" },
+    { v: 1, r: "I" }
+  ];
+  let result = "";
+  for (let i = 0; i < romanMap.length; i++) {
+    while (num >= romanMap[i].v) {
+      result += romanMap[i].r;
+      num -= romanMap[i].v;
+    }
+  }
+  return result;
+}
+
 function formatFormattedBlock(text) {
   return text.replace(/\n/g, "<br>");
 }
 
 function render() {
   const t = I18N[currentLang];
-  const name = document.getElementById("custName").value || "---";
-  const tax = document.getElementById("custTax").value || "---";
-  const addr = document.getElementById("custAddr").value || "---";
-  const person = document.getElementById("custPerson").value || "---";
-  const phone = document.getElementById("custPhone").value || "---";
+  const name = document.getElementById("custName").value.trim();
+  const tax = document.getElementById("custTax").value.trim();
+  const addr = document.getElementById("custAddr").value.trim();
+  const person = document.getElementById("custPerson").value.trim();
+  const phone = document.getElementById("custPhone").value.trim();
   const quoteNo = document.getElementById("quoteNo").value || "BG-2026-0001";
   const city = document.getElementById("custCity").value || (currentLang === "VN" ? "Hà Nội" : "Hanoi");
   
@@ -1267,11 +1270,36 @@ function render() {
   }
 
   document.getElementById("pvDate").textContent = dateStr;
-  document.getElementById("pvCustName").textContent = name;
-  document.getElementById("pvCustTax").textContent = tax;
-  document.getElementById("pvCustAddr").textContent = addr;
-  document.getElementById("pvCustPerson").textContent = person;
-  document.getElementById("pvCustPhone").textContent = phone;
+
+  // 1. XỬ LÝ THÔNG TIN KHÁCH HÀNG: CHỈ HIỆN CÁC MỤC CÓ ĐIỀN THÔNG TIN, BỎ TRỐNG THÌ ẨN ĐI
+  const clientBox = document.getElementById("pvClient");
+  let clientHtml = "";
+
+  if (name) {
+    clientHtml += `<div>${t.pvCustName} <strong>${name}</strong></div>`;
+  }
+  
+  let line2Parts = [];
+  if (tax) line2Parts.push(`${t.pvCustTax} <span>${tax}</span>`);
+  if (addr) line2Parts.push(`${t.pvCustAddr} <span>${addr}</span>`);
+  if (line2Parts.length > 0) {
+    clientHtml += `<div>${line2Parts.join(" | ")}</div>`;
+  }
+
+  let line3Parts = [];
+  if (person) line3Parts.push(`${t.pvCustPerson} <span>${person}</span>`);
+  if (phone) line3Parts.push(`${t.pvCustPhone} <span>${phone}</span>`);
+  if (line3Parts.length > 0) {
+    clientHtml += `<div>${line3Parts.join(" | ")}</div>`;
+  }
+
+  if (clientHtml === "") {
+    clientBox.style.display = "none";
+    clientBox.innerHTML = "";
+  } else {
+    clientBox.style.display = "block";
+    clientBox.innerHTML = clientHtml;
+  }
 
   // LỜI GIỚI THIỆU & CÁC TÍNH NĂNG CĂN BẢN
   const introTextVal = document.getElementById("introText").value.trim();
@@ -1312,6 +1340,7 @@ function render() {
   mainListHtml += "</ol>";
   featuresContainer.innerHTML = mainListHtml;
 
+  // 2. HIỂN THỊ DẠNG SỐ LA MÃ (I., II., III...) CHO TỪNG NHÓM SẢN PHẨM TRONG BẢNG BÁO GIÁ
   const pvBody = document.getElementById("pvBody");
   pvBody.innerHTML = "";
 
@@ -1320,18 +1349,40 @@ function render() {
   if (items.length === 0) {
     pvBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#999; font-style:italic; padding:20px;">${currentLang === "VN" ? "Chưa có sản phẩm trong báo giá" : "No items in quotation"}</td></tr>`;
   } else {
-    items.forEach((item, i) => {
-      const lineTotal = item.qty * item.price;
-      subtotal += lineTotal;
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td style="text-align:center;">${i + 1}</td>
-        <td><strong>${item.name}</strong></td>
-        <td class="num">${item.qty}</td>
-        <td class="num">${item.price.toLocaleString("vi-VN")} đ</td>
-        <td class="num" style="font-weight:700; color:#000000;">${lineTotal.toLocaleString("vi-VN")} đ</td>
-      `;
-      pvBody.appendChild(tr);
+    const groupsMap = {};
+    const groupOrder = [];
+
+    items.forEach(item => {
+      const gName = item.group || (currentLang === "VN" ? "Sản phẩm / Dịch vụ khác" : "Other Products");
+      if (!groupsMap[gName]) {
+        groupsMap[gName] = [];
+        groupOrder.push(gName);
+      }
+      groupsMap[gName].push(item);
+    });
+
+    groupOrder.forEach((gName, gIdx) => {
+      const romanIndex = toRoman(gIdx + 1);
+      const cleanGroupTitle = gName.replace(/^[0-9.]+\s*/, "");
+
+      const groupTr = document.createElement("tr");
+      groupTr.className = "group-header-row";
+      groupTr.innerHTML = `<td colspan="5"><strong>${romanIndex}. ${cleanGroupTitle}</strong></td>`;
+      pvBody.appendChild(groupTr);
+
+      groupsMap[gName].forEach((item, itemIdx) => {
+        const lineTotal = item.qty * item.price;
+        subtotal += lineTotal;
+        const itemTr = document.createElement("tr");
+        itemTr.innerHTML = `
+          <td style="text-align:center;">${itemIdx + 1}</td>
+          <td><strong>${item.name}</strong></td>
+          <td class="num">${item.qty}</td>
+          <td class="num">${item.price.toLocaleString("vi-VN")} đ</td>
+          <td class="num" style="font-weight:700; color:#000000;">${lineTotal.toLocaleString("vi-VN")} đ</td>
+        `;
+        pvBody.appendChild(itemTr);
+      });
     });
   }
 
@@ -1355,27 +1406,28 @@ function render() {
   document.getElementById("pvVat").textContent = vatAmount.toLocaleString("vi-VN") + " đ";
   document.getElementById("pvTotal").textContent = grandTotal.toLocaleString("vi-VN") + " đ";
 
-  // MỤC III, IV, V
+  // MỤC III & IV DẠNG SỐ 1, 2, 3...
   const processText = document.getElementById("processText").value;
   document.getElementById("pvProcess").innerHTML = formatFormattedBlock(processText);
 
   const warrantyText = document.getElementById("warrantyText").value;
   document.getElementById("pvWarranty").innerHTML = formatFormattedBlock(warrantyText);
 
-  const policyText = document.getElementById("policyText").value;
-  document.getElementById("pvPolicy").innerHTML = formatFormattedBlock(policyText);
-
   const consultantNameVal = document.getElementById("consultantName").value || "NGUYỄN THỊ SINH";
   const consultantPhoneVal = document.getElementById("consultantPhone").value || "0327439969";
+  const consultantEmailVal = document.getElementById("consultantEmail").value || "tueann2411@gmail.com";
+  
   document.getElementById("pvConsultantDisplay").textContent = consultantNameVal;
   document.getElementById("pvPhoneDisplay").textContent = consultantPhoneVal;
+  document.getElementById("pvEmailDisplay").textContent = consultantEmailVal;
+  const hdrEmail = document.getElementById("hdrEmailDisplay");
+  if (hdrEmail) hdrEmail.textContent = consultantEmailVal;
 }
 
 function exportPDF() {
   const element = document.getElementById("previewPaper");
   const quoteNo = document.getElementById("quoteNo").value || "BaoGia";
 
-  // SỬA TRIỆT ĐỂ LỖI TRANG 1 BỊ TRẮNG: Reset window.scrollTo(0,0) và dùng html2canvas scrollY:0
   window.scrollTo(0, 0);
 
   const opt = {
