@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
@@ -99,7 +99,6 @@
     gap: 12px;
   }
 
-  /* TẤT CẢ CÁC NÚT HEADER ĐỀU CÓ STYLE PILL TRẮNG CHUẨN ĐỒNG BỘ NHƯ ẢNH 4 */
   .btn-pill-white,
   .lang-pill-btn,
   .btn-back {
@@ -364,7 +363,6 @@
 
   .del-btn:hover { color: #ff1744; }
 
-  /* PREVIEW PAPER SHEET */
   .preview-sticky {
     position: sticky;
     top: 90px;
@@ -525,7 +523,6 @@
       </div>
     </div>
     <div class="header-nav">
-      <!-- NÚT CHUYỂN NGÔN NGỮ PILL TRẮNG VN | EN CHUẨN ĐỒNG BỘ NHƯ ẢNH 4 -->
       <button class="lang-pill-btn btn-pill-white" onclick="toggleLanguage()" id="btnLangToggle">
         <span class="globe-icon">🌐</span>
         <span class="lang-opt active" id="optFormVN">VN</span>
@@ -617,12 +614,10 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
             <div>
               <img src="assets/logo.png" alt="ACMan Logo" class="paper-logo-img">
             </div>
-            <!-- BỎ EMAIL VÀ THAY SĐT 0327439969 CHUẨN HOÀN TOÀN -->
             <div class="paper-company-info" id="paperCompanyInfo">
               <b>CÔNG TY CỔ PHẦN ACMAN</b>
               Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond<br>
               Số 459C Bạch Mai, P. Bạch Mai, Q. Hai Bà Trưng, TP. Hà Nội<br>
-              Điện thoại / Zalo: <strong>0327439969</strong><br>
               Website: www.acman.vn
             </div>
           </div>
@@ -691,7 +686,6 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
   </main>
 
 <script>
-// MẶC ĐỊNH LÀ TIẾNG VIỆT (VN)
 let currentLang = "VN";
 
 const I18N = {
@@ -717,7 +711,7 @@ const I18N = {
     panel3Title: "3. Các bước triển khai & Tài khoản thanh toán",
     stepsHeader: "Các bước triển khai (Mỗi dòng 1 bước)",
     bankHeader: "Thông tin tài khoản ngân hàng chuyển khoản",
-    companyInfo: "<b>CÔNG TY CỔ PHẦN ACMAN</b>Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond<br>Số 459C Bạch Mai, P. Bạch Mai, Q. Hai Bà Trưng, TP. Hà Nội<br>Điện thoại / Zalo: <strong>0327439969</strong><br>Website: www.acman.vn",
+    companyInfo: "<b>CÔNG TY CỔ PHẦN ACMAN</b>Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond<br>Số 459C Bạch Mai, P. Bạch Mai, Q. Hai Bà Trưng, TP. Hà Nội<br>Website: www.acman.vn",
     greeting: "Kính gửi: <i>Quý khách hàng</i>",
     pvCustName: "Tên công ty:",
     pvCustTax: "Mã số thuế:",
@@ -767,7 +761,7 @@ const I18N = {
     panel3Title: "3. Implementation Steps & Payment Bank Account",
     stepsHeader: "Implementation Steps (One step per line)",
     bankHeader: "Bank Account Information for Transfer",
-    companyInfo: "<b>ACMAN TECHNOLOGY DEVELOPMENT JSC</b>Room 1503, 15th Fl., Vinaconex Diamond Tower<br>459C Bach Mai St., Bach Mai Ward, Hai Ba Trung Dist., Hanoi<br>Phone / Zalo: <strong>0327439969</strong><br>Website: www.acman.vn",
+    companyInfo: "<b>ACMAN TECHNOLOGY DEVELOPMENT JSC</b>Room 1503, 15th Fl., Vinaconex Diamond Tower<br>459C Bach Mai St., Bach Mai Ward, Hai Ba Trung Dist., Hanoi<br>Website: www.acman.vn",
     greeting: "To: <i>Valued Customer</i>",
     pvCustName: "Company Name:",
     pvCustTax: "Tax Code:",
@@ -775,7 +769,25 @@ const I18N = {
     pvCustPerson: "Contact Person:",
     pvCustPhone: "Phone:",
     docTitle: "QUOTATION",
-    docSubtitle: "(ACMan Products & Sales Program Q3/2026""
+    docSubtitle: "(ACMan Products & Sales Program Q3/2026)",
+    thNo: "No.",
+    thDesc: "Product / Service Description",
+    thQty: "Qty",
+    thPrice: "Unit Price",
+    thTotal: "Amount",
+    pvSub: "Subtotal:",
+    pvVat: "VAT:",
+    pvTotal: "Total Amount:",
+    pvStepsHeader: "IMPLEMENTATION STEPS:",
+    pvBankHeader: "PAYMENT BANK ACCOUNT DETAILS:",
+    signClient: "CUSTOMER REPRESENTATIVE",
+    signClientSub: "(Signature & Full Name)",
+    signCompany: "ACMAN JOINT STOCK COMPANY",
+    signCompanySub: "(Signed & Sealed)",
+    exportPDFBtn: "⭳ Export Quotation PDF",
+    printBtn: "🖨 Print Quotation",
+    stepsText: "Consulting, setup, software demonstration & Q&A\nSign agreement contract, payment settlement, issue VAT invoice\nRegister e-invoice with tax authority; Issue license; End-user training\nProject acceptance, transition to 24/7 warranty and support phase",
+    bankText: "ACMAN TECHNOLOGY DEVELOPMENT JOINT STOCK COMPANY\nAccount No: 12510000382415 (1250382415)\nBank: BIDV – Dong Do Branch"
   }
 };
 
@@ -952,31 +964,6 @@ const CATALOG = [
   { group: "18. Gói Khởi Nghiệp Q3/2026", name: "Gói HKD Khởi Nghiệp Q3/2026 (HKD 3000) — Tặng CKS 3 năm + 500 HĐ", price: 3000000 },
   { group: "18. Gói Khởi Nghiệp Q3/2026", name: "Gói Khởi Nghiệp — Cài thêm máy", price: 2000000 },
   { group: "18. Gói Khởi Nghiệp Q3/2026", name: "Gói Khởi Nghiệp — Thêm dữ liệu Online", price: 1000000 }
-];��i Q3", price: 1000000 },
-  { group: "PM Máy Tính Tiền (Shop/Bar/Hotel)", name: "ACMan Hotel 9.1 (Khách sạn, Spa) — Khuyến mại Q3", price: 1000000 },
-
-  // PMKT STARTUP TT133
-  { group: "PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 1000 — Mua mới (Tặng CKS 1 năm)", price: 2000000 },
-  { group: "PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 3000 — Mua mới (Tặng CKS 1 năm)", price: 3000000 },
-  { group: "PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup 5000 — Mua mới (Tặng CKS 3 năm)", price: 5000000 },
-
-  // PMKT DỊCH VỤ THUẾ
-  { group: "PMKT Dịch Vụ Thuế", name: "ACMan Gói Dịch Vụ Cá Nhân — 5 Data Online", price: 5000000 },
-  { group: "PMKT Dịch Vụ Thuế", name: "ACMan Gói Dịch Vụ Doanh Nghiệp — 10 Data Online", price: 10000000 },
-
-  // PMKT DOANH NGHIỆP TT99/SME
-  { group: "PMKT Doanh Nghiệp TT99/SME", name: "ACMan SME 9.1 — Mua mới (2 máy, 2 Data Online)", price: 6000000 },
-  { group: "PMKT Doanh Nghiệp TT99/SME", name: "ACMan TT99 9.1 (Song ngữ Việt-Anh-Nhật) — Mua mới", price: 8000000 },
-
-  // CHỮ KÝ SỐ & E-BHXH
-  { group: "Chữ Ký Số & e-BHXH", name: "Chữ ký số EFY-CA — 36 tháng (Token)", price: 1800000 },
-  { group: "Chữ Ký Số & e-BHXH", name: "Phần mềm e-BHXH — 36 tháng", price: 1500000 },
-  { group: "Chữ Ký Số & e-BHXH", name: "Chữ ký số INTRUST-CA — 36 tháng (Token)", price: 1800000 },
-
-  // GÓI KHỞI NGHIỆP Q3/2026
-  { group: "Gói Khởi Nghiệp Quý 3/2026", name: "Gói DN 3000 Khởi nghiệp Q3/2026 (Tặng CKS 3 năm + 500 HĐ)", price: 3000000 },
-  { group: "Gói Khởi Nghiệp Quý 3/2026", name: "Gói HTX 3000 Khởi nghiệp Q3/2026 (Tặng CKS 3 năm + 500 HĐ)", price: 3000000 },
-  { group: "Gói Khởi Nghiệp Quý 3/2026", name: "Gói HKD 3000 Khởi nghiệp Q3/2026 (Tặng CKS 3 năm + 500 HĐ)", price: 3000000 }
 ];
 
 let items = [];
@@ -985,6 +972,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("quoteDate").valueAsDate = new Date();
   
   const select = document.getElementById("catalogSelect");
+  select.innerHTML = "";
   let currentGroup = "";
   let groupEl = null;
 
