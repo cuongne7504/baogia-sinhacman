@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tạo Báo Giá Chuyên Nghiệp — ACMan Q3/2026 (Song Ngữ VI/EN)</title>
+<title>Tạo Báo Giá Chuyên Nghiệp — ACMan Q3/2026 (Song Ngữ VN/EN)</title>
 <script>
   (function(){
     try {
@@ -99,21 +99,21 @@
   }
 
   .btn-lang {
-    background: #ffffff;
-    color: var(--primary-accent);
-    border: none;
-    font-weight: 800;
-    font-size: 13.5px;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: all 0.2s;
+    background: #ffffff !important;
+    color: #d81b60 !important;
+    border: none !important;
+    font-weight: 800 !important;
+    font-size: 13.5px !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+    transition: all 0.2s !important;
   }
 
   .btn-lang:hover {
-    background: #fce4ec;
-    transform: scale(1.05);
+    background: #fce4ec !important;
+    transform: scale(1.05) !important;
   }
 
   .btn-back {
@@ -498,8 +498,8 @@
       </div>
     </div>
     <div class="header-nav">
-      <!-- NÚT CHUYỂN SONG NGỮ VI / EN -->
-      <button class="btn-lang" onclick="toggleLanguage()" id="btnLangToggle">🌐 🇻🇳 VI | 🇬🇧 EN</button>
+      <!-- NÚT CHUYỂN NGÔN NGỮ VN | EN (GỌN GÀNG KHÔNG ICON) -->
+      <button class="btn-lang" onclick="toggleLanguage()" id="btnLangToggle">VN | EN</button>
       <a href="index.html" class="btn-back" id="lblBackBtn">← Về trang báo giá</a>
       <button class="theme-toggle" title="Đổi giao diện">🌸</button>
     </div>
@@ -509,7 +509,7 @@
     <div class="intro-box">
       <span class="eyebrow" id="lblEyebrow">🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸</span>
       <h2 id="lblMainHeading">Tạo Báo Giá Khách Hàng Nhanh Chóng</h2>
-      <p id="lblSubHeading">Tư vấn viên: <strong>Nguyễn Thị Sinh (Hotline/Zalo: 0327439969)</strong>. Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF.</p>
+      <p id="lblSubHeading">Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF.</p>
     </div>
 
     <div class="layout-grid">
@@ -524,10 +524,9 @@
             <div class="field-group" style="grid-column:1/-1"><label id="lblCustAddr">Địa chỉ</label><input id="custAddr" type="text" placeholder="123 Đường ABC, Q.1, TP. Hồ Chí Minh" oninput="render()"></div>
             <div class="field-group"><label id="lblCustPerson">Người liên hệ</label><input id="custPerson" type="text" placeholder="Nguyễn Văn A" oninput="render()"></div>
             <div class="field-group"><label id="lblCustPhone">Số điện thoại</label><input id="custPhone" type="text" placeholder="0901 234 567" oninput="render()"></div>
-            <div class="field-group"><label id="lblStaffName">Tư vấn viên ACMan</label><input id="staffName" type="text" value="Nguyễn Thị Sinh - 0327439969" oninput="render()"></div>
             <div class="field-group"><label id="lblQuoteNo">Số báo giá</label><input id="quoteNo" type="text" placeholder="BG-2026-0001" oninput="render()"></div>
             <div class="field-group"><label id="lblQuoteDate">Ngày báo giá</label><input id="quoteDate" type="date" onchange="render()"></div>
-            <div class="field-group"><label id="lblCustCity">Nơi phát hành</label><input id="custCity" type="text" value="Hà Nội" oninput="render()"></div>
+            <div class="field-group" style="grid-column:1/-1"><label id="lblCustCity">Nơi phát hành</label><input id="custCity" type="text" value="Hà Nội" oninput="render()"></div>
           </div>
         </div>
 
@@ -601,8 +600,7 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
           <div class="paper-client-info" id="pvClient">
             <span id="lblPvCustName">Tên công ty:</span> <strong id="pvCustName">---</strong><br>
             <span id="lblPvCustTax">Mã số thuế:</span> <span id="pvCustTax">---</span> | <span id="lblPvCustAddr">Địa chỉ:</span> <span id="pvCustAddr">---</span><br>
-            <span id="lblPvCustPerson">Người liên hệ:</span> <span id="pvCustPerson">---</span> | <span id="lblPvCustPhone">ĐT:</span> <span id="pvCustPhone">---</span><br>
-            <span id="lblPvStaffName">Tư vấn viên ACMan:</span> <strong id="pvStaffName" style="color:var(--primary);">Nguyễn Thị Sinh - 0327439969</strong>
+            <span id="lblPvCustPerson">Người liên hệ:</span> <span id="pvCustPerson">---</span> | <span id="lblPvCustPhone">ĐT:</span> <span id="pvCustPhone">---</span>
           </div>
 
           <div class="paper-doc-title" id="pvDocTitle">BÁO GIÁ</div>
@@ -647,8 +645,7 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
             </div>
             <div class="sign-col">
               <b id="lblSignCompany">CÔNG TY CỔ PHẦN ACMAN</b><br>
-              <small id="lblSignCompanySub">(Đã ký & đóng dấu)</small><br><br>
-              <strong style="color:var(--primary);" id="pvSignName">Nguyễn Thị Sinh - 0327439969</strong>
+              <small id="lblSignCompanySub">(Đã ký & đóng dấu)</small>
             </div>
           </div>
         </div>
@@ -662,23 +659,22 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
   </main>
 
 <script>
-// BIẾN NGÔN NGỮ CHUYỂN ĐỔI (SONG NGỮ VIỆT - ANH)
-let currentLang = "VI"; // 'VI' hoặc 'EN'
+// BIẾN NGÔN NGỮ CHUYỂN ĐỔI (VN | EN GỌN GÀNG)
+let currentLang = "VN"; // 'VN' hoặc 'EN'
 
 const I18N = {
-  VI: {
-    langBtn: "🌐 🇻🇳 VI | 🇬🇧 EN",
+  VN: {
+    langBtn: "VN | EN",
     backBtn: "← Về trang báo giá",
     eyebrow: "🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸",
     mainHeading: "Tạo Báo Giá Khách Hàng Nhanh Chóng",
-    subHeading: "Tư vấn viên: <strong>Nguyễn Thị Sinh (Hotline/Zalo: 0327439969)</strong>. Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF.",
+    subHeading: "Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF.",
     panel1Title: "1. Thông tin khách hàng",
     custName: "Tên công ty / Khách hàng",
     custTax: "Mã số thuế",
     custAddr: "Địa chỉ",
     custPerson: "Người liên hệ",
     custPhone: "Số điện thoại",
-    staffName: "Tư vấn viên ACMan",
     quoteNo: "Số báo giá",
     quoteDate: "Ngày báo giá",
     custCity: "Nơi phát hành",
@@ -696,7 +692,6 @@ const I18N = {
     pvCustAddr: "Địa chỉ:",
     pvCustPerson: "Người liên hệ:",
     pvCustPhone: "ĐT:",
-    pvStaffName: "Tư vấn viên ACMan:",
     docTitle: "BÁO GIÁ",
     docSubtitle: "(Chương trình Bán hàng & Sản phẩm ACMan Quý 3/2026)",
     thNo: "STT",
@@ -719,18 +714,17 @@ const I18N = {
     bankText: "CÔNG TY CỔ PHẦN ACMAN\nSố tài khoản: 12510000382415 (1250382415)\nNgân hàng: BIDV – Chi nhánh Đông Đô"
   },
   EN: {
-    langBtn: "🌐 🇬🇧 EN | 🇻🇳 VI",
+    langBtn: "EN | VN",
     backBtn: "← Back to Pricing List",
     eyebrow: "🌸 PROFESSIONAL QUOTATION GENERATOR 🌸",
     mainHeading: "Create Professional Quotation Quickly",
-    subHeading: "Consultant: <strong>Ms. Nguyen Thi Sinh (Hotline/Zalo: 0327439969)</strong>. Select products from Q3/2026 Sales Program or add custom lines to export PDF.",
+    subHeading: "Select products from Q3/2026 Sales Program or add custom lines to export PDF.",
     panel1Title: "1. Customer Information",
     custName: "Company Name / Customer",
     custTax: "Tax Identification Number (TIN)",
     custAddr: "Address",
     custPerson: "Contact Person",
     custPhone: "Phone Number",
-    staffName: "ACMan Consultant",
     quoteNo: "Quotation No.",
     quoteDate: "Quotation Date",
     custCity: "Issue Location",
@@ -748,7 +742,6 @@ const I18N = {
     pvCustAddr: "Address:",
     pvCustPerson: "Contact Person:",
     pvCustPhone: "Phone:",
-    pvStaffName: "ACMan Consultant:",
     docTitle: "QUOTATION",
     docSubtitle: "(ACMan Products & Sales Program Q3/2026)",
     thNo: "No.",
@@ -840,7 +833,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function toggleLanguage() {
-  currentLang = currentLang === "VI" ? "EN" : "VI";
+  currentLang = currentLang === "VN" ? "EN" : "VN";
   applyLanguage();
 }
 
@@ -859,7 +852,6 @@ function applyLanguage() {
   document.getElementById("lblCustAddr").textContent = t.custAddr;
   document.getElementById("lblCustPerson").textContent = t.custPerson;
   document.getElementById("lblCustPhone").textContent = t.custPhone;
-  document.getElementById("lblStaffName").textContent = t.staffName;
   document.getElementById("lblQuoteNo").textContent = t.quoteNo;
   document.getElementById("lblQuoteDate").textContent = t.quoteDate;
   document.getElementById("lblCustCity").textContent = t.custCity;
@@ -888,7 +880,6 @@ function applyLanguage() {
   document.getElementById("lblPvCustAddr").textContent = t.pvCustAddr;
   document.getElementById("lblPvCustPerson").textContent = t.pvCustPerson;
   document.getElementById("lblPvCustPhone").textContent = t.pvCustPhone;
-  document.getElementById("lblPvStaffName").textContent = t.pvStaffName;
 
   document.getElementById("pvDocTitle").textContent = t.docTitle;
   document.getElementById("pvDocSubtitle").textContent = t.docSubtitle;
@@ -927,7 +918,7 @@ function addFromCatalog() {
 }
 
 function addCustomRow() {
-  items.push({ name: currentLang === "VI" ? "Sản phẩm / Dịch vụ tùy chỉnh" : "Custom Product / Service", qty: 1, price: 1000000 });
+  items.push({ name: currentLang === "VN" ? "Sản phẩm / Dịch vụ tùy chỉnh" : "Custom Product / Service", qty: 1, price: 1000000 });
   renderFormItems();
   render();
 }
@@ -962,15 +953,14 @@ function render() {
   const addr = document.getElementById("custAddr").value || "---";
   const person = document.getElementById("custPerson").value || "---";
   const phone = document.getElementById("custPhone").value || "---";
-  const staff = document.getElementById("staffName").value || (currentLang === "VI" ? "Nguyễn Thị Sinh - 0327439969" : "Ms. Nguyen Thi Sinh - 0327439969");
   const quoteNo = document.getElementById("quoteNo").value || "BG-2026-0001";
-  const city = document.getElementById("custCity").value || (currentLang === "VI" ? "Hà Nội" : "Hanoi");
+  const city = document.getElementById("custCity").value || (currentLang === "VN" ? "Hà Nội" : "Hanoi");
   
   const dVal = document.getElementById("quoteDate").value;
   const d = dVal ? new Date(dVal) : new Date();
   
   let dateStr = "";
-  if (currentLang === "VI") {
+  if (currentLang === "VN") {
     dateStr = `${city}, ngày ${d.getDate()} tháng ${d.getMonth() + 1} năm ${d.getFullYear()}`;
   } else {
     dateStr = `${city}, ${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
@@ -982,9 +972,7 @@ function render() {
   document.getElementById("pvCustAddr").textContent = addr;
   document.getElementById("pvCustPerson").textContent = person;
   document.getElementById("pvCustPhone").textContent = phone;
-  document.getElementById("pvStaffName").textContent = staff;
-  document.getElementById("pvSignName").textContent = staff;
-  document.getElementById("pvMeta").textContent = (currentLang === "VI" ? "Số: " : "No: ") + quoteNo;
+  document.getElementById("pvMeta").textContent = (currentLang === "VN" ? "Số: " : "No: ") + quoteNo;
 
   const pvBody = document.getElementById("pvBody");
   pvBody.innerHTML = "";
@@ -992,7 +980,7 @@ function render() {
   let subtotal = 0;
 
   if (items.length === 0) {
-    pvBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#999; font-style:italic; padding:20px;">${currentLang === "VI" ? "Chưa có sản phẩm trong báo giá" : "No items in quotation"}</td></tr>`;
+    pvBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#999; font-style:italic; padding:20px;">${currentLang === "VN" ? "Chưa có sản phẩm trong báo giá" : "No items in quotation"}</td></tr>`;
   } else {
     items.forEach((item, i) => {
       const lineTotal = item.qty * item.price;
@@ -1018,7 +1006,7 @@ function render() {
     vatAmount = Math.round(subtotal * (rate / 100));
     vatLabelText = `VAT (${rate}%):`;
   } else if (vatInput.toUpperCase() === "KCT" || vatInput === "") {
-    vatLabelText = currentLang === "VI" ? "VAT (KCT):" : "VAT (Exempt):";
+    vatLabelText = currentLang === "VN" ? "VAT (KCT):" : "VAT (Exempt):";
     vatAmount = 0;
   }
 

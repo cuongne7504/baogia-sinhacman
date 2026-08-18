@@ -17,13 +17,16 @@
         <div class="brand-title">
           <img src="assets/logo.png" alt="ACMan Logo - Chuyên nghiệp để phát triển" class="header-logo-img">
           <div class="brand-text">
-            <h1>BẢNG BÁO GIÁ SẢN PHẨM & DỊCH VỤ</h1>
-            <p>Chương trình Bán hàng Quý 3/2026 · Hotline/Zalo: <strong>0327439969</strong></p>
+            <h1 id="lblHeaderTitle">BẢNG BÁO GIÁ SẢN PHẨM & DỊCH VỤ</h1>
+            <p id="lblHeaderSub">Chương trình Bán hàng Quý 3/2026 · Hotline/Zalo: <strong>0327439969</strong></p>
           </div>
         </div>
         <div class="header-actions">
-          <a href="dai-ly-bao-gia.html" class="btn-tao-bao-gia">+ Tạo Báo Giá</a>
-          <button class="btn-action" data-action="print">🖨 In / Lưu PDF</button>
+          <!-- NÚT NGUÔN NGỮ VN | EN -->
+          <button class="btn-lang" onclick="toggleMainLang()" id="btnMainLang">VN | EN</button>
+          <!-- NÚT TẠO BÁO GIÁ SÁNG CHÓI MÀU TRẮNG -->
+          <a href="dai-ly-bao-gia.html" class="btn-tao-bao-gia" id="btnCreateQuote">+ Tạo Báo Giá</a>
+          <button class="btn-action" data-action="print" id="btnPrintMain">🖨 In / Lưu PDF</button>
           <button class="theme-toggle" title="Đổi giao diện sáng/tối">🌸</button>
         </div>
       </div>
@@ -34,12 +37,9 @@
     <!-- HERO CARD VỚI ẢNH ĐẠI DIỆN NGUYỄN THỊ SINH -->
     <div class="hero-card">
       <div class="hero-content">
-        <span class="eyebrow">🌸 PHẦN MỀM KẾ TOÁN · HÓA ĐƠN ĐIỆN TỬ · CHỮ KÝ SỐ · ĐÀO TẠO 🌸</span>
-        <h2>Chương Trình Bán Hàng & Báo Giá Ưu Đãi Quý 3/2026</h2>
-        <p class="lede">Hệ thống báo giá chính thức theo Quyết định ACMan Q3/2026 áp dụng cho Doanh nghiệp, Hộ kinh doanh, Hợp tác xã và Đại lý trên toàn quốc.</p>
-        <div style="margin-top: 14px; font-weight: 700; font-size: 15px; color: var(--primary-accent);">
-          📞 Hotline / Zalo tư vấn trực tiếp: <a href="tel:0327439969" style="color:var(--primary-accent); text-decoration:none; background:rgba(233,30,99,0.15); padding:4px 12px; border-radius:15px; border:1px solid var(--primary-accent);">0327439969</a>
-        </div>
+        <span class="eyebrow" id="lblHeroEyebrow">🌸 PHẦN MỀM KẾ TOÁN · HÓA ĐƠN ĐIỆN TỬ · CHỮ KÝ SỐ · ĐÀO TẠO 🌸</span>
+        <h2 id="lblHeroTitle">Chương Trình Bán Hàng & Báo Giá Ưu Đãi Quý 3/2026</h2>
+        <p class="lede" id="lblHeroLede">Hệ thống báo giá chính thức theo Quyết định ACMan Q3/2026 áp dụng cho Doanh nghiệp, Hộ kinh doanh, Hợp tác xã và Đại lý trên toàn quốc.</p>
       </div>
 
       <!-- KHUNG ẢNH ĐẠI DIỆN NGUYỄN THỊ SINH -->
@@ -48,16 +48,14 @@
           <img src="assets/bg_person.png" alt="Nguyễn Thị Sinh - ACMan" class="avatar-img">
         </div>
         <div class="avatar-name">Nguyễn Thị Sinh</div>
-        <div class="avatar-role">Tư Vấn & Hỗ Trợ Báo Giá · 0327439969</div>
       </div>
     </div>
 
     <!-- KHU VỰC TÌM KIẾM NHANH & NGÀY ÁP DỤNG -->
     <div class="section-card" style="margin-top:16px; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
       <div>
-        <strong>Ngày phát hành:</strong> <span data-quote-issue>18/08/2026</span> | 
-        <strong>Hiệu lực áp dụng:</strong> <span data-quote-expiry style="color:var(--primary-accent); font-weight:700;">30/09/2026</span> |
-        <strong>Tư vấn viên:</strong> <span style="color:var(--primary-accent); font-weight:700;">Nguyễn Thị Sinh (0327439969)</span>
+        <strong id="lblIssueDateTitle">Ngày phát hành:</strong> <span data-quote-issue>18/08/2026</span> | 
+        <strong id="lblExpiryDateTitle">Hiệu lực áp dụng:</strong> <span data-quote-expiry style="color:var(--primary-accent); font-weight:700;">30/09/2026</span>
       </div>
       <div>
         <input type="text" id="search-input" placeholder="🔍 Tìm nhanh gói sản phẩm..." style="padding: 8px 14px; border-radius: 20px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main); font-size: 14px; outline: none; width: 240px;">
@@ -66,19 +64,19 @@
 
     <!-- TABS NAVIGATION (12 TAB SẢN PHẨM QUÝ 3/2026) -->
     <nav class="tabs-wrap">
-      <button class="tab-btn active" data-tab="tab-sme">Tải & Import Hóa Đơn</button>
-      <button class="tab-btn" data-tab="tab-hddt">Hóa Đơn Điện Tử & MTT</button>
-      <button class="tab-btn" data-tab="tab-hkd">PMKT Hộ Kinh Doanh</button>
-      <button class="tab-btn" data-tab="tab-mtt">Máy Tính Tiền (Shop/Bar/Hotel)</button>
-      <button class="tab-btn" data-tab="tab-startup">PMKT Startup (TT133)</button>
-      <button class="tab-btn" data-tab="tab-dvkt">PMKT Dịch Vụ Thuế</button>
-      <button class="tab-btn" data-tab="tab-dn">PMKT Doanh Nghiệp (TT99/SME)</button>
-      <button class="tab-btn" data-tab="tab-htx">PMKT Hợp Tác Xã (TT71)</button>
-      <button class="tab-btn" data-tab="tab-quytu">PMKT Quản Lý Quỹ (TT90)</button>
-      <button class="tab-btn" data-tab="tab-daotao">Khóa Đào Tạo Kế Toán</button>
-      <button class="tab-btn" data-tab="tab-cks">Chữ Ký Số & e-Contract</button>
-      <button class="tab-btn" data-tab="tab-khoinghiep">Gói Khởi Nghiệp Q3/2026</button>
-      <button class="tab-btn" data-tab="tab-chinhsach">Chính Sách & Khen Thưởng</button>
+      <button class="tab-btn active" data-tab="tab-sme" id="tab1">Tải & Import Hóa Đơn</button>
+      <button class="tab-btn" data-tab="tab-hddt" id="tab2">Hóa Đơn Điện Tử & MTT</button>
+      <button class="tab-btn" data-tab="tab-hkd" id="tab3">PMKT Hộ Kinh Doanh</button>
+      <button class="tab-btn" data-tab="tab-mtt" id="tab4">Máy Tính Tiền (Shop/Bar/Hotel)</button>
+      <button class="tab-btn" data-tab="tab-startup" id="tab5">PMKT Startup (TT133)</button>
+      <button class="tab-btn" data-tab="tab-dvkt" id="tab6">PMKT Dịch Vụ Thuế</button>
+      <button class="tab-btn" data-tab="tab-dn" id="tab7">PMKT Doanh Nghiệp (TT99/SME)</button>
+      <button class="tab-btn" data-tab="tab-htx" id="tab8">PMKT Hợp Tác Xã (TT71)</button>
+      <button class="tab-btn" data-tab="tab-quytu" id="tab9">PMKT Quản Lý Quỹ (TT90)</button>
+      <button class="tab-btn" data-tab="tab-daotao" id="tab10">Khóa Đào Tạo Kế Toán</button>
+      <button class="tab-btn" data-tab="tab-cks" id="tab11">Chữ Ký Số & e-Contract</button>
+      <button class="tab-btn" data-tab="tab-khoinghiep" id="tab12">Gói Khởi Nghiệp Q3/2026</button>
+      <button class="tab-btn" data-tab="tab-chinhsach" id="tab13">Chính Sách & Khen Thưởng</button>
     </nav>
 
     <!-- ==================== 1. TẢI VÀ IMPORT HÓA ĐƠN ==================== -->
@@ -726,16 +724,96 @@
 
   </main>
 
-  <!-- FOOTER DÙNG LOGO ACMAN & ĐẠI DIỆN NGUYỄN THỊ SINH -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <img src="assets/logo.png" alt="ACMan Logo" class="footer-logo-img"><br>
       <strong>CÔNG TY CỔ PHẦN ACMAN</strong><br>
-      Tư vấn viên: <strong>Nguyễn Thị Sinh</strong> · Hotline / Zalo: <strong style="color:var(--primary-accent);">0327439969</strong><br>
+      Hotline / Zalo: <strong style="color:var(--primary-accent);">0327439969</strong><br>
       <p style="font-size:13px; margin-top:6px;">Bảng giá chính thức Quý 3/2026 áp dụng trên toàn hệ thống Văn phòng và Đại lý ACMan.</p>
     </div>
   </footer>
 
   <script src="assets/script.js"></script>
+  <script>
+    // SONG NGỮ VN | EN CHO TRANG CHỦ INDEX.HTML
+    let mainLang = "VN";
+    const MAIN_I18N = {
+      VN: {
+        langBtn: "VN | EN",
+        createQuoteBtn: "+ Tạo Báo Giá",
+        printBtn: "🖨 In / Lưu PDF",
+        headerTitle: "BẢNG BÁO GIÁ SẢN PHẨM & DỊCH VỤ",
+        headerSub: "Chương trình Bán hàng Quý 3/2026 · Hotline/Zalo: <strong>0327439969</strong>",
+        heroEyebrow: "🌸 PHẦN MỀM KẾ TOÁN · HÓA ĐƠN ĐIỆN TỬ · CHỮ KÝ SỐ · ĐÀO TẠO 🌸",
+        heroTitle: "Chương Trình Bán Hàng & Báo Giá Ưu Đãi Quý 3/2026",
+        heroLede: "Hệ thống báo giá chính thức theo Quyết định ACMan Q3/2026 áp dụng cho Doanh nghiệp, Hộ kinh doanh, Hợp tác xã và Đại lý trên toàn quốc.",
+        issueTitle: "Ngày phát hành:",
+        expiryTitle: "Hiệu lực áp dụng:",
+        tab1: "Tải & Import Hóa Đơn",
+        tab2: "Hóa Đơn Điện Tử & MTT",
+        tab3: "PMKT Hộ Kinh Doanh",
+        tab4: "Máy Tính Tiền (Shop/Bar/Hotel)",
+        tab5: "PMKT Startup (TT133)",
+        tab6: "PMKT Dịch Vụ Thuế",
+        tab7: "PMKT Doanh Nghiệp (TT99/SME)",
+        tab8: "PMKT Hợp Tác Xã (TT71)",
+        tab9: "PMKT Quản Lý Quỹ (TT90)",
+        tab10: "Khóa Đào Tạo Kế Toán",
+        tab11: "Chữ Ký Số & e-Contract",
+        tab12: "Gói Khởi Nghiệp Q3/2026",
+        tab13: "Chính Sách & Khen Thưởng"
+      },
+      EN: {
+        langBtn: "EN | VN",
+        createQuoteBtn: "+ Create Quotation",
+        printBtn: "🖨 Print / Save PDF",
+        headerTitle: "PRODUCTS & SERVICES PRICE LIST",
+        headerSub: "ACMan Q3/2026 Sales Program · Hotline/Zalo: <strong>0327439969</strong>",
+        heroEyebrow: "🌸 ACCOUNTING SOFTWARE · E-INVOICE · DIGITAL SIGNATURE · TRAINING 🌸",
+        heroTitle: "Special Sales & Discount Program Q3/2026",
+        heroLede: "Official quotation system according to ACMan Q3/2026 decision for Enterprises, Household Businesses, Cooperatives & Agents nationwide.",
+        issueTitle: "Issue Date:",
+        expiryTitle: "Effective Until:",
+        tab1: "Download & Import E-Invoice",
+        tab2: "E-Invoice & POS E-Invoice",
+        tab3: "Household Accounting",
+        tab4: "POS Software (Shop/Bar/Hotel)",
+        tab5: "Startup Accounting (TT133)",
+        tab6: "Tax Service Accounting",
+        tab7: "Enterprise Accounting (TT99/SME)",
+        tab8: "Cooperative Accounting (TT71)",
+        tab9: "Financial Fund Accounting (TT90)",
+        tab10: "Accounting Training Courses",
+        tab11: "Digital Signature & e-Contract",
+        tab12: "Startup Packages Q3/2026",
+        tab13: "Promotional Policies & Rewards"
+      }
+    };
+
+    function toggleMainLang() {
+      mainLang = mainLang === "VN" ? "EN" : "VN";
+      applyMainLang();
+    }
+
+    function applyMainLang() {
+      const t = MAIN_I18N[mainLang];
+      document.getElementById("btnMainLang").textContent = t.langBtn;
+      document.getElementById("btnCreateQuote").textContent = t.createQuoteBtn;
+      document.getElementById("btnPrintMain").textContent = t.printBtn;
+      document.getElementById("lblHeaderTitle").textContent = t.headerTitle;
+      document.getElementById("lblHeaderSub").innerHTML = t.headerSub;
+      document.getElementById("lblHeroEyebrow").textContent = t.heroEyebrow;
+      document.getElementById("lblHeroTitle").textContent = t.heroTitle;
+      document.getElementById("lblHeroLede").textContent = t.heroLede;
+      document.getElementById("lblIssueDateTitle").textContent = t.issueTitle;
+      document.getElementById("lblExpiryDateTitle").textContent = t.expiryTitle;
+      
+      for(let i=1; i<=13; i++) {
+        const el = document.getElementById("tab"+i);
+        if(el) el.textContent = t["tab"+i];
+      }
+    }
+  </script>
 </body>
 </html>
