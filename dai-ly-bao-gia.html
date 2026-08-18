@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tạo Báo Giá Chuyên Nghiệp — ACMan Q3/2026 (Song Ngữ VN/EN)</title>
+<title>Tạo Báo Giá Chuyên Nghiệp — ACMan Q3/2026</title>
 <script>
   (function(){
     try {
@@ -99,19 +99,63 @@
     gap: 12px;
   }
 
+  /* TẤT CẢ CÁC NÚT HEADER ĐỀU CÓ STYLE PILL TRẮNG CHUẨN ĐỒNG BỘ NHƯ ẢNH 4 */
+  .btn-pill-white,
+  .lang-pill-btn,
   .btn-back {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.2s;
+    background-color: #ffffff !important;
+    color: #d81b60 !important;
+    font-weight: 800 !important;
+    font-size: 13.5px !important;
+    padding: 8px 20px !important;
+    border-radius: 24px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.2s ease-in-out !important;
+    border: 1.5px solid #ffffff !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    font-family: inherit !important;
   }
 
+  .btn-pill-white:hover,
+  .lang-pill-btn:hover,
   .btn-back:hover {
-    background: rgba(255, 255, 255, 0.35);
+    background-color: #fff0f5 !important;
+    color: #ad1457 !important;
+    transform: translateY(-2px) scale(1.03) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .lang-pill-btn {
+    padding: 6px 16px !important;
+  }
+
+  .lang-pill-btn .globe-icon {
+    font-size: 15px;
+    line-height: 1;
+  }
+
+  .lang-pill-btn .lang-opt {
+    opacity: 0.45;
+    transition: all 0.2s ease;
+    color: #d81b60;
+  }
+
+  .lang-pill-btn .lang-opt.active {
+    opacity: 1;
+    font-weight: 900;
+    color: #d81b60;
+    border-bottom: 2px solid #d81b60;
+  }
+
+  .lang-pill-btn .lang-sep {
+    opacity: 0.3;
+    margin: 0 2px;
   }
 
   .theme-toggle {
@@ -465,7 +509,7 @@
 
   @media print {
     header, .intro-box, .panel-card, .action-bar, .theme-toggle { display: none !important; }
-    .paper-sheet { box-shadow: none !important; border-radius: 0 !important; width: 100% !important; }
+    .paper-sheet { box-shadow: none !important; border-radius: 0 !important; width: 100% !important; padding: 0 !important; }
     body { background: #fff !important; background-image: none !important; }
   }
 </style>
@@ -477,18 +521,18 @@
     <div class="header-brand">
       <img src="assets/logo.png" alt="ACMan Logo" class="header-logo-img">
       <div class="header-title">
-        <h1 id="lblHeaderTitle">ACMan Quote Studio Q3/2026</h1>
+        <h1 id="lblHeaderTitle">ACMan Studio Báo Giá Q3/2026</h1>
       </div>
     </div>
     <div class="header-nav">
-      <!-- NÚT CHUYỂN NGÔN NGỮ PILL TRẮNG VN | EN -->
-      <button class="lang-pill-btn" onclick="toggleLanguage()" id="btnLangToggle">
+      <!-- NÚT CHUYỂN NGÔN NGỮ PILL TRẮNG VN | EN CHUẨN ĐỒNG BỘ NHƯ ẢNH 4 -->
+      <button class="lang-pill-btn btn-pill-white" onclick="toggleLanguage()" id="btnLangToggle">
         <span class="globe-icon">🌐</span>
         <span class="lang-opt active" id="optFormVN">VN</span>
         <span class="lang-sep">|</span>
         <span class="lang-opt" id="optFormEN">EN</span>
       </button>
-      <a href="index.html" class="btn-back" id="lblBackBtn">← Về trang báo giá</a>
+      <a href="index.html" class="btn-back btn-pill-white" id="lblBackBtn">← Về trang báo giá</a>
       <button class="theme-toggle" title="Đổi giao diện">🌸</button>
     </div>
   </header>
@@ -647,10 +691,12 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
   </main>
 
 <script>
+// MẶC ĐỊNH LÀ TIẾNG VIỆT (VN)
 let currentLang = "VN";
 
 const I18N = {
   VN: {
+    headerTitle: "ACMan Studio Báo Giá Q3/2026",
     backBtn: "← Về trang báo giá",
     eyebrow: "🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸",
     mainHeading: "Tạo Báo Giá Khách Hàng Nhanh Chóng",
@@ -700,6 +746,7 @@ const I18N = {
     bankText: "CÔNG TY CỔ PHẦN ACMAN\nSố tài khoản: 12510000382415 (1250382415)\nNgân hàng: BIDV – Chi nhánh Đông Đô"
   },
   EN: {
+    headerTitle: "ACMan Quote Studio Q3/2026",
     backBtn: "← Back to Pricing List",
     eyebrow: "🌸 PROFESSIONAL QUOTATION GENERATOR 🌸",
     mainHeading: "Create Professional Quotation Quickly",
@@ -835,6 +882,7 @@ function applyLanguage() {
     optVN.classList.remove("active");
   }
 
+  document.getElementById("lblHeaderTitle").textContent = t.headerTitle;
   document.getElementById("lblBackBtn").textContent = t.backBtn;
   document.getElementById("lblEyebrow").textContent = t.eyebrow;
   document.getElementById("lblMainHeading").textContent = t.mainHeading;
