@@ -22,11 +22,16 @@
           </div>
         </div>
         <div class="header-actions">
-          <!-- NÚT NGUÔN NGỮ VN | EN -->
-          <button class="btn-lang" onclick="toggleMainLang()" id="btnMainLang">VN | EN</button>
+          <!-- NÚT NGÔN NGỮ PILL TRẮNG CHUẨN VN | EN -->
+          <button class="lang-pill-btn" onclick="toggleMainLang()" id="btnMainLang">
+            <span class="globe-icon">🌐</span>
+            <span class="lang-opt active" id="optVN">VN</span>
+            <span class="lang-sep">|</span>
+            <span class="lang-opt" id="optEN">EN</span>
+          </button>
           <!-- NÚT TẠO BÁO GIÁ SÁNG CHÓI MÀU TRẮNG -->
           <a href="dai-ly-bao-gia.html" class="btn-tao-bao-gia" id="btnCreateQuote">+ Tạo Báo Giá</a>
-          <button class="btn-action" data-action="print" id="btnPrintMain">🖨 In / Lưu PDF</button>
+          <button class="btn-action" onclick="window.print()" id="btnPrintMain">🖨 In / Lưu PDF</button>
           <button class="theme-toggle" title="Đổi giao diện sáng/tối">🌸</button>
         </div>
       </div>
@@ -740,7 +745,6 @@
     let mainLang = "VN";
     const MAIN_I18N = {
       VN: {
-        langBtn: "VN | EN",
         createQuoteBtn: "+ Tạo Báo Giá",
         printBtn: "🖨 In / Lưu PDF",
         headerTitle: "BẢNG BÁO GIÁ SẢN PHẨM & DỊCH VỤ",
@@ -765,7 +769,6 @@
         tab13: "Chính Sách & Khen Thưởng"
       },
       EN: {
-        langBtn: "EN | VN",
         createQuoteBtn: "+ Create Quotation",
         printBtn: "🖨 Print / Save PDF",
         headerTitle: "PRODUCTS & SERVICES PRICE LIST",
@@ -798,7 +801,17 @@
 
     function applyMainLang() {
       const t = MAIN_I18N[mainLang];
-      document.getElementById("btnMainLang").textContent = t.langBtn;
+      const optVN = document.getElementById("optVN");
+      const optEN = document.getElementById("optEN");
+      
+      if (mainLang === "VN") {
+        optVN.classList.add("active");
+        optEN.classList.remove("active");
+      } else {
+        optEN.classList.add("active");
+        optVN.classList.remove("active");
+      }
+
       document.getElementById("btnCreateQuote").textContent = t.createQuoteBtn;
       document.getElementById("btnPrintMain").textContent = t.printBtn;
       document.getElementById("lblHeaderTitle").textContent = t.headerTitle;

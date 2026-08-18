@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<link rel="stylesheet" href="assets/style.css">
 <style>
   :root {
     --primary: #d81b60;
@@ -96,24 +97,6 @@
     display: flex;
     align-items: center;
     gap: 12px;
-  }
-
-  .btn-lang {
-    background: #ffffff !important;
-    color: #d81b60 !important;
-    border: none !important;
-    font-weight: 800 !important;
-    font-size: 13.5px !important;
-    padding: 8px 16px !important;
-    border-radius: 20px !important;
-    cursor: pointer !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
-    transition: all 0.2s !important;
-  }
-
-  .btn-lang:hover {
-    background: #fce4ec !important;
-    transform: scale(1.05) !important;
   }
 
   .btn-back {
@@ -498,8 +481,13 @@
       </div>
     </div>
     <div class="header-nav">
-      <!-- NÚT CHUYỂN NGÔN NGỮ VN | EN (GỌN GÀNG KHÔNG ICON) -->
-      <button class="btn-lang" onclick="toggleLanguage()" id="btnLangToggle">VN | EN</button>
+      <!-- NÚT CHUYỂN NGÔN NGỮ PILL TRẮNG VN | EN -->
+      <button class="lang-pill-btn" onclick="toggleLanguage()" id="btnLangToggle">
+        <span class="globe-icon">🌐</span>
+        <span class="lang-opt active" id="optFormVN">VN</span>
+        <span class="lang-sep">|</span>
+        <span class="lang-opt" id="optFormEN">EN</span>
+      </button>
       <a href="index.html" class="btn-back" id="lblBackBtn">← Về trang báo giá</a>
       <button class="theme-toggle" title="Đổi giao diện">🌸</button>
     </div>
@@ -659,12 +647,10 @@ Ngân hàng: BIDV – Chi nhánh Đông Đô</textarea>
   </main>
 
 <script>
-// BIẾN NGÔN NGỮ CHUYỂN ĐỔI (VN | EN GỌN GÀNG)
-let currentLang = "VN"; // 'VN' hoặc 'EN'
+let currentLang = "VN";
 
 const I18N = {
   VN: {
-    langBtn: "VN | EN",
     backBtn: "← Về trang báo giá",
     eyebrow: "🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸",
     mainHeading: "Tạo Báo Giá Khách Hàng Nhanh Chóng",
@@ -714,7 +700,6 @@ const I18N = {
     bankText: "CÔNG TY CỔ PHẦN ACMAN\nSố tài khoản: 12510000382415 (1250382415)\nNgân hàng: BIDV – Chi nhánh Đông Đô"
   },
   EN: {
-    langBtn: "EN | VN",
     backBtn: "← Back to Pricing List",
     eyebrow: "🌸 PROFESSIONAL QUOTATION GENERATOR 🌸",
     mainHeading: "Create Professional Quotation Quickly",
@@ -839,8 +824,17 @@ function toggleLanguage() {
 
 function applyLanguage() {
   const t = I18N[currentLang];
+  const optVN = document.getElementById("optFormVN");
+  const optEN = document.getElementById("optFormEN");
 
-  document.getElementById("btnLangToggle").textContent = t.langBtn;
+  if (currentLang === "VN") {
+    optVN.classList.add("active");
+    optEN.classList.remove("active");
+  } else {
+    optEN.classList.add("active");
+    optVN.classList.remove("active");
+  }
+
   document.getElementById("lblBackBtn").textContent = t.backBtn;
   document.getElementById("lblEyebrow").textContent = t.eyebrow;
   document.getElementById("lblMainHeading").textContent = t.mainHeading;
