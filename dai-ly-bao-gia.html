@@ -691,9 +691,9 @@ Các tiện ích khác của chương trình:
           </div>
         </div>
 
-        <!-- PANEL 3: QUY TRÌNH, BẢO HÀNH & LIÊN HỆ -->
+        <!-- PANEL 3: QUY TRÌNH, BẢO HÀNH, THANH TOÁN & LIÊN HỆ -->
         <div class="panel-card">
-          <h3 id="lblPanel3Title"><span class="num-badge">3</span> Quy trình thực hiện, Bảo hành & Liên hệ</h3>
+          <h3 id="lblPanel3Title"><span class="num-badge">3</span> Quy trình thực hiện, Bảo hành, Thanh toán & Liên hệ</h3>
           <div class="field-group">
             <label>III. Quy trình thực hiện (Được đánh số 1, 2, 3...):</label>
             <textarea id="processText" rows="6" oninput="render()">1. Tư vấn & báo giá: ACMan tiếp nhận nhu cầu, tư vấn dịch vụ và giải đáp quy định pháp luật.
@@ -710,6 +710,14 @@ Các tiện ích khác của chương trình:
 3. Kiểm tra định kỳ: Kiểm tra, cảnh báo sai sót dữ liệu 3 tháng/lần.
 4. Hỗ trợ kỹ thuật: Cài đặt lại chương trình khi máy tính gặp sự cố (không bao gồm phần cứng, hệ điều hành và phần mềm khác).
 5. Tiếp nhận & xử lý yêu cầu: Hỗ trợ qua điện thoại, chat, email hoặc trực tiếp; thời gian khắc phục tối đa 2 ngày làm việc kể từ khi tiếp nhận hoặc theo thỏa thuận bằng văn bản.</textarea>
+          </div>
+
+          <!-- PHẦN THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG -->
+          <div class="field-group">
+            <label>Thông tin chuyển khoản ngân hàng:</label>
+            <textarea id="bankText" rows="4" oninput="render()">CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ ACMAN
+STK: 12510000382415 (1250382415)
+TẠI NH - BIDV – CN ĐÔNG ĐÔ</textarea>
           </div>
 
           <div class="grid2">
@@ -793,6 +801,12 @@ Các tiện ích khác của chương trình:
             <div id="pvWarranty"></div>
           </div>
 
+          <!-- MỤC THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG -->
+          <div class="paper-section-block" style="margin-top:16px;">
+            <h3>THÔNG TIN CHUYỂN KHOẢN</h3>
+            <div id="pvBank" style="font-weight:600; line-height:1.6;"></div>
+          </div>
+
           <div class="paper-signature">
             <div class="sign-col">
               <b id="lblSignClient">ĐẠI DIỆN KHÁCH HÀNG</b><br>
@@ -842,7 +856,7 @@ const I18N = {
     addCatalogBtn: "+ Thêm",
     addCustomBtn: "+ Dòng tùy chỉnh",
     vatText: "Thuế VAT (%) — để trống nếu Không chịu thuế (KCT):",
-    panel3Title: "3. Quy trình thực hiện, Bảo hành & Liên hệ",
+    panel3Title: "3. Quy trình thực hiện, Bảo hành, Thanh toán & Liên hệ",
     companyInfo: "<b>CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ ACMAN</b>Địa chỉ: Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond Số 459C Bạch Mai, Hà Nội<br>Điện thoại: <strong>032.743.9969</strong> | Email: <span id='hdrEmailDisplay'>tueann2411@gmail.com</span> | Website: www.acman.vn",
     greeting: "Kính gửi: BAN GIÁM ĐỐC - PHÒNG KẾ TOÁN QUÝ CÔNG TY",
     pvCustName: "Tên công ty:",
@@ -888,7 +902,7 @@ const I18N = {
     addCatalogBtn: "+ Add Product",
     addCustomBtn: "+ Custom Line",
     vatText: "VAT Tax (%) — Leave empty if Non-Taxable (KCT):",
-    panel3Title: "3. Process, Warranty & Contact",
+    panel3Title: "3. Process, Warranty, Payment & Contact",
     companyInfo: "<b>ACMAN TECHNOLOGY DEVELOPMENT JSC</b>Address: Rm 1503, 15th Fl, Vinaconex Diamond Bldg, 459C Bach Mai, Hanoi<br>Phone: <strong>032.743.9969</strong> | Email: <span id='hdrEmailDisplay'>tueann2411@gmail.com</span> | Website: www.acman.vn",
     greeting: "To: BOARD OF DIRECTORS - ACCOUNTING DEPARTMENT",
     pvCustName: "Company Name:",
@@ -1406,12 +1420,16 @@ function render() {
   document.getElementById("pvVat").textContent = vatAmount.toLocaleString("vi-VN") + " đ";
   document.getElementById("pvTotal").textContent = grandTotal.toLocaleString("vi-VN") + " đ";
 
-  // MỤC III & IV DẠNG SỐ 1, 2, 3...
+  // MỤC III & IV
   const processText = document.getElementById("processText").value;
   document.getElementById("pvProcess").innerHTML = formatFormattedBlock(processText);
 
   const warrantyText = document.getElementById("warrantyText").value;
   document.getElementById("pvWarranty").innerHTML = formatFormattedBlock(warrantyText);
+
+  // MỤC THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG
+  const bankText = document.getElementById("bankText").value;
+  document.getElementById("pvBank").innerHTML = formatFormattedBlock(bankText);
 
   const consultantNameVal = document.getElementById("consultantName").value || "NGUYỄN THỊ SINH";
   const consultantPhoneVal = document.getElementById("consultantPhone").value || "0327439969";
