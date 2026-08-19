@@ -308,8 +308,10 @@
     border-radius: 8px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
     transition: all 0.2s;
+    text-decoration: none;
   }
 
   .btn-pink {
@@ -321,6 +323,17 @@
   .btn-pink:hover {
     transform: translateY(-1px);
     box-shadow: 0 6px 16px rgba(233, 30, 99, 0.4);
+  }
+
+  .btn-word {
+    background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+  }
+
+  .btn-word:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
   }
 
   .btn-outline {
@@ -368,9 +381,10 @@
     top: 90px;
   }
 
-  /* PREVIEW GIẤY BÁO GIÁ: MÀU ĐEN TRẮNG CHUẨN VĂN BẢN CÔNG TY */
+  /* PREVIEW GIẤY BÁO GIÁ: MÀU ĐEN TRẮNG CHUẨN VĂN BẢN CÔNG TY (100% NỀN TRẮNG, KHÔNG HỒNG) */
   .paper-sheet {
     background: #ffffff !important;
+    background-color: #ffffff !important;
     color: #000000 !important;
     border-radius: 4px;
     padding: 24px 30px;
@@ -381,25 +395,34 @@
   }
 
   .paper-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
     border-bottom: 2px solid #000000;
     padding-bottom: 8px;
     margin-bottom: 10px;
-    text-align: center;
+  }
+
+  .paper-logo-img {
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   .paper-company-info {
-    text-align: center;
+    text-align: left;
     font-size: 11.5px;
-    line-height: 1.45;
+    line-height: 1.4;
     color: #000000;
+    flex: 1;
   }
 
   .paper-company-info b {
     display: block;
-    font-size: 13.5px;
+    font-size: 13px;
     color: #000000;
     text-transform: uppercase;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     font-weight: bold;
   }
 
@@ -429,7 +452,7 @@
     font-size: 11px;
     line-height: 1.35;
     color: #000000;
-    background: #ffffff;
+    background: #ffffff !important;
     border: none;
     padding: 0;
     margin-bottom: 10px;
@@ -458,16 +481,20 @@
     list-style-type: disc;
   }
 
+  /* BẢNG GIÁ: 100% NỀN TRẮNG — TUYỆT ĐỐI KHÔNG CÓ Ô NÀO MÀU HỒNG */
   table.paper-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 11.5px;
     margin-bottom: 10px;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
     page-break-inside: auto;
   }
 
   table.paper-table th {
     background: #ffffff !important;
+    background-color: #ffffff !important;
     color: #000000 !important;
     padding: 5px 6px;
     border: 1px solid #000000 !important;
@@ -480,16 +507,24 @@
     padding: 4px 6px;
     border: 1px solid #000000 !important;
     color: #000000 !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
   }
 
-  table.paper-table tr { page-break-inside: avoid; }
+  table.paper-table tr { 
+    page-break-inside: avoid;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+  }
 
   table.paper-table tr.group-header-row td {
-    background: #f2f2f2 !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
     font-weight: bold !important;
     font-size: 11.5px !important;
     text-transform: uppercase !important;
     padding: 5px 8px !important;
+    border: 1px solid #000000 !important;
   }
 
   table.paper-table td.num, table.paper-table th.num { text-align: right; }
@@ -500,6 +535,7 @@
     font-size: 11.5px;
     margin-bottom: 10px;
     color: #000000;
+    background: transparent !important;
     page-break-inside: avoid;
   }
 
@@ -524,6 +560,7 @@
     color: #000000;
     font-size: 11.5px;
     line-height: 1.38;
+    background: transparent !important;
     page-break-inside: avoid;
   }
 
@@ -535,25 +572,32 @@
     text-transform: uppercase;
   }
 
+  /* PHẦN KÝ TÊN TRÂN TRỌNG CÔNG TY (CĂN PHẢI GỌN GÀNG THEO YÊU CẦU) */
   .paper-signature {
-    margin-top: 16px;
+    margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     font-size: 12px;
     color: #000000;
+    background: transparent !important;
     page-break-inside: avoid;
   }
 
-  .paper-signature .sign-col { text-align: center; width: 250px; }
+  .paper-signature .sign-col { text-align: center; width: 260px; }
   .paper-signature b { text-transform: uppercase; color: #000000; font-weight: bold; }
 
   .action-bar {
-    display: flex;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
     margin-top: 16px;
   }
 
-  /* TỐI ƯU HÓA IN ẤN CHUẨN A4 — KHÔNG BỊ TRÀN HAY CẮT ĐÔI BẢNG */
+  @media (max-width: 600px) {
+    .action-bar { grid-template-columns: 1fr; }
+  }
+
+  /* TỐI ƯU HÓA IN ẤN CHUẨN A4 */
   @page {
     size: A4 portrait;
     margin: 8mm 10mm;
@@ -571,6 +615,7 @@
       max-width: 100% !important;
       padding: 0 !important; 
       margin: 0 !important;
+      background: #ffffff !important;
     }
     .paper-section-block, .paper-signature, table.paper-table tr {
       page-break-inside: avoid !important;
@@ -604,7 +649,7 @@
     <div class="intro-box">
       <span class="eyebrow" id="lblEyebrow">🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸</span>
       <h2 id="lblMainHeading">Tạo Báo Giá Khách Hàng Nhanh Chóng</h2>
-      <p id="lblSubHeading">Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF.</p>
+      <p id="lblSubHeading">Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF/Word.</p>
     </div>
 
     <div class="layout-grid">
@@ -690,21 +735,21 @@ Các tiện ích khác của chương trình:
         <div class="panel-card">
           <h3 id="lblPanel3Title"><span class="num-badge">3</span> Quy trình thực hiện, Bảo hành & Thanh toán</h3>
           <div class="field-group">
-            <label>III. Quy trình thực hiện (Được đánh số 1, 2, 3... — Để trống nếu muốn ẩn):</label>
-            <textarea id="processText" rows="6" oninput="render()">1. Tư vấn & báo giá: ACMan tiếp nhận nhu cầu, tư vấn dịch vụ và giải đáp quy định pháp luật.
-2. Ký kết hợp đồng: Hai bên thống nhất phạm vi dịch vụ và ký hợp đồng kinh tế.
-3. Triển khai dịch vụ: ACMan thực hiện chuyển giao theo kế hoạch đã thống nhất.
-4. Nghiệm thu & bảo hành: Nghiệm thu, bàn giao và chuyển sang giai đoạn bảo hành.
-5. Cam kết đồng hành: Giải pháp tối ưu, chi phí hợp lý; hỗ trợ tư vấn kế toán – thuế và kiểm tra dữ liệu</textarea>
+            <label>III. Quy trình thực hiện (Có thể gõ dấu * hoặc gạch ngang, 1, 2... — Để trống nếu muốn ẩn):</label>
+            <textarea id="processText" rows="6" oninput="render()">* Tư vấn & báo giá: ACMan tiếp nhận nhu cầu, tư vấn dịch vụ và giải đáp quy định pháp luật.
+* Ký kết hợp đồng: Hai bên thống nhất phạm vi dịch vụ và ký hợp đồng kinh tế.
+* Triển khai dịch vụ: ACMan thực hiện chuyển giao theo kế hoạch đã thống nhất.
+* Nghiệm thu & bảo hành: Nghiệm thu, bàn giao và chuyển sang giai đoạn bảo hành.
+* Cam kết đồng hành: Giải pháp tối ưu, chi phí hợp lý; hỗ trợ tư vấn kế toán – thuế và kiểm tra dữ liệu</textarea>
           </div>
 
           <div class="field-group">
-            <label>IV. Bảo hành, bảo trì ACMan (Được đánh số 1, 2, 3... — Để trống nếu muốn ẩn):</label>
-            <textarea id="warrantyText" rows="6" oninput="render()">1. Cập nhật phần mềm: Nâng cấp theo các quy định mới về kế toán, thuế.
-2. Hỗ trợ sử dụng: Xử lý vướng mắc, hỗ trợ kiểm tra dữ liệu, hóa đơn chứng từ và chuyển số dư sang năm tài chính mới.
-3. Kiểm tra định kỳ: Kiểm tra, cảnh báo sai sót dữ liệu 3 tháng/lần.
-4. Hỗ trợ kỹ thuật: Cài đặt lại chương trình khi máy tính gặp sự cố (không bao gồm phần cứng, hệ điều hành và phần mềm khác).
-5. Tiếp nhận & xử lý yêu cầu: Hỗ trợ qua điện thoại, chat, email hoặc trực tiếp; thời gian khắc phục tối đa 2 ngày làm việc kể từ khi tiếp nhận hoặc theo thỏa thuận bằng văn bản.</textarea>
+            <label>IV. Bảo hành, bảo trì ACMan (Có thể gõ dấu * hoặc gạch ngang, 1, 2... — Để trống nếu muốn ẩn):</label>
+            <textarea id="warrantyText" rows="6" oninput="render()">* Cập nhật phần mềm: Nâng cấp theo các quy định mới về kế toán, thuế.
+* Hỗ trợ sử dụng: Xử lý vướng mắc, hỗ trợ kiểm tra dữ liệu, hóa đơn chứng từ và chuyển số dư sang năm tài chính mới.
+* Kiểm tra định kỳ: Kiểm tra, cảnh báo sai sót dữ liệu 3 tháng/lần.
+* Hỗ trợ kỹ thuật: Cài đặt lại chương trình khi máy tính gặp sự cố (không bao gồm phần cứng, hệ điều hành và phần mềm khác).
+* Tiếp nhận & xử lý yêu cầu: Hỗ trợ qua điện thoại, chat, email hoặc trực tiếp; thời gian khắc phục tối đa 2 ngày làm việc kể từ khi tiếp nhận hoặc theo thỏa thuận bằng văn bản.</textarea>
           </div>
 
           <!-- PHẦN THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG -->
@@ -717,11 +762,14 @@ TẠI NH - BIDV – CN ĐÔNG ĐÔ</textarea>
         </div>
       </div>
 
-      <!-- CỘT PHẢI: PREVIEW GIẤY BÁO GIÁ XUẤT FILE PDF -->
+      <!-- CỘT PHẢI: PREVIEW GIẤY BÁO GIÁ XUẤT FILE PDF / WORD -->
       <div class="preview-sticky">
         <div id="previewPaper" class="paper-sheet">
-          <!-- HEADER BÁO GIÁ: ĐÃ XÓA LOGO THEO YÊU CẦU, TRÌNH BÀY CHUẨN CÔNG TY -->
+          <!-- HEADER BÁO GIÁ: LOGO BÊN TRÁI + CHỮ CÔNG TY CĂN TRÁI THEO ẢNH 2 -->
           <div class="paper-header">
+            <div>
+              <img src="assets/logo.png" alt="ACMan Logo" class="paper-logo-img">
+            </div>
             <div class="paper-company-info" id="paperCompanyInfo">
               <b>CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ ACMAN</b>
               Địa chỉ: Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond Số 459C Bạch Mai, Hà Nội<br>
@@ -729,7 +777,7 @@ TẠI NH - BIDV – CN ĐÔNG ĐÔ</textarea>
             </div>
           </div>
 
-          <div class="paper-doc-date" id="pvDate">Hà Nội, ngày 18 tháng 08 năm 2026</div>
+          <div class="paper-doc-date" id="pvDate">Hà Nội, ngày 19 tháng 08 năm 2026</div>
 
           <div class="paper-doc-title" id="pvDocTitle">BÁO GIÁ</div>
           <div class="paper-doc-subtitle" id="pvDocSubtitle">(Phần mềm Kế toán tích hợp hóa đơn điện tử - Tích hợp phần mềm HTKK)</div>
@@ -785,22 +833,18 @@ TẠI NH - BIDV – CN ĐÔNG ĐÔ</textarea>
             <div id="pvBank" style="font-weight:600; line-height:1.4;"></div>
           </div>
 
-          <!-- PHẦN CHỮ KÝ TRÂN TRỌNG -->
+          <!-- PHẦN CHỮ KÝ TRÂN TRỌNG (ĐÃ BỎ KÝ ĐÓNG DẤU & BỎ ĐẠI DIỆN KH THEO ẢNH 2) -->
           <div class="paper-signature">
             <div class="sign-col">
-              <b id="lblSignClient">ĐẠI DIỆN KHÁCH HÀNG</b><br>
-              <small id="lblSignClientSub">(Ký và ghi rõ họ tên)</small>
-            </div>
-            <div class="sign-col">
-              <b>Trân trọng!</b><br>
-              <b>CÔNG TY CỔ PHẦN ACMAN</b><br>
-              <small style="font-size:11px; display:block; margin-top:6px;">(Ký & đóng dấu)</small>
+              <b style="display:block; margin-bottom:4px;">Trân trọng!</b>
+              <b>CÔNG TY CỔ PHẦN ACMAN</b>
             </div>
           </div>
         </div>
 
         <div class="action-bar">
-          <button class="btn btn-pink btn-full" onclick="exportPDF()" id="btnExportPDF">⭳ Xuất File PDF Báo Giá</button>
+          <button class="btn btn-pink" onclick="exportPDF()" id="btnExportPDF">⭳ Xuất File PDF</button>
+          <button class="btn btn-word" onclick="exportWord()" id="btnExportWord">📄 Xuất File Word</button>
           <button class="btn btn-outline" onclick="window.print()" id="btnPrint">🖨 In Báo Giá</button>
         </div>
       </div>
@@ -816,7 +860,7 @@ const I18N = {
     backBtn: "← Về trang báo giá",
     eyebrow: "🌸 CÔNG CỤ TẠO BÁO GIÁ CHUYÊN NGHIỆP 🌸",
     mainHeading: "Tạo Báo Giá Khách Hàng Nhanh Chóng",
-    subHeading: "Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF.",
+    subHeading: "Chọn sản phẩm trong Chương trình Bán hàng Quý 3/2026 hoặc tự thêm dòng tùy chỉnh để xuất PDF/Word.",
     panel1Title: "1. Thông tin khách hàng",
     custName: "Tên công ty / Khách hàng",
     custTax: "Mã số thuế",
@@ -852,9 +896,8 @@ const I18N = {
     pvSub: "Tạm tính:",
     pvVat: "VAT:",
     pvTotal: "Tổng cộng:",
-    signClient: "ĐẠI DIỆN KHÁCH HÀNG",
-    signClientSub: "(Ký và ghi rõ họ tên)",
-    exportPDFBtn: "⭳ Xuất File PDF Báo Giá",
+    exportPDFBtn: "⭳ Xuất File PDF",
+    exportWordBtn: "📄 Xuất File Word",
     printBtn: "🖨 In Báo Giá"
   },
   EN: {
@@ -862,7 +905,7 @@ const I18N = {
     backBtn: "← Back to Pricing List",
     eyebrow: "🌸 PROFESSIONAL QUOTATION GENERATOR 🌸",
     mainHeading: "Create Professional Quotation Quickly",
-    subHeading: "Select products from Q3/2026 Sales Program or add custom lines to export PDF.",
+    subHeading: "Select products from Q3/2026 Sales Program or add custom lines to export PDF/Word.",
     panel1Title: "1. Customer Information",
     custName: "Company Name / Customer",
     custTax: "Tax Identification Number (TIN)",
@@ -898,9 +941,8 @@ const I18N = {
     pvSub: "Subtotal:",
     pvVat: "VAT:",
     pvTotal: "Total Amount:",
-    signClient: "CUSTOMER REPRESENTATIVE",
-    signClientSub: "(Signature & Full Name)",
-    exportPDFBtn: "⭳ Export Quotation PDF",
+    exportPDFBtn: "⭳ Export PDF",
+    exportWordBtn: "📄 Export Word",
     printBtn: "🖨 Print Quotation"
   }
 };
@@ -1021,15 +1063,15 @@ const CATALOG = [
   { group: "10. PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup — Cài thêm máy (2.000.000 đ/máy)", price: 2000000 },
 
   // MỤC 11. PMKT DỊCH VỤ KẾ TOÁN & THUẾ
-  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ Startup Cá Nhân (2 MST, 2 Data Online)", price: 2000000 },
-  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ Cá Nhân (Full MST, 5 Data Online, 1000 HĐ)", price: 5000000 },
-  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ Doanh Nghiệp (Full MST, 10 Data Online, 2 máy)", price: 10000000 },
-  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ — Thêm máy Full MST (5.000.000 đ)", price: 5000000 },
-  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ — Thêm MST Offline (500.000 đ/MST)", price: 500000 },
-  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ — Thêm MST Online (1.000.000 đ/MST)", price: 1000000 },
-  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ — Thêm 01 Data Online (500.000 đ)", price: 500000 },
-  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ — Gói 10 Data Online (2.000.000 đ)", price: 2000000 },
-  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "Gói Đặc Biệt — 1 máy / 1 MST / 1 Data Online / Tải Full", price: 1000000 },
+  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ Startup Cá Nhân (2 MST, 2 Data Online)", price: 2000000 },
+  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ Cá Nhân (Full MST, 5 Data Online, 1000 HĐ)", price: 5000000 },
+  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ Doanh Nghiệp (Full MST, 10 Data Online, 2 máy)", price: 10000000 },
+  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm máy Full MST (5.000.000 đ)", price: 5000000 },
+  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm MST Offline (500.000 đ/MST)", price: 500000 },
+  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm MST Online (1.000.000 đ/MST)", price: 1000000 },
+  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm 01 Data Online (500.000 đ)", price: 500000 },
+  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Gói 10 Data Online (2.000.000 đ)", price: 2000000 },
+  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "Gói Đặc Biệt — 1 máy / 1 MST / 1 Data Online / Tải Full", price: 1000000 },
 
   // MỤC 12. PMKT DOANH NGHIỆP (TT133, TT99/2025/TT-BTC & FDI)
   { group: "12. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan SME 9.1 — Mua mới (6.000.000 đ, 2 máy, 2 Data Online)", price: 6000000 },
@@ -1040,10 +1082,10 @@ const CATALOG = [
   { group: "12. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan TT99 FDI — Cài thêm máy (5.000.000 đ/máy)", price: 5000000 },
 
   // MỤC 13. PMKT HỢP TÁC XÃ (TT71/2024/TT-BTC)
-  { group: "13. PMKT HỢP TÁC XÃ (TT71)", name: "ACMan HTX 1000 — Mua mới (2.000.000 đ, 1 máy, 1 Data Online)", price: 2000000 },
-  { group: "13. PMKT HỢP TÁC XÃ (TT71)", name: "ACMan HTX 3000 — Mua mới (3.000.000 đ, 1 máy, 1 Data Online)", price: 3000000 },
-  { group: "13. PMKT HỢP TÁC XÃ (TT71)", name: "ACMan HTX 5000 — Mua mới (5.000.000 đ, 2 máy, Full bản ghi)", price: 5000000 },
-  { group: "13. PMKT HỢP TÁC XÃ (TT71)", name: "ACMan HTX — Cài thêm máy (2.000.000 đ/máy)", price: 2000000 },
+  { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 1000 — Mua mới (2.000.000 đ, 1 máy, 1 Data Online)", price: 2000000 },
+  { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 3000 — Mua mới (3.000.000 đ, 1 máy, 1 Data Online)", price: 3000000 },
+  { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 5000 — Mua mới (5.000.000 đ, 2 máy, Full bản ghi)", price: 5000000 },
+  { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX — Cài thêm máy (2.000.000 đ/máy)", price: 2000000 },
 
   // MỤC 14. PMKT QUẢN LÝ QUỸ TÀI CHÍNH (TT90/2021/TT-BTC)
   { group: "14. PMKT Quản Lý Quỹ (TT90)", name: "ACMan TT 90 (1 máy) — Mua mới (8.000.000 đ, 1 Data Online)", price: 8000000 },
@@ -1171,10 +1213,8 @@ function applyLanguage() {
   document.getElementById("lblPvSub").textContent = t.pvSub;
   document.getElementById("lblPvTotal").textContent = t.pvTotal;
 
-  document.getElementById("lblSignClient").textContent = t.signClient;
-  document.getElementById("lblSignClientSub").textContent = t.signClientSub;
-
   document.getElementById("btnExportPDF").textContent = t.exportPDFBtn;
+  document.getElementById("btnExportWord").textContent = t.exportWordBtn;
   document.getElementById("btnPrint").textContent = t.printBtn;
 
   render();
@@ -1353,14 +1393,14 @@ function render() {
     }
   }
 
-  // 3. HIỂN THỊ DẠNG SỐ LA MÃ (I., II., III...) CHO TỪNG NHÓM SẢN PHẨM TRONG BẢNG BÁO GIÁ
+  // 3. HIỂN THỊ DẠNG SỐ LA MÃ (I., II., III...) CHO TỪNG NHÓM SẢN PHẨM TRONG BẢNG BÁO GIÁ (100% NỀN TRẮNG)
   const pvBody = document.getElementById("pvBody");
   pvBody.innerHTML = "";
 
   let subtotal = 0;
 
   if (items.length === 0) {
-    pvBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#999; font-style:italic; padding:20px;">${currentLang === "VN" ? "Chưa có sản phẩm trong báo giá" : "No items in quotation"}</td></tr>`;
+    pvBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#999; font-style:italic; padding:20px; background:#fff;">${currentLang === "VN" ? "Chưa có sản phẩm trong báo giá" : "No items in quotation"}</td></tr>`;
   } else {
     const groupsMap = {};
     const groupOrder = [];
@@ -1380,19 +1420,20 @@ function render() {
 
       const groupTr = document.createElement("tr");
       groupTr.className = "group-header-row";
-      groupTr.innerHTML = `<td colspan="5"><strong>${romanIndex}. ${cleanGroupTitle}</strong></td>`;
+      groupTr.innerHTML = `<td colspan="5" style="background:#ffffff; font-weight:bold;"><strong>${romanIndex}. ${cleanGroupTitle}</strong></td>`;
       pvBody.appendChild(groupTr);
 
       groupsMap[gName].forEach((item, itemIdx) => {
         const lineTotal = item.qty * item.price;
         subtotal += lineTotal;
         const itemTr = document.createElement("tr");
+        itemTr.style.background = "#ffffff";
         itemTr.innerHTML = `
-          <td style="text-align:center;">${itemIdx + 1}</td>
-          <td><strong>${item.name}</strong></td>
-          <td class="num">${item.qty}</td>
-          <td class="num">${item.price.toLocaleString("vi-VN")} đ</td>
-          <td class="num" style="font-weight:700; color:#000000;">${lineTotal.toLocaleString("vi-VN")} đ</td>
+          <td style="text-align:center; background:#ffffff;">${itemIdx + 1}</td>
+          <td style="background:#ffffff;"><strong>${item.name}</strong></td>
+          <td class="num" style="background:#ffffff;">${item.qty}</td>
+          <td class="num" style="background:#ffffff;">${item.price.toLocaleString("vi-VN")} đ</td>
+          <td class="num" style="font-weight:700; color:#000000; background:#ffffff;">${lineTotal.toLocaleString("vi-VN")} đ</td>
         `;
         pvBody.appendChild(itemTr);
       });
@@ -1406,7 +1447,6 @@ function render() {
   let vatLabelText = t.pvVat;
 
   if (vatInput === "") {
-    // Bỏ trống -> Ẩn hoàn toàn dòng VAT
     pvVatRow.style.display = "none";
     vatAmount = 0;
   } else if (!isNaN(vatInput)) {
@@ -1419,7 +1459,6 @@ function render() {
     vatAmount = 0;
     pvVatRow.style.display = "flex";
   } else {
-    // Có text tùy chỉnh khác
     vatLabelText = `VAT (${vatInput}):`;
     vatAmount = 0;
     pvVatRow.style.display = "flex";
@@ -1484,6 +1523,123 @@ function exportPDF() {
   };
 
   html2pdf().set(opt).from(element).save();
+}
+
+function exportWord() {
+  const element = document.getElementById("previewPaper");
+  const quoteNo = document.getElementById("quoteNo").value || "BaoGia";
+  
+  // Clone và chuẩn hóa đường dẫn ảnh logo thành absolute URL để Word mở hiển thị tốt
+  const clone = element.cloneNode(true);
+  const imgs = clone.querySelectorAll("img");
+  imgs.forEach(img => {
+    const src = img.getAttribute("src");
+    if (src && !src.startsWith("http") && !src.startsWith("data:")) {
+      img.src = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + src;
+    }
+  });
+
+  const wordContent = `
+    <html xmlns:o='urn:schemas-microsoft-com:office:office'
+          xmlns:w='urn:schemas-microsoft-com:office:word'
+          xmlns='http://www.w3.org/TR/REC-html40'>
+    <head>
+      <meta charset='utf-8'>
+      <title>Báo Giá ACMan ${quoteNo}</title>
+      <!--[if gte mso 9]>
+      <xml>
+        <w:WordDocument>
+          <w:View>Print</w:View>
+          <w:Zoom>100</w:Zoom>
+          <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+      </xml>
+      <![endif]-->
+      <style>
+        @page WordSection1 {
+          size: 595.3pt 841.9pt; /* Khổ A4 */
+          margin: 36.0pt 36.0pt 36.0pt 36.0pt;
+          mso-header-margin: 35.4pt;
+          mso-footer-margin: 35.4pt;
+          mso-paper-source: 0;
+        }
+        div.WordSection1 { page: WordSection1; }
+        body {
+          font-family: 'Times New Roman', Times, serif;
+          font-size: 11.5pt;
+          line-height: 1.4;
+          color: #000000;
+          background: #ffffff;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-bottom: 12pt;
+          background: #ffffff;
+        }
+        th, td {
+          border: 1pt solid #000000;
+          padding: 4pt 6pt;
+          font-size: 11pt;
+          color: #000000;
+          background: #ffffff;
+        }
+        th {
+          font-weight: bold;
+          text-align: center;
+          background-color: #ffffff;
+        }
+        td.num, th.num { text-align: right; }
+        .paper-header {
+          border-bottom: 2pt solid #000000;
+          padding-bottom: 8pt;
+          margin-bottom: 10pt;
+        }
+        .paper-company-info {
+          font-size: 11pt;
+          line-height: 1.35;
+        }
+        .paper-doc-title {
+          text-align: center;
+          font-size: 18pt;
+          font-weight: bold;
+          margin: 10pt 0 2pt;
+        }
+        .paper-doc-subtitle {
+          text-align: center;
+          font-size: 11pt;
+          font-style: italic;
+          font-weight: bold;
+          margin-bottom: 10pt;
+        }
+        .paper-totals {
+          margin-left: auto;
+          width: 240pt;
+          font-size: 11pt;
+          margin-bottom: 10pt;
+        }
+        .paper-signature {
+          margin-top: 20pt;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="WordSection1">
+        ${clone.innerHTML}
+      </div>
+    </body>
+    </html>
+  `;
+
+  const blob = new Blob(['\ufeff' + wordContent], { type: 'application/msword;charset=utf-8' });
+  const downloadUrl = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = downloadUrl;
+  a.download = `Bao_Gia_ACMan_${quoteNo}.doc`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(downloadUrl);
 }
 
 document.querySelector(".theme-toggle")?.addEventListener("click", () => {
