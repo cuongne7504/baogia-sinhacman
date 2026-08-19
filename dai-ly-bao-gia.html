@@ -396,8 +396,8 @@
 
   .paper-header {
     display: flex;
-    align-items: center;
-    gap: 16px;
+    justify-content: space-between;
+    align-items: flex-start;
     border-bottom: 2px solid #000000;
     padding-bottom: 8px;
     margin-bottom: 10px;
@@ -410,16 +410,17 @@
   }
 
   .paper-company-info {
-    text-align: left;
+    text-align: right;
     font-size: 11.5px;
-    line-height: 1.4;
+    line-height: 1.45;
     color: #000000;
     flex: 1;
+    padding-left: 20px;
   }
 
   .paper-company-info b {
     display: block;
-    font-size: 13px;
+    font-size: 12.5px;
     color: #000000;
     text-transform: uppercase;
     margin-bottom: 2px;
@@ -572,18 +573,19 @@
     text-transform: uppercase;
   }
 
-  /* PHẦN KÝ TÊN TRÂN TRỌNG CÔNG TY (CĂN PHẢI GỌN GÀNG THEO YÊU CẦU) */
+  /* PHẦN KÝ TÊN TRÂN TRỌNG CÔNG TY: CĂN TRÁI THEO ẢNH 2 */
   .paper-signature {
     margin-top: 20px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     font-size: 12px;
     color: #000000;
     background: transparent !important;
     page-break-inside: avoid;
+    text-align: left;
   }
 
-  .paper-signature .sign-col { text-align: center; width: 260px; }
+  .paper-signature .sign-col { text-align: left; width: auto; }
   .paper-signature b { text-transform: uppercase; color: #000000; font-weight: bold; }
 
   .action-bar {
@@ -735,29 +737,29 @@ Các tiện ích khác của chương trình:
         <div class="panel-card">
           <h3 id="lblPanel3Title"><span class="num-badge">3</span> Quy trình thực hiện, Bảo hành & Thanh toán</h3>
           <div class="field-group">
-            <label>III. Quy trình thực hiện (Có thể gõ dấu * hoặc gạch ngang, 1, 2... — Để trống nếu muốn ẩn):</label>
-            <textarea id="processText" rows="6" oninput="render()">* Tư vấn & báo giá: ACMan tiếp nhận nhu cầu, tư vấn dịch vụ và giải đáp quy định pháp luật.
-* Ký kết hợp đồng: Hai bên thống nhất phạm vi dịch vụ và ký hợp đồng kinh tế.
-* Triển khai dịch vụ: ACMan thực hiện chuyển giao theo kế hoạch đã thống nhất.
-* Nghiệm thu & bảo hành: Nghiệm thu, bàn giao và chuyển sang giai đoạn bảo hành.
-* Cam kết đồng hành: Giải pháp tối ưu, chi phí hợp lý; hỗ trợ tư vấn kế toán – thuế và kiểm tra dữ liệu</textarea>
+            <label>Nội dung Quy trình thực hiện (Dùng gạch đầu dòng - ... Để trống nếu muốn ẩn):</label>
+            <textarea id="processText" rows="6" oninput="render()">- Tư vấn & báo giá: ACMan tiếp nhận nhu cầu, tư vấn dịch vụ và giải đáp quy định pháp luật.
+- Ký kết hợp đồng: Hai bên thống nhất phạm vi dịch vụ và ký hợp đồng kinh tế.
+- Triển khai dịch vụ: ACMan thực hiện chuyển giao theo kế hoạch đã thống nhất.
+- Nghiệm thu & bảo hành: Nghiệm thu, bàn giao và chuyển sang giai đoạn bảo hành.
+- Cam kết đồng hành: Giải pháp tối ưu, chi phí hợp lý; hỗ trợ tư vấn kế toán – thuế và kiểm tra dữ liệu</textarea>
           </div>
 
           <div class="field-group">
-            <label>IV. Bảo hành, bảo trì ACMan (Có thể gõ dấu * hoặc gạch ngang, 1, 2... — Để trống nếu muốn ẩn):</label>
-            <textarea id="warrantyText" rows="6" oninput="render()">* Cập nhật phần mềm: Nâng cấp theo các quy định mới về kế toán, thuế.
-* Hỗ trợ sử dụng: Xử lý vướng mắc, hỗ trợ kiểm tra dữ liệu, hóa đơn chứng từ và chuyển số dư sang năm tài chính mới.
-* Kiểm tra định kỳ: Kiểm tra, cảnh báo sai sót dữ liệu 3 tháng/lần.
-* Hỗ trợ kỹ thuật: Cài đặt lại chương trình khi máy tính gặp sự cố (không bao gồm phần cứng, hệ điều hành và phần mềm khác).
-* Tiếp nhận & xử lý yêu cầu: Hỗ trợ qua điện thoại, chat, email hoặc trực tiếp; thời gian khắc phục tối đa 2 ngày làm việc kể từ khi tiếp nhận hoặc theo thỏa thuận bằng văn bản.</textarea>
+            <label>Nội dung Bảo hành, bảo trì ACMan (Dùng gạch đầu dòng - ... Để trống nếu muốn ẩn):</label>
+            <textarea id="warrantyText" rows="6" oninput="render()">- Cập nhật phần mềm: Nâng cấp theo các quy định mới về kế toán, thuế.
+- Hỗ trợ sử dụng: Xử lý vướng mắc, hỗ trợ kiểm tra dữ liệu, hóa đơn chứng từ và chuyển số dư sang năm tài chính mới.
+- Kiểm tra định kỳ: Kiểm tra, cảnh báo sai sót dữ liệu 3 tháng/lần.
+- Hỗ trợ kỹ thuật: Cài đặt lại chương trình khi máy tính gặp sự cố (không bao gồm phần cứng, hệ điều hành và phần mềm khác).
+- Tiếp nhận & xử lý yêu cầu: Hỗ trợ qua điện thoại, chat, email hoặc trực tiếp; thời gian khắc phục tối đa 2 ngày làm việc kể từ khi tiếp nhận hoặc theo thỏa thuận bằng văn bản.</textarea>
           </div>
 
-          <!-- PHẦN THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG -->
+          <!-- PHẦN THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG (THEO ẢNH 4) -->
           <div class="field-group">
             <label>Thông tin chuyển khoản ngân hàng (Để trống nếu muốn ẩn):</label>
             <textarea id="bankText" rows="4" oninput="render()">CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ ACMAN
-STK: 12510000382415 (1250382415)
-TẠI NH - BIDV – CN ĐÔNG ĐÔ</textarea>
+STK: 1250382415
+Ngân hàng TMCP Đầu tư và Phát triển Việt Nam (BIDV) CN ĐÔNG ĐÔ</textarea>
           </div>
         </div>
       </div>
@@ -765,7 +767,7 @@ TẠI NH - BIDV – CN ĐÔNG ĐÔ</textarea>
       <!-- CỘT PHẢI: PREVIEW GIẤY BÁO GIÁ XUẤT FILE PDF / WORD -->
       <div class="preview-sticky">
         <div id="previewPaper" class="paper-sheet">
-          <!-- HEADER BÁO GIÁ: LOGO BÊN TRÁI + CHỮ CÔNG TY CĂN TRÁI THEO ẢNH 2 -->
+          <!-- HEADER BÁO GIÁ: LOGO BÊN TRÁI + THÔNG TIN CÔNG TY SANG BÊN PHẢI THEO ẢNH 3 -->
           <div class="paper-header">
             <div>
               <img src="assets/logo.png" alt="ACMan Logo" class="paper-logo-img">
@@ -815,28 +817,28 @@ TẠI NH - BIDV – CN ĐÔNG ĐÔ</textarea>
             <div class="row grand" id="pvTotalRow"><span id="lblPvTotal">Tổng cộng:</span><span id="pvTotal">0 đ</span></div>
           </div>
 
-          <!-- MỤC III: QUY TRÌNH THỰC HIỆN -->
+          <!-- MỤC * QUY TRÌNH THỰC HIỆN (THAY III. THÀNH DẤU * THEO YÊU CẦU) -->
           <div class="paper-section-block" id="pvProcessBlock">
-            <h3>III. Quy trình thực hiện</h3>
+            <h3 id="lblPvProcessTitle">* QUY TRÌNH THỰC HIỆN</h3>
             <div id="pvProcess"></div>
           </div>
 
-          <!-- MỤC IV: BẢO HÀNH BẢO TRÌ -->
+          <!-- MỤC * BẢO HÀNH, BẢO TRÌ ACMAN (THAY IV. THÀNH DẤU * THEO YÊU CẦU) -->
           <div class="paper-section-block" id="pvWarrantyBlock">
-            <h3>IV. Bảo hành, bảo trì ACMan</h3>
+            <h3 id="lblPvWarrantyTitle">* BẢO HÀNH, BẢO TRÌ ACMAN</h3>
             <div id="pvWarranty"></div>
           </div>
 
-          <!-- MỤC THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG -->
+          <!-- MỤC THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG (THEO ẢNH 4) -->
           <div class="paper-section-block" id="pvBankBlock" style="margin-top:10px;">
             <h3>THÔNG TIN CHUYỂN KHOẢN</h3>
             <div id="pvBank" style="font-weight:600; line-height:1.4;"></div>
           </div>
 
-          <!-- PHẦN CHỮ KÝ TRÂN TRỌNG (ĐÃ BỎ KÝ ĐÓNG DẤU & BỎ ĐẠI DIỆN KH THEO ẢNH 2) -->
+          <!-- PHẦN CHỮ KÝ TRÂN TRỌNG: CĂN TRÁI THEO ẢNH 2 -->
           <div class="paper-signature">
             <div class="sign-col">
-              <b style="display:block; margin-bottom:4px;">Trân trọng!</b>
+              <b style="display:block; margin-bottom:4px;">TRÂN TRỌNG!</b>
               <b>CÔNG TY CỔ PHẦN ACMAN</b>
             </div>
           </div>
@@ -1063,15 +1065,15 @@ const CATALOG = [
   { group: "10. PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup — Cài thêm máy (2.000.000 đ/máy)", price: 2000000 },
 
   // MỤC 11. PMKT DỊCH VỤ KẾ TOÁN & THUẾ
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ Startup Cá Nhân (2 MST, 2 Data Online)", price: 2000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ Cá Nhân (Full MST, 5 Data Online, 1000 HĐ)", price: 5000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ Doanh Nghiệp (Full MST, 10 Data Online, 2 máy)", price: 10000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm máy Full MST (5.000.000 đ)", price: 5000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm MST Offline (500.000 đ/MST)", price: 500000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm MST Online (1.000.000 đ/MST)", price: 1000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm 01 Data Online (500.000 đ)", price: 500000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Gói 10 Data Online (2.000.000 đ)", price: 2000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "Gói Đặc Biệt — 1 máy / 1 MST / 1 Data Online / Tải Full", price: 1000000 },
+  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ Startup Cá Nhân (2 MST, 2 Data Online)", price: 2000000 },
+  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ Cá Nhân (Full MST, 5 Data Online, 1000 HĐ)", price: 5000000 },
+  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ Doanh Nghiệp (Full MST, 10 Data Online, 2 máy)", price: 10000000 },
+  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ — Thêm máy Full MST (5.000.000 đ)", price: 5000000 },
+  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ — Thêm MST Offline (500.000 đ/MST)", price: 500000 },
+  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ — Thêm MST Online (1.000.000 đ/MST)", price: 1000000 },
+  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ — Thêm 01 Data Online (500.000 đ)", price: 500000 },
+  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "ACMan Dịch Vụ — Gói 10 Data Online (2.000.000 đ)", price: 2000000 },
+  { group: "11. PMKT Dịch VỤ KẾ TOÁN & THUẾ", name: "Gói Đặc Biệt — 1 máy / 1 MST / 1 Data Online / Tải Full", price: 1000000 },
 
   // MỤC 12. PMKT DOANH NGHIỆP (TT133, TT99/2025/TT-BTC & FDI)
   { group: "12. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan SME 9.1 — Mua mới (6.000.000 đ, 2 máy, 2 Data Online)", price: 6000000 },
@@ -1082,10 +1084,10 @@ const CATALOG = [
   { group: "12. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan TT99 FDI — Cài thêm máy (5.000.000 đ/máy)", price: 5000000 },
 
   // MỤC 13. PMKT HỢP TÁC XÃ (TT71/2024/TT-BTC)
-  { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 1000 — Mua mới (2.000.000 đ, 1 máy, 1 Data Online)", price: 2000000 },
-  { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 3000 — Mua mới (3.000.000 đ, 1 máy, 1 Data Online)", price: 3000000 },
-  { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 5000 — Mua mới (5.000.000 đ, 2 máy, Full bản ghi)", price: 5000000 },
-  { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX — Cài thêm máy (2.000.000 đ/máy)", price: 2000000 },
+  { group: "13. PMKT HỢP TÁC XÃ (TT71)", name: "ACMan HTX 1000 — Mua mới (2.000.000 đ, 1 máy, 1 Data Online)", price: 2000000 },
+  { group: "13. PMKT HỢP TÁC XÃ (TT71)", name: "ACMan HTX 3000 — Mua mới (3.000.000 đ, 1 máy, 1 Data Online)", price: 3000000 },
+  { group: "13. PMKT HỢP TÁC XÃ (TT71)", name: "ACMan HTX 5000 — Mua mới (5.000.000 đ, 2 máy, Full bản ghi)", price: 5000000 },
+  { group: "13. PMKT HỢP TÁC XÃ (TT71)", name: "ACMan HTX — Cài thêm máy (2.000.000 đ/máy)", price: 2000000 },
 
   // MỤC 14. PMKT QUẢN LÝ QUỸ TÀI CHÍNH (TT90/2021/TT-BTC)
   { group: "14. PMKT Quản Lý Quỹ (TT90)", name: "ACMan TT 90 (1 máy) — Mua mới (8.000.000 đ, 1 Data Online)", price: 8000000 },
@@ -1471,7 +1473,7 @@ function render() {
   document.getElementById("pvVat").textContent = vatAmount.toLocaleString("vi-VN") + " đ";
   document.getElementById("pvTotal").textContent = grandTotal.toLocaleString("vi-VN") + " đ";
 
-  // MỤC III, IV, THANH TOÁN (ẨN KHI BỎ TRỐNG)
+  // MỤC * QUY TRÌNH THỰC HIỆN & * BẢO HÀNH, BẢO TRÌ ACMAN
   const processText = document.getElementById("processText").value.trim();
   const pvProcessBlock = document.getElementById("pvProcessBlock");
   if (!processText) {
@@ -1490,7 +1492,7 @@ function render() {
     document.getElementById("pvWarranty").innerHTML = formatFormattedBlock(warrantyText);
   }
 
-  // MỤC THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG
+  // MỤC THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG (THEO ẢNH 4)
   const bankText = document.getElementById("bankText").value.trim();
   const pvBankBlock = document.getElementById("pvBankBlock");
   if (!bankText) {
@@ -1529,7 +1531,6 @@ function exportWord() {
   const element = document.getElementById("previewPaper");
   const quoteNo = document.getElementById("quoteNo").value || "BaoGia";
   
-  // Clone và chuẩn hóa đường dẫn ảnh logo thành absolute URL để Word mở hiển thị tốt
   const clone = element.cloneNode(true);
   const imgs = clone.querySelectorAll("img");
   imgs.forEach(img => {
@@ -1598,6 +1599,7 @@ function exportWord() {
         .paper-company-info {
           font-size: 11pt;
           line-height: 1.35;
+          text-align: right;
         }
         .paper-doc-title {
           text-align: center;
@@ -1620,6 +1622,7 @@ function exportWord() {
         }
         .paper-signature {
           margin-top: 20pt;
+          text-align: left;
         }
       </style>
     </head>
