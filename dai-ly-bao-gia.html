@@ -715,10 +715,10 @@ Các tiện ích khác của chương trình:
           <table class="form-table">
             <thead>
               <tr>
-                <th style="width:40%" id="thFormName">Tên sản phẩm / Dịch vụ</th>
-                <th style="width:15%" id="thFormQty">SL</th>
-                <th style="width:25%" id="thFormPrice">Đơn giá (đ)</th>
-                <th style="width:15%" id="thFormTotal">Thành tiền</th>
+                <th style="width:36%" id="thFormName">Tên sản phẩm / Dịch vụ</th>
+                <th style="width:12%" id="thFormQty">SL</th>
+                <th style="width:22%" id="thFormPrice">Đơn giá (đ)</th>
+                <th style="width:25%" id="thFormTotal">Thành tiền (Sửa được chữ/số)</th>
                 <th style="width:5%"></th>
               </tr>
             </thead>
@@ -973,7 +973,7 @@ const CATALOG = [
   { group: "1. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 10.000 HĐ (Đơn giá 400 đ/HĐ)", price: 4000000 },
   { group: "1. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 15.000 HĐ (Đơn giá 350 đ/HĐ)", price: 5250000 },
   { group: "1. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 20.000 HĐ (Đơn giá 300 đ/HĐ)", price: 6000000 },
-  { group: "1. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 30.000 HĐ (Đác giá 250 đ/HĐ)", price: 7500000 },
+  { group: "1. Tải & Import Hóa Đơn (Full MST)", name: "Tải & Import Hóa đơn (Full MST) — 30.000 HĐ (Đơn giá 250 đ/HĐ)", price: 7500000 },
 
   // MỤC 2. TẢI VÀ IMPORT HÓA ĐƠN ĐIỆN TỬ MTT (XĂNG DẦU, SIÊU THỊ)
   { group: "2. Tải & Import HĐ MTT (Xăng dầu)", name: "Tải & Import HĐ MTT — Gói 100.000 HĐ (Đơn giá 100 đ/HĐ)", price: 10000000 },
@@ -1087,7 +1087,7 @@ const CATALOG = [
   { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 1000 — Mua mới (2.000.000 đ, 1 máy, 1 Data Online)", price: 2000000 },
   { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 3000 — Mua mới (3.000.000 đ, 1 máy, 1 Data Online)", price: 3000000 },
   { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX 5000 — Mua mới (5.000.000 đ, 2 máy, Full bản ghi)", price: 5000000 },
-  { group: "13. PMKT HỢP TÁC XÃ (TT71)", name: "ACMan HTX — Cài thêm máy (2.000.000 đ/máy)", price: 2000000 },
+  { group: "13. PMKT Hợp Tác Xã (TT71)", name: "ACMan HTX — Cài thêm máy (2.000.000 đ/máy)", price: 2000000 },
 
   // MỤC 14. PMKT QUẢN LÝ QUỸ TÀI CHÍNH (TT90/2021/TT-BTC)
   { group: "14. PMKT Quản Lý Quỹ (TT90)", name: "ACMan TT 90 (1 máy) — Mua mới (8.000.000 đ, 1 Data Online)", price: 8000000 },
@@ -1196,7 +1196,7 @@ function applyLanguage() {
   document.getElementById("thFormName").textContent = t.thDesc;
   document.getElementById("thFormQty").textContent = t.thQty;
   document.getElementById("thFormPrice").textContent = t.thPrice;
-  document.getElementById("thFormTotal").textContent = t.thTotal;
+  document.getElementById("thFormTotal").textContent = currentLang === "VN" ? "Thành tiền (Sửa được chữ/số)" : "Total (Editable text/num)";
 
   document.getElementById("lblPanel3Title").innerHTML = `<span class="num-badge">3</span> ${t.panel3Title}`;
 
@@ -1226,14 +1226,20 @@ function addFromCatalog() {
   const idx = document.getElementById("catalogSelect").value;
   if (idx !== "") {
     const item = CATALOG[idx];
-    items.push({ group: item.group, name: item.name, qty: 1, price: item.price });
+    items.push({ group: item.group, name: item.name, qty: 1, price: item.price, totalText: item.price.toLocaleString("vi-VN") + " đ" });
     renderFormItems();
     render();
   }
 }
 
 function addCustomRow() {
-  items.push({ group: currentLang === "VN" ? "Sản phẩm / Dịch vụ khác" : "Other Products / Services", name: currentLang === "VN" ? "Sản phẩm tùy chỉnh" : "Custom Product", qty: 1, price: 1000000 });
+  items.push({ 
+    group: currentLang === "VN" ? "Sản phẩm / Dịch vụ khác" : "Other Products / Services", 
+    name: currentLang === "VN" ? "Sản phẩm tùy chỉnh" : "Custom Product", 
+    qty: 1, 
+    price: 1000000,
+    totalText: "1.000.000 đ"
+  });
   renderFormItems();
   render();
 }
@@ -1249,12 +1255,15 @@ function renderFormItems() {
   tbody.innerHTML = "";
 
   items.forEach((item, i) => {
+    const defaultTotal = (item.qty * item.price).toLocaleString("vi-VN") + " đ";
+    const currentTotalText = item.totalText !== undefined ? item.totalText : defaultTotal;
+
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td><input type="text" value="${item.name}" oninput="items[${i}].name = this.value; render();"></td>
-      <td><input type="number" min="1" value="${item.qty}" style="width:60px;" oninput="items[${i}].qty = parseInt(this.value)||1; render();"></td>
-      <td><input type="number" value="${item.price}" oninput="items[${i}].price = parseInt(this.value)||0; render();"></td>
-      <td style="font-weight:700; color:#000000; vertical-align:middle;">${(item.qty * item.price).toLocaleString("vi-VN")} đ</td>
+      <td><input type="number" min="1" value="${item.qty}" style="width:55px;" oninput="items[${i}].qty = parseInt(this.value)||1; if(!items[${i}].isCustomText) { items[${i}].totalText = (items[${i}].qty * items[${i}].price).toLocaleString('vi-VN') + ' đ'; renderFormItems(); } render();"></td>
+      <td><input type="number" value="${item.price}" oninput="items[${i}].price = parseInt(this.value)||0; if(!items[${i}].isCustomText) { items[${i}].totalText = (items[${i}].qty * items[${i}].price).toLocaleString('vi-VN') + ' đ'; renderFormItems(); } render();"></td>
+      <td><input type="text" value="${currentTotalText}" placeholder="VD: Miễn phí hoặc 500.000 đ" style="font-weight:700; color:#000000;" oninput="items[${i}].totalText = this.value; items[${i}].isCustomText = true; render();"></td>
       <td style="vertical-align:middle;"><button class="del-btn" onclick="removeItem(${i})">✕</button></td>
     `;
     tbody.appendChild(tr);
@@ -1281,6 +1290,16 @@ function toRoman(num) {
 
 function formatFormattedBlock(text) {
   return text.replace(/\n/g, "<br>");
+}
+
+function parseMoneyAmount(valStr, defaultNum) {
+  if (!valStr) return defaultNum;
+  const digits = valStr.toString().replace(/[^\d]/g, '');
+  if (digits === '') {
+    // Nếu là chữ hoàn toàn như 'Miễn phí', 'Tặng kèm' -> tính 0 đ vào tổng
+    return 0;
+  }
+  return parseInt(digits, 10) || 0;
 }
 
 function render() {
@@ -1426,8 +1445,11 @@ function render() {
       pvBody.appendChild(groupTr);
 
       groupsMap[gName].forEach((item, itemIdx) => {
-        const lineTotal = item.qty * item.price;
-        subtotal += lineTotal;
+        const defaultTotal = (item.qty * item.price).toLocaleString("vi-VN") + " đ";
+        const lineDisplay = item.totalText !== undefined && item.totalText.trim() !== "" ? item.totalText : defaultTotal;
+        const lineAmount = parseMoneyAmount(lineDisplay, item.qty * item.price);
+        subtotal += lineAmount;
+
         const itemTr = document.createElement("tr");
         itemTr.style.background = "#ffffff";
         itemTr.innerHTML = `
@@ -1435,7 +1457,7 @@ function render() {
           <td style="background:#ffffff;"><strong>${item.name}</strong></td>
           <td class="num" style="background:#ffffff;">${item.qty}</td>
           <td class="num" style="background:#ffffff;">${item.price.toLocaleString("vi-VN")} đ</td>
-          <td class="num" style="font-weight:700; color:#000000; background:#ffffff;">${lineTotal.toLocaleString("vi-VN")} đ</td>
+          <td class="num" style="font-weight:700; color:#000000; background:#ffffff;">${lineDisplay}</td>
         `;
         pvBody.appendChild(itemTr);
       });
@@ -1689,10 +1711,10 @@ function exportWord() {
         <!-- HEADER 2 CỘT: LOGO TRÁI, THÔNG TIN PHẢI -->
         <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; border: none; border-bottom: 2pt solid #000000; padding-bottom: 6pt; margin-bottom: 10pt;">
           <tr style="border: none;">
-            <td style="width: 25%; vertical-align: top; border: none; padding: 0;">
-              <img src="${logoSrc}" width="140" style="width: 140pt; height: auto;">
+            <td style="width: 30%; vertical-align: middle; border: none; padding: 0;">
+              <img src="${logoSrc}" width="150" height="42" style="width: 150px; height: 42px; max-height: 42px; object-fit: contain;">
             </td>
-            <td style="width: 75%; vertical-align: top; text-align: right; border: none; padding: 0; font-size: 11pt; line-height: 1.4;">
+            <td style="width: 70%; vertical-align: top; text-align: right; border: none; padding: 0; font-size: 11pt; line-height: 1.4;">
               <b style="font-size: 12pt; text-transform: uppercase; display: block; margin-bottom: 2pt;">CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ ACMAN</b>
               Địa chỉ: Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond Số 459C Bạch Mai, Hà Nội<br>
               Điện thoại: <strong>032.743.9969</strong> | Email: <span>tueann2411@gmail.com</span> | Website: www.acman.vn
