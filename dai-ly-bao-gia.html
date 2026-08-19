@@ -691,9 +691,9 @@ Các tiện ích khác của chương trình:
           </div>
         </div>
 
-        <!-- PANEL 3: QUY TRÌNH, BẢO HÀNH, THANH TOÁN & LIÊN HỆ -->
+        <!-- PANEL 3: QUY TRÌNH, BẢO HÀNH & THANH TOÁN -->
         <div class="panel-card">
-          <h3 id="lblPanel3Title"><span class="num-badge">3</span> Quy trình thực hiện, Bảo hành, Thanh toán & Liên hệ</h3>
+          <h3 id="lblPanel3Title"><span class="num-badge">3</span> Quy trình thực hiện, Bảo hành & Thanh toán</h3>
           <div class="field-group">
             <label>III. Quy trình thực hiện (Được đánh số 1, 2, 3...):</label>
             <textarea id="processText" rows="6" oninput="render()">1. Tư vấn & báo giá: ACMan tiếp nhận nhu cầu, tư vấn dịch vụ và giải đáp quy định pháp luật.
@@ -718,21 +718,6 @@ Các tiện ích khác của chương trình:
             <textarea id="bankText" rows="4" oninput="render()">CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ ACMAN
 STK: 12510000382415 (1250382415)
 TẠI NH - BIDV – CN ĐÔNG ĐÔ</textarea>
-          </div>
-
-          <div class="grid2">
-            <div class="field-group">
-              <label>Tên tư vấn viên / Kinh doanh:</label>
-              <input id="consultantName" type="text" value="NGUYỄN THỊ SINH" oninput="render()">
-            </div>
-            <div class="field-group">
-              <label>Hotline / Zalo liên hệ:</label>
-              <input id="consultantPhone" type="text" value="0327439969" oninput="render()">
-            </div>
-            <div class="field-group" style="grid-column: 1/-1;">
-              <label>Email liên hệ:</label>
-              <input id="consultantEmail" type="text" value="tueann2411@gmail.com" oninput="render()">
-            </div>
           </div>
         </div>
       </div>
@@ -807,6 +792,7 @@ TẠI NH - BIDV – CN ĐÔNG ĐÔ</textarea>
             <div id="pvBank" style="font-weight:600; line-height:1.6;"></div>
           </div>
 
+          <!-- PHẦN CHỮ KÝ TRÂN TRỌNG (ĐÃ XÓA TÊN TƯ VẤN VIÊN VÀ HOTLINE KINH DOANH THEO YÊU CẦU) -->
           <div class="paper-signature">
             <div class="sign-col">
               <b id="lblSignClient">ĐẠI DIỆN KHÁCH HÀNG</b><br>
@@ -815,8 +801,7 @@ TẠI NH - BIDV – CN ĐÔNG ĐÔ</textarea>
             <div class="sign-col">
               <b>Trân trọng!</b><br>
               <b>CÔNG TY CỔ PHẦN ACMAN</b><br>
-              <div style="margin-top:6px;">Acman Kinh doanh _<strong id="pvConsultantDisplay">NGUYỄN THỊ SINH</strong></div>
-              <small style="font-size:11px; display:block; margin-top:4px;">Hotline: <span id="pvPhoneDisplay">032.743.9969</span> | Email: <span id="pvEmailDisplay">tueann2411@gmail.com</span></small>
+              <small style="font-size:11px; display:block; margin-top:8px;">(Ký & đóng dấu)</small>
             </div>
           </div>
         </div>
@@ -856,7 +841,7 @@ const I18N = {
     addCatalogBtn: "+ Thêm",
     addCustomBtn: "+ Dòng tùy chỉnh",
     vatText: "Thuế VAT (%) — để trống nếu Không chịu thuế (KCT):",
-    panel3Title: "3. Quy trình thực hiện, Bảo hành, Thanh toán & Liên hệ",
+    panel3Title: "3. Quy trình thực hiện, Bảo hành & Thanh toán",
     companyInfo: "<b>CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ ACMAN</b>Địa chỉ: Phòng 1503, Tầng 15, Tòa nhà Vinaconex Diamond Số 459C Bạch Mai, Hà Nội<br>Điện thoại: <strong>032.743.9969</strong> | Email: <span id='hdrEmailDisplay'>tueann2411@gmail.com</span> | Website: www.acman.vn",
     greeting: "Kính gửi: BAN GIÁM ĐỐC - PHÒNG KẾ TOÁN QUÝ CÔNG TY",
     pvCustName: "Tên công ty:",
@@ -902,7 +887,7 @@ const I18N = {
     addCatalogBtn: "+ Add Product",
     addCustomBtn: "+ Custom Line",
     vatText: "VAT Tax (%) — Leave empty if Non-Taxable (KCT):",
-    panel3Title: "3. Process, Warranty, Payment & Contact",
+    panel3Title: "3. Process, Warranty & Payment",
     companyInfo: "<b>ACMAN TECHNOLOGY DEVELOPMENT JSC</b>Address: Rm 1503, 15th Fl, Vinaconex Diamond Bldg, 459C Bach Mai, Hanoi<br>Phone: <strong>032.743.9969</strong> | Email: <span id='hdrEmailDisplay'>tueann2411@gmail.com</span> | Website: www.acman.vn",
     greeting: "To: BOARD OF DIRECTORS - ACCOUNTING DEPARTMENT",
     pvCustName: "Company Name:",
@@ -1430,16 +1415,6 @@ function render() {
   // MỤC THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG
   const bankText = document.getElementById("bankText").value;
   document.getElementById("pvBank").innerHTML = formatFormattedBlock(bankText);
-
-  const consultantNameVal = document.getElementById("consultantName").value || "NGUYỄN THỊ SINH";
-  const consultantPhoneVal = document.getElementById("consultantPhone").value || "0327439969";
-  const consultantEmailVal = document.getElementById("consultantEmail").value || "tueann2411@gmail.com";
-  
-  document.getElementById("pvConsultantDisplay").textContent = consultantNameVal;
-  document.getElementById("pvPhoneDisplay").textContent = consultantPhoneVal;
-  document.getElementById("pvEmailDisplay").textContent = consultantEmailVal;
-  const hdrEmail = document.getElementById("hdrEmailDisplay");
-  if (hdrEmail) hdrEmail.textContent = consultantEmailVal;
 }
 
 function exportPDF() {
