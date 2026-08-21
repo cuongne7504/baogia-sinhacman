@@ -383,26 +383,26 @@
     top: 85px;
   }
 
-  /* PREVIEW GIẤY BÁO GIÁ: MÀU ĐEN TRẮNG CHUẨN VĂN BẢN CÔNG TY (100% NỀN TRẮNG, KHÔNG HỒNG, CỠ CHỮ 12-13PX) */
+  /* PREVIEW GIẤY BÁO GIÁ: CỠ CHỮ 13.5PX - 14PX, GIÃN DÒNG THOÁNG ĐẸP, ĐIỀN ĐẦY TRANG A4 */
   .paper-sheet {
     background: #ffffff !important;
     background-color: #ffffff !important;
     color: #000000 !important;
     border-radius: 4px;
-    padding: 24px 28px;
+    padding: 30px 34px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     font-family: 'Times New Roman', Times, serif;
-    font-size: 13px;
-    line-height: 1.45;
+    font-size: 13.5px;
+    line-height: 1.55;
   }
 
   .paper-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     border-bottom: 2px solid #000000;
     padding-bottom: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .paper-logo-img {
@@ -413,8 +413,8 @@
 
   .paper-company-info {
     text-align: right;
-    font-size: 12px;
-    line-height: 1.45;
+    font-size: 12.5px;
+    line-height: 1.5;
     color: #000000;
     flex: 1;
     padding-left: 20px;
@@ -422,74 +422,81 @@
 
   .paper-company-info b {
     display: block;
-    font-size: 13px;
+    font-size: 13.5px;
     color: #000000;
     text-transform: uppercase;
     margin-bottom: 2px;
     font-weight: bold;
   }
 
-  .paper-doc-date { text-align: right; font-style: italic; font-size: 12px; color: #000000; margin-bottom: 6px; }
-  .paper-greeting { font-weight: bold; font-size: 13px; color: #000000; margin-bottom: 8px; }
+  .paper-doc-date { text-align: right; font-style: italic; font-size: 13px; color: #000000; margin-bottom: 8px; }
+  .paper-greeting { font-weight: bold; font-size: 13.5px; color: #000000; margin-bottom: 10px; }
   
   .paper-client-info {
-    font-size: 12.5px;
+    font-size: 13.5px;
     color: #000000;
-    line-height: 1.45;
-    margin-bottom: 10px;
+    line-height: 1.55;
+    margin-bottom: 12px;
     padding-left: 0;
   }
 
   .paper-doc-title {
     text-align: center;
-    font-size: 21px;
+    font-size: 22px;
     font-weight: bold;
     color: #000000;
     margin: 8px 0 2px;
     letter-spacing: 1px;
   }
 
-  .paper-doc-subtitle { text-align: center; font-size: 12px; font-weight: bold; font-style: italic; color: #000000; margin-bottom: 8px; }
+  .paper-doc-subtitle { text-align: center; font-size: 13px; font-weight: bold; font-style: italic; color: #000000; margin-bottom: 12px; }
 
   .paper-features-box {
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 13px;
+    line-height: 1.55;
     color: #000000;
     background: #ffffff !important;
     border: none;
     padding: 0;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
   }
 
   .paper-features-box .intro-p {
     font-style: italic;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     color: #000000;
+    line-height: 1.55;
   }
 
   .paper-features-box h4 {
-    font-size: 12.5px;
+    font-size: 13.5px;
     font-weight: bold;
     color: #000000;
-    margin-bottom: 4px;
-  }
-
-  .paper-features-box ol {
-    padding-left: 20px;
     margin-bottom: 6px;
   }
 
-  .paper-features-box ul {
-    padding-left: 25px;
-    list-style-type: disc;
+  .feature-line {
+    margin-bottom: 4px;
+    line-height: 1.55;
+  }
+  .feature-subline {
+    padding-left: 18px;
+    margin-bottom: 3px;
+    line-height: 1.55;
+  }
+  .feature-header-line {
+    font-weight: bold;
+    margin-top: 6px;
+    margin-bottom: 3px;
+    line-height: 1.55;
   }
 
-  /* BẢNG GIÁ: 100% NỀN TRẮNG */
+  /* BẢNG GIÁ: 100% NỀN TRẮNG, HÀNG GỌN ĐẸP */
   table.paper-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 12.5px;
-    margin-bottom: 10px;
+    font-size: 13px;
+    margin-bottom: 12px;
     background: #ffffff !important;
     background-color: #ffffff !important;
     page-break-inside: auto;
@@ -501,7 +508,7 @@
     color: #000000 !important;
     padding: 6px 8px;
     border: 1px solid #000000 !important;
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: bold;
     text-align: center;
   }
@@ -512,6 +519,7 @@
     color: #000000 !important;
     background: #ffffff !important;
     background-color: #ffffff !important;
+    line-height: 1.45;
   }
 
   table.paper-table tr { 
@@ -524,7 +532,7 @@
     background: #ffffff !important;
     background-color: #ffffff !important;
     font-weight: bold !important;
-    font-size: 12.5px !important;
+    font-size: 13px !important;
     text-transform: uppercase !important;
     padding: 6px 8px !important;
     border: 1px solid #000000 !important;
@@ -534,9 +542,9 @@
 
   .paper-totals {
     margin-left: auto;
-    width: 260px;
-    font-size: 12.5px;
-    margin-bottom: 10px;
+    width: 280px;
+    font-size: 13.5px;
+    margin-bottom: 14px;
     color: #000000;
     background: transparent !important;
     page-break-inside: avoid;
@@ -545,41 +553,42 @@
   .paper-totals .row {
     display: flex;
     justify-content: space-between;
-    padding: 3px 0;
+    padding: 4px 0;
     color: #000000;
   }
 
   .paper-totals .row.grand {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
     color: #000000;
     border-top: 1.5px solid #000000;
-    padding-top: 4px;
-    margin-top: 2px;
+    padding-top: 5px;
+    margin-top: 3px;
   }
 
   .paper-section-block {
-    margin-top: 10px;
+    margin-top: 14px;
     color: #000000;
-    font-size: 12.5px;
-    line-height: 1.42;
+    font-size: 13px;
+    line-height: 1.55;
     background: transparent !important;
     page-break-inside: avoid;
   }
 
   .paper-section-block h3 {
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: bold;
     color: #000000;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     text-transform: uppercase;
   }
 
   .paper-signature {
-    margin-top: 20px;
+    margin-top: 24px;
     display: flex;
     justify-content: flex-start;
-    font-size: 12.5px;
+    font-size: 13.5px;
+    line-height: 1.55;
     color: #000000;
     background: transparent !important;
     page-break-inside: avoid;
@@ -600,15 +609,20 @@
     .action-bar { grid-template-columns: 1fr; }
   }
 
-  /* TỐI ƯU HÓA IN ẤN CHUẨN A4 */
+  /* TỐI ƯU HÓA IN ẤN CHUẨN A4 ĐẸP MẮT & KHÔNG TRỐNG ĐÁY */
   @page {
     size: A4 portrait;
-    margin: 8mm 10mm;
+    margin: 12mm 14mm 14mm 14mm;
   }
 
   @media print {
     header, .intro-box, .panel-card, .action-bar, .theme-toggle { display: none !important; }
-    body { background: #fff !important; background-image: none !important; margin: 0 !important; padding: 0 !important; }
+    body { 
+      background: #fff !important; 
+      background-image: none !important; 
+      margin: 0 !important; 
+      padding: 0 !important; 
+    }
     .layout-grid { display: block !important; }
     .preview-sticky { position: static !important; }
     .paper-sheet { 
@@ -619,7 +633,23 @@
       padding: 0 !important; 
       margin: 0 !important;
       background: #ffffff !important;
+      font-size: 13pt !important;
+      line-height: 1.55 !important;
     }
+    .paper-company-info { font-size: 12pt !important; }
+    .paper-doc-title { font-size: 21pt !important; }
+    .paper-doc-subtitle { font-size: 12.5pt !important; }
+    .paper-greeting { font-size: 13pt !important; }
+    .paper-client-info { font-size: 13pt !important; }
+    .paper-features-box { font-size: 12.5pt !important; }
+    table.paper-table { font-size: 12.5pt !important; }
+    table.paper-table th { font-size: 12pt !important; }
+    table.paper-table td { font-size: 12pt !important; }
+    .paper-totals { font-size: 13pt !important; }
+    .paper-totals .row.grand { font-size: 14pt !important; }
+    .paper-section-block { font-size: 12.5pt !important; }
+    .paper-section-block h3 { font-size: 13pt !important; }
+    .paper-signature { font-size: 13pt !important; }
     .paper-section-block, .paper-signature, table.paper-table tr {
       page-break-inside: avoid !important;
     }
@@ -881,9 +911,9 @@ Ngân hàng TMCP Đầu tư và Phát triển Việt Nam (BIDV) CN ĐÔNG ĐÔ</
           </div>
 
           <!-- MỤC THÔNG TIN CHUYỂN KHOẢN NGÂN HÀNG -->
-          <div class="paper-section-block" id="pvBankBlock" style="margin-top:10px;">
+          <div class="paper-section-block" id="pvBankBlock" style="margin-top:12px;">
             <h3 id="lblPvBankTitle">THÔNG TIN CHUYỂN KHOẢN</h3>
-            <div id="pvBank" style="font-weight:600; line-height:1.4;"></div>
+            <div id="pvBank" style="font-weight:600; line-height:1.5;"></div>
           </div>
 
           <!-- PHẦN CHỮ KÝ TRÂN TRỌNG -->
@@ -1106,15 +1136,15 @@ const CATALOG = [
   { group: "10. PMKT Doanh Nghiệp Startup (TT133)", name: "ACMan Startup — Cài thêm máy (2.000.000 đ/máy)", price: 2000000 },
 
   // MỤC 11. PMKT DỊCH VỤ KẾ TOÁN & THUẾ
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ Startup Cá Nhân (2 MST, 2 Data Online)", price: 2000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ Cá Nhân (Full MST, 5 Data Online, 1000 HĐ)", price: 5000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ Doanh Nghiệp (Full MST, 10 Data Online, 2 máy)", price: 10000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm máy Full MST (5.000.000 đ)", price: 5000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm MST Offline (500.000 đ/MST)", price: 500000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm MST Online (1.000.000 đ/MST)", price: 1000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm 01 Data Online (500.000 đ)", price: 500000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Gói 10 Data Online (2.000.000 đ)", price: 2000000 },
-  { group: "11. PMKT Dịch Vụ Kế Toán & Thuế", name: "Gói Đặc Biệt — 1 máy / 1 MST / 1 Data Online / Tải Full", price: 1000000 },
+  { group: "11. PMKT Dịch VỤ Kế Toán & Thuế", name: "ACMan Dịch Vụ Startup Cá Nhân (2 MST, 2 Data Online)", price: 2000000 },
+  { group: "11. PMKT Dịch VỤ Kế Toán & Thuế", name: "ACMan Dịch Vụ Cá Nhân (Full MST, 5 Data Online, 1000 HĐ)", price: 5000000 },
+  { group: "11. PMKT Dịch VỤ Kế Toán & Thuế", name: "ACMan Dịch Vụ Doanh Nghiệp (Full MST, 10 Data Online, 2 máy)", price: 10000000 },
+  { group: "11. PMKT Dịch VỤ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm máy Full MST (5.000.000 đ)", price: 5000000 },
+  { group: "11. PMKT Dịch VỤ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm MST Offline (500.000 đ/MST)", price: 500000 },
+  { group: "11. PMKT Dịch VỤ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm MST Online (1.000.000 đ/MST)", price: 1000000 },
+  { group: "11. PMKT Dịch VỤ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Thêm 01 Data Online (500.000 đ)", price: 500000 },
+  { group: "11. PMKT Dịch VỤ Kế Toán & Thuế", name: "ACMan Dịch Vụ — Gói 10 Data Online (2.000.000 đ)", price: 2000000 },
+  { group: "11. PMKT Dịch VỤ Kế Toán & Thuế", name: "Gói Đặc Biệt — 1 máy / 1 MST / 1 Data Online / Tải Full", price: 1000000 },
 
   // MỤC 12. PMKT DOANH NGHIỆP (TT133, TT99/2025/TT-BTC & FDI)
   { group: "12. PMKT Doanh Nghiệp (TT99/SME)", name: "ACMan SME 9.1 — Mua mới (6.000.000 đ, 2 máy, 2 Data Online)", price: 6000000 },
@@ -1365,7 +1395,17 @@ function toRoman(num) {
 }
 
 function formatFormattedBlock(text) {
-  return text.replace(/\n/g, "<br>");
+  const lines = text.split("\n").filter(l => l.trim() !== "");
+  let outHtml = "";
+  lines.forEach(line => {
+    const trimmed = line.trim();
+    if (trimmed.startsWith("-") || trimmed.startsWith("*") || trimmed.startsWith("•")) {
+      outHtml += `<div style="padding-left: 16px; margin-bottom: 3px; line-height: 1.55;">${trimmed}</div>`;
+    } else {
+      outHtml += `<div style="margin-bottom: 3px; line-height: 1.55;">${trimmed}</div>`;
+    }
+  });
+  return outHtml;
 }
 
 function parseMoneyAmount(valStr, defaultNum) {
@@ -1441,7 +1481,7 @@ function render() {
     clientBox.innerHTML = clientHtml;
   }
 
-  // 2. LỜI GIỚI THIỆU & TÍNH NĂNG CĂN BẢN
+  // 2. LỜI GIỚI THIỆU & TÍNH NĂNG CĂN BẢN (XỬ LÝ GIÃN DÒNG CHUẨN, KHÔNG ĐÈ CHỮ)
   const featuresBox = document.getElementById("pvFeaturesBox");
   const introTextVal = document.getElementById("introText").value.trim();
   const featuresTitleVal = document.getElementById("featuresTitleInput")?.value || "Các tính năng căn bản phần mềm kế toán ACMAN:";
@@ -1467,35 +1507,21 @@ function render() {
       lblPvFeaturesTitle.textContent = featuresTitleVal;
 
       const lines = featuresTextVal.split("\n").filter(l => l.trim() !== "");
-      let mainListHtml = "<ol style='margin-left: 18px;'>";
-      let subListHtml = "";
-      let inSub = false;
+      let listHtml = "";
 
       lines.forEach((line) => {
         const trimmed = line.trim();
-        if (trimmed.startsWith("-") || trimmed.startsWith("*")) {
-          if (!inSub) {
-            inSub = true;
-            subListHtml = "<ul style='margin-left: 20px; list-style-type: disc;'>";
-          }
-          subListHtml += `<li>${trimmed.substring(1).trim()}</li>`;
+        if (trimmed.startsWith("-") || trimmed.startsWith("*") || trimmed.startsWith("•")) {
+          const cleanText = trimmed.replace(/^[-*•]\s*/, "");
+          listHtml += `<div class="feature-subline">• ${cleanText}</div>`;
+        } else if (/^\d+[\.\)]\s*/.test(trimmed)) {
+          listHtml += `<div class="feature-header-line">${trimmed}</div>`;
         } else {
-          if (inSub) {
-            subListHtml += "</ul>";
-            mainListHtml += subListHtml;
-            inSub = false;
-            subListHtml = "";
-          }
-          mainListHtml += `<li>${trimmed}</li>`;
+          listHtml += `<div class="feature-line">${trimmed}</div>`;
         }
       });
 
-      if (inSub) {
-        subListHtml += "</ul>";
-        mainListHtml += subListHtml;
-      }
-      mainListHtml += "</ol>";
-      featuresContainer.innerHTML = mainListHtml;
+      featuresContainer.innerHTML = listHtml;
     } else {
       lblPvFeaturesTitle.style.display = "none";
       featuresContainer.innerHTML = "";
@@ -1630,7 +1656,7 @@ function exportPDF() {
   window.scrollTo(0, 0);
 
   const opt = {
-    margin:       [8, 8, 8, 8],
+    margin:       [10, 12, 12, 12],
     filename:     `Bao_Gia_ACMan_${quoteNo}.pdf`,
     image:        { type: 'jpeg', quality: 0.98 },
     html2canvas:  { 
@@ -1666,7 +1692,7 @@ function exportWord() {
   const clientBox = document.getElementById("pvClient");
   let clientHtml = "";
   if (clientBox.style.display !== "none" && clientBox.innerHTML.trim() !== "") {
-    clientHtml = `<div style="font-size: 12pt; line-height: 1.45; margin-bottom: 10pt; color:#000;">${clientBox.innerHTML}</div>`;
+    clientHtml = `<div style="font-size: 13pt; line-height: 1.55; margin-bottom: 12pt; color:#000;">${clientBox.innerHTML}</div>`;
   }
 
   // Features Box HTML
@@ -1674,29 +1700,29 @@ function exportWord() {
   let featuresHtml = "";
   if (featuresBox.style.display !== "none" && featuresBox.innerHTML.trim() !== "") {
     const introVal = document.getElementById("introText").value.trim();
-    const introHtml = introVal ? `<p style="font-style: italic; margin-bottom: 5pt; font-size: 12pt;">${introVal}</p>` : "";
+    const introHtml = introVal ? `<p style="font-style: italic; margin-bottom: 6pt; font-size: 13pt; line-height: 1.55;">${introVal}</p>` : "";
     const featTitle = document.getElementById("lblPvFeaturesTitle").textContent;
     const featContentHtml = document.getElementById("pvFeaturesContent").innerHTML;
-    const featTitleHtml = featTitle ? `<p style="font-weight: bold; margin-bottom: 4pt; font-size: 12pt;">${featTitle}</p>` : "";
-    featuresHtml = `<div style="font-size: 12pt; margin-bottom: 10pt; line-height: 1.4;">${introHtml}${featTitleHtml}${featContentHtml}</div>`;
+    const featTitleHtml = featTitle ? `<p style="font-weight: bold; margin-bottom: 6pt; font-size: 13pt;">${featTitle}</p>` : "";
+    featuresHtml = `<div style="font-size: 13pt; margin-bottom: 12pt; line-height: 1.55;">${introHtml}${featTitleHtml}${featContentHtml}</div>`;
   }
 
-  // Lấy Table HTML chuẩn cỡ chữ 12pt - TẤT CẢ CÁC DÒNG ĐƯỢC GOM TRONG 1 BẢNG DUY NHẤT
+  // Lấy Table HTML chuẩn cỡ chữ 13pt - TẤT CẢ CÁC DÒNG ĐƯỢC GOM TRONG 1 BẢNG DUY NHẤT
   let tableRowsHtml = "";
   const groupRows = document.querySelectorAll("#pvBody tr");
   groupRows.forEach(tr => {
     if (tr.classList.contains("group-header-row")) {
-      tableRowsHtml += `<tr style="background-color: #ffffff;"><td colspan="5" style="border: 1pt solid black; padding: 5pt 6pt; font-size: 12pt; font-weight: bold; text-transform: uppercase; background-color: #ffffff;">${tr.textContent.trim()}</td></tr>`;
+      tableRowsHtml += `<tr style="background-color: #ffffff;"><td colspan="5" style="border: 1pt solid black; padding: 5pt 6pt; font-size: 13pt; font-weight: bold; text-transform: uppercase; background-color: #ffffff;">${tr.textContent.trim()}</td></tr>`;
     } else {
       const tds = tr.querySelectorAll("td");
       if (tds.length === 5) {
         tableRowsHtml += `
           <tr style="background-color: #ffffff;">
-            <td style="width: 40px; border: 1pt solid black; padding: 5pt 6pt; font-size: 12pt; text-align: center; background-color: #ffffff;">${tds[0].innerHTML}</td>
-            <td style="width: 320px; border: 1pt solid black; padding: 5pt 6pt; font-size: 12pt; text-align: left; background-color: #ffffff;">${tds[1].innerHTML}</td>
-            <td style="width: 45px; border: 1pt solid black; padding: 5pt 6pt; font-size: 12pt; text-align: right; background-color: #ffffff;">${tds[2].innerHTML}</td>
-            <td style="width: 135px; border: 1pt solid black; padding: 5pt 6pt; font-size: 12pt; text-align: right; background-color: #ffffff;">${tds[3].innerHTML}</td>
-            <td style="width: 140px; border: 1pt solid black; padding: 5pt 6pt; font-size: 12pt; text-align: right; font-weight: bold; background-color: #ffffff;">${tds[4].innerHTML}</td>
+            <td style="width: 40px; border: 1pt solid black; padding: 5pt 6pt; font-size: 12.5pt; text-align: center; background-color: #ffffff;">${tds[0].innerHTML}</td>
+            <td style="width: 320px; border: 1pt solid black; padding: 5pt 6pt; font-size: 12.5pt; text-align: left; background-color: #ffffff;">${tds[1].innerHTML}</td>
+            <td style="width: 45px; border: 1pt solid black; padding: 5pt 6pt; font-size: 12.5pt; text-align: right; background-color: #ffffff;">${tds[2].innerHTML}</td>
+            <td style="width: 135px; border: 1pt solid black; padding: 5pt 6pt; font-size: 12.5pt; text-align: right; background-color: #ffffff;">${tds[3].innerHTML}</td>
+            <td style="width: 140px; border: 1pt solid black; padding: 5pt 6pt; font-size: 12.5pt; text-align: right; font-weight: bold; background-color: #ffffff;">${tds[4].innerHTML}</td>
           </tr>
         `;
       }
@@ -1704,14 +1730,14 @@ function exportWord() {
   });
 
   const tableHtml = `
-    <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; font-family: 'Times New Roman', serif; font-size: 12pt; margin-bottom: 6pt; border: 1pt solid black;">
+    <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; font-family: 'Times New Roman', serif; font-size: 13pt; margin-bottom: 8pt; border: 1pt solid black;">
       <thead>
         <tr style="background-color: #ffffff;">
-          <th style="width: 40px; border: 1pt solid black; padding: 5pt; font-size: 12pt; text-align: center; font-weight: bold; background-color: #ffffff;">${t.thNo}</th>
-          <th style="width: 320px; border: 1pt solid black; padding: 5pt; font-size: 12pt; text-align: center; font-weight: bold; background-color: #ffffff;">${t.thDesc}</th>
-          <th style="width: 45px; border: 1pt solid black; padding: 5pt; font-size: 12pt; text-align: right; font-weight: bold; background-color: #ffffff;">${t.thQty}</th>
-          <th style="width: 135px; border: 1pt solid black; padding: 5pt; font-size: 12pt; text-align: right; font-weight: bold; background-color: #ffffff;">${t.thPrice}</th>
-          <th style="width: 140px; border: 1pt solid black; padding: 5pt; font-size: 12pt; text-align: right; font-weight: bold; background-color: #ffffff;">${t.thTotal}</th>
+          <th style="width: 40px; border: 1pt solid black; padding: 5pt; font-size: 12.5pt; text-align: center; font-weight: bold; background-color: #ffffff;">${t.thNo}</th>
+          <th style="width: 320px; border: 1pt solid black; padding: 5pt; font-size: 12.5pt; text-align: center; font-weight: bold; background-color: #ffffff;">${t.thDesc}</th>
+          <th style="width: 45px; border: 1pt solid black; padding: 5pt; font-size: 12.5pt; text-align: right; font-weight: bold; background-color: #ffffff;">${t.thQty}</th>
+          <th style="width: 135px; border: 1pt solid black; padding: 5pt; font-size: 12.5pt; text-align: right; font-weight: bold; background-color: #ffffff;">${t.thPrice}</th>
+          <th style="width: 140px; border: 1pt solid black; padding: 5pt; font-size: 12.5pt; text-align: right; font-weight: bold; background-color: #ffffff;">${t.thTotal}</th>
         </tr>
       </thead>
       <tbody>
@@ -1720,8 +1746,7 @@ function exportWord() {
     </table>
   `;
 
-  // KHẮC PHỤC TRIỆT ĐỂ LỖI WORD BỊ CHÈN TẠM TÍNH VÀO GIỮA BẢNG:
-  // DÙNG BẢNG KHÔNG FLOAT (WIDTH 100%) CỐ ĐỊNH PHÍA DƯỚI BẢNG SẢN PHẨM
+  // KHẮC PHỤC TRIỆT ĐỂ LỖI WORD BỊ CHÈN TẠM TÍNH VÀO GIỮA BẢNG
   const pvSub = document.getElementById("pvSub").textContent;
   const pvVat = document.getElementById("pvVat").textContent;
   const pvVatLabel = document.getElementById("pvVatLabel").textContent;
@@ -1730,22 +1755,22 @@ function exportWord() {
   const isVatVisible = vatRow.style.display !== "none";
 
   const totalsHtml = `
-    <table border="0" cellpadding="3" cellspacing="0" style="width: 100%; border-collapse: collapse; font-family: 'Times New Roman', serif; font-size: 12pt; margin-top: 4pt; margin-bottom: 12pt; border: none;">
+    <table border="0" cellpadding="3" cellspacing="0" style="width: 100%; border-collapse: collapse; font-family: 'Times New Roman', serif; font-size: 13pt; margin-top: 4pt; margin-bottom: 14pt; border: none;">
       <tr style="border: none;">
         <td style="width: 55%; border: none; padding: 2pt;"></td>
-        <td style="width: 20%; border: none; text-align: left; padding: 2pt 0; font-size: 12pt;">${t.pvSub}</td>
-        <td style="width: 25%; border: none; text-align: right; font-weight: bold; padding: 2pt 0; font-size: 12pt;">${pvSub}</td>
+        <td style="width: 20%; border: none; text-align: left; padding: 3pt 0; font-size: 13pt;">${t.pvSub}</td>
+        <td style="width: 25%; border: none; text-align: right; font-weight: bold; padding: 3pt 0; font-size: 13pt;">${pvSub}</td>
       </tr>
       ${isVatVisible ? `
       <tr style="border: none;">
         <td style="width: 55%; border: none; padding: 2pt;"></td>
-        <td style="width: 20%; border: none; text-align: left; padding: 2pt 0; font-size: 12pt;">${pvVatLabel}</td>
-        <td style="width: 25%; border: none; text-align: right; font-weight: bold; padding: 2pt 0; font-size: 12pt;">${pvVat}</td>
+        <td style="width: 20%; border: none; text-align: left; padding: 3pt 0; font-size: 13pt;">${pvVatLabel}</td>
+        <td style="width: 25%; border: none; text-align: right; font-weight: bold; padding: 3pt 0; font-size: 13pt;">${pvVat}</td>
       </tr>` : ''}
       <tr style="border: none;">
         <td style="width: 55%; border: none; padding: 2pt;"></td>
-        <td style="width: 20%; border: none; border-top: 1.5pt solid black; text-align: left; font-weight: bold; font-size: 13pt; padding: 4pt 0;">${t.pvTotal}</td>
-        <td style="width: 25%; border: none; border-top: 1.5pt solid black; text-align: right; font-weight: bold; font-size: 13pt; padding: 4pt 0;">${pvTotal}</td>
+        <td style="width: 20%; border: none; border-top: 1.5pt solid black; text-align: left; font-weight: bold; font-size: 14pt; padding: 5pt 0;">${t.pvTotal}</td>
+        <td style="width: 25%; border: none; border-top: 1.5pt solid black; text-align: right; font-weight: bold; font-size: 14pt; padding: 5pt 0;">${pvTotal}</td>
       </tr>
     </table>
   `;
@@ -1756,9 +1781,9 @@ function exportWord() {
   if (pvProcessBlock.style.display !== "none") {
     const pTitle = document.getElementById("lblPvProcessTitle").textContent;
     processHtml = `
-      <div style="margin-top: 10pt; font-size: 12pt; line-height: 1.45;">
-        <b style="font-size: 12.5pt; text-transform: uppercase;">${pTitle}</b>
-        <div style="margin-top: 3pt;">${document.getElementById("pvProcess").innerHTML}</div>
+      <div style="margin-top: 12pt; font-size: 13pt; line-height: 1.55;">
+        <b style="font-size: 13.5pt; text-transform: uppercase;">${pTitle}</b>
+        <div style="margin-top: 4pt;">${document.getElementById("pvProcess").innerHTML}</div>
       </div>
     `;
   }
@@ -1768,9 +1793,9 @@ function exportWord() {
   if (pvWarrantyBlock.style.display !== "none") {
     const wTitle = document.getElementById("lblPvWarrantyTitle").textContent;
     warrantyHtml = `
-      <div style="margin-top: 10pt; font-size: 12pt; line-height: 1.45;">
-        <b style="font-size: 12.5pt; text-transform: uppercase;">${wTitle}</b>
-        <div style="margin-top: 3pt;">${document.getElementById("pvWarranty").innerHTML}</div>
+      <div style="margin-top: 12pt; font-size: 13pt; line-height: 1.55;">
+        <b style="font-size: 13.5pt; text-transform: uppercase;">${wTitle}</b>
+        <div style="margin-top: 4pt;">${document.getElementById("pvWarranty").innerHTML}</div>
       </div>
     `;
   }
@@ -1780,9 +1805,9 @@ function exportWord() {
   if (pvBankBlock.style.display !== "none") {
     const bTitle = document.getElementById("lblPvBankTitle").textContent;
     bankHtml = `
-      <div style="margin-top: 10pt; font-size: 12pt; line-height: 1.45;">
-        <b style="font-size: 12.5pt; text-transform: uppercase;">${bTitle}</b>
-        <div style="margin-top: 3pt; font-weight: 600;">${document.getElementById("pvBank").innerHTML}</div>
+      <div style="margin-top: 12pt; font-size: 13pt; line-height: 1.55;">
+        <b style="font-size: 13.5pt; text-transform: uppercase;">${bTitle}</b>
+        <div style="margin-top: 4pt; font-weight: 600;">${document.getElementById("pvBank").innerHTML}</div>
       </div>
     `;
   }
@@ -1791,8 +1816,8 @@ function exportWord() {
   const signGreeting = document.getElementById("pvSignGreeting").textContent;
   const signCompany = document.getElementById("pvSignCompany").textContent;
   const signHtml = `
-    <div style="margin-top: 20pt; text-align: left; font-size: 12pt; line-height: 1.45;">
-      <b style="display: block; margin-bottom: 3pt;">${signGreeting}</b>
+    <div style="margin-top: 24pt; text-align: left; font-size: 13pt; line-height: 1.55;">
+      <b style="display: block; margin-bottom: 4pt;">${signGreeting}</b>
       <b>${signCompany}</b>
     </div>
   `;
@@ -1808,14 +1833,14 @@ function exportWord() {
       <style>
         body {
           font-family: 'Times New Roman', Times, serif;
-          font-size: 12pt;
-          line-height: 1.45;
+          font-size: 13pt;
+          line-height: 1.55;
           color: #000000;
           background: #ffffff;
         }
         table { border-collapse: collapse; }
-        td, th { font-family: 'Times New Roman', Times, serif; font-size: 12pt; }
-        p, div, li, span { font-family: 'Times New Roman', Times, serif; font-size: 12pt; }
+        td, th { font-family: 'Times New Roman', Times, serif; font-size: 13pt; }
+        p, div, li, span { font-family: 'Times New Roman', Times, serif; font-size: 13pt; }
       </style>
     </head>
     <body>
@@ -1825,8 +1850,8 @@ function exportWord() {
           <td style="width: 150px; vertical-align: middle; border: none; padding: 0;">
             <img src="${logoSrc}" width="140" height="40" style="width: 140px; height: 40px; object-fit: contain;">
           </td>
-          <td style="width: 530px; vertical-align: top; text-align: right; border: none; padding: 0; font-size: 11.5pt; line-height: 1.4;">
-            <b style="font-size: 12.5pt; text-transform: uppercase; display: block; margin-bottom: 2pt;">${cName}</b>
+          <td style="width: 530px; vertical-align: top; text-align: right; border: none; padding: 0; font-size: 12pt; line-height: 1.5;">
+            <b style="font-size: 13.5pt; text-transform: uppercase; display: block; margin-bottom: 2pt;">${cName}</b>
             Địa chỉ: ${cAddr}<br>
             Điện thoại: <strong>${cPhone}</strong> | Email: <span>${cEmail}</span> | Website: ${cWeb}
           </td>
@@ -1834,14 +1859,14 @@ function exportWord() {
       </table>
 
       <!-- NGÀY THÁNG -->
-      <p style="text-align: right; font-style: italic; font-size: 12pt; margin-bottom: 6pt; margin-top: 0;">${pvDate}</p>
+      <p style="text-align: right; font-style: italic; font-size: 13pt; margin-bottom: 6pt; margin-top: 0;">${pvDate}</p>
 
       <!-- TIÊU ĐỀ BÁO GIÁ -->
-      <p style="text-align: center; font-size: 19pt; font-weight: bold; margin: 6pt 0 3pt; letter-spacing: 0.5pt;">${docTitle}</p>
-      <p style="text-align: center; font-size: 12pt; font-style: italic; font-weight: bold; margin-bottom: 10pt; margin-top: 0;">${docSubtitle}</p>
+      <p style="text-align: center; font-size: 21pt; font-weight: bold; margin: 6pt 0 3pt; letter-spacing: 0.5pt;">${docTitle}</p>
+      <p style="text-align: center; font-size: 13pt; font-style: italic; font-weight: bold; margin-bottom: 12pt; margin-top: 0;">${docSubtitle}</p>
 
       <!-- KÍNH GỬI -->
-      <p style="font-weight: bold; font-size: 12.5pt; margin-bottom: 8pt;">${pvGreeting}</p>
+      <p style="font-weight: bold; font-size: 13.5pt; margin-bottom: 10pt;">${pvGreeting}</p>
 
       <!-- THÔNG TIN KHÁCH HÀNG -->
       ${clientHtml}
