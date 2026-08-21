@@ -1121,7 +1121,13 @@ const CATALOG = [
   { group: "17. Gói Khởi Nghiệp Q3/2026", name: "Gói HTX 3000 Khởi nghiệp Q3/2026 (3.000.000 đ, Tặng CKS 3 năm + 500 HĐ)", price: 3000000 },
   { group: "17. Gói Khởi Nghiệp Q3/2026", name: "Gói HKD 3000 Khởi nghiệp Q3/2026 (3.000.000 đ, Tặng CKS 3 năm + 500 HĐ)", price: 3000000 },
   { group: "17. Gói Khởi Nghiệp Q3/2026", name: "Gói Khởi Nghiệp — Cài thêm máy (2.000.000 đ/máy)", price: 2000000 },
-  { group: "17. Gói Khởi Nghiệp Q3/2026", name: "Gói Khởi Nghiệp — Thêm dữ liệu Online (1.000.000 đ)", price: 1000000 }
+  { group: "17. Gói Khởi Nghiệp Q3/2026", name: "Gói Khởi Nghiệp — Thêm dữ liệu Online (1.000.000 đ)", price: 1000000 },
+
+  // MỤC 18. PHẦN MỀM NHÂN SỰ ACMAN 9.1 HMR
+  { group: "18. Phần Mềm Nhân Sự (ACMan 9.1 HMR)", name: "Phần mềm ACMan 9.1 HMR DEMO (Gói dùng thử)", price: 0, customTotal: "Miễn phí" },
+  { group: "18. Phần Mềm Nhân Sự (ACMan 9.1 HMR)", name: "Phần mềm ACMan 9.1 HMR SME (Gói tiêu chuẩn)", price: 5000000 },
+  { group: "18. Phần Mềm Nhân Sự (ACMan 9.1 HMR)", name: "Phần mềm ACMan 9.1 HMR BASIC (Gói nâng cao - HOT)", price: 11000000 },
+  { group: "18. Phần Mềm Nhân Sự (ACMan 9.1 HMR)", name: "Phần mềm ACMan 9.1 HMR (Gói chuyên nghiệp)", price: 0, customTotal: "Liên hệ" }
 ];
 
 let items = [];
@@ -1143,7 +1149,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     const opt = document.createElement("option");
     opt.value = idx;
-    opt.textContent = `${item.name} — ${item.price.toLocaleString("vi-VN")} đ`;
+    const priceText = item.customTotal ? item.customTotal : `${item.price.toLocaleString("vi-VN")} đ`;
+    opt.textContent = `${item.name} — ${priceText}`;
     groupEl.appendChild(opt);
   });
 
@@ -1228,7 +1235,15 @@ function addFromCatalog() {
   const idx = document.getElementById("catalogSelect").value;
   if (idx !== "") {
     const item = CATALOG[idx];
-    items.push({ group: item.group, name: item.name, qty: 1, price: item.price, totalText: item.price.toLocaleString("vi-VN") + " đ" });
+    const totalText = item.customTotal ? item.customTotal : `${item.price.toLocaleString("vi-VN")} đ`;
+    items.push({ 
+      group: item.group, 
+      name: item.name, 
+      qty: 1, 
+      price: item.price, 
+      totalText: totalText,
+      isCustomText: !!item.customTotal
+    });
     renderFormItems();
     render();
   }
